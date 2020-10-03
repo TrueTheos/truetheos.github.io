@@ -15,6 +15,21 @@ const projects = [
           name: 'Unity',
           color: '#317CFF'
         }
+      ],
+      projectName: 'Arcade Game',
+      lang: 'C#',
+      langColor: '#9D6ED8',
+      description: 'Ludum Dare Arcade Game.',
+      link: 'https://github.com/Loiuy123/LDproject',
+      technologies: [
+        {
+          name: 'C#',
+          color: '#189F20'
+        },
+        {
+          name: 'Unity',
+          color: '#317CFF'
+        }
       ]
     }
   ]
