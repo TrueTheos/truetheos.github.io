@@ -16,5 +16,22 @@ const projects = [
           color: '#317CFF'
         }
       ]
+    },
+    {
+      projectName: 'Loop Race',
+      lang: 'C#',
+      langColor: '#9D6ED8',
+      description: 'Ludum Dare Arcade game.',
+      link: 'https://github.com/Loiuy123/LDproject',
+      technologies: [
+        {
+          name: 'C#',
+          color: '#189F20'
+        },
+        {
+          name: 'Unity',
+          color: '#317CFF'
+        }
+      ]
     }
   ]
