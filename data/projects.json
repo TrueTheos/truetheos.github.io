@@ -14,7 +14,7 @@
             {
                 "name": "Unity",
                 "color": "#317CFF"
-            } 
+            }   
         ] 
     },
     {
@@ -34,5 +34,23 @@
                 "color": "#317CFF"
             } 
         ] 
+    },
+    {
+      "projectName": "Drunk Empire",
+      "lang": "Game Tester",
+      "langColor": "#9D6ED8",
+      "description": "Android Game.",
+      "link": "https://pixelstorm.pl",
+      "technologies": 
+      [
+        {
+            "name": "C#",
+            "color": "#189F20"
+        },
+        {
+            "name": "Unity",
+            "color": "#317CFF"
+        }
+      ]
     }
 ]

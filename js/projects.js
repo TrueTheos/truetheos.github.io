@@ -4,7 +4,7 @@ const projects = [
       projectName: 'Tower of Blood',
       lang: 'C#',
       langColor: '#9D6ED8',
-      description: 'ASCII & Pixelart roguelike.',
+      description: 'ASCII roguelike.',
       link: 'https://github.com/Loiuy123/Bloody-Tower',
       technologies: [
         {
@@ -23,6 +23,23 @@ const projects = [
       langColor: '#9D6ED8',
       description: 'Ludum Dare Arcade game.',
       link: 'https://github.com/Loiuy123/LDproject',
+      technologies: [
+        {
+          name: 'C#',
+          color: '#189F20'
+        },
+        {
+          name: 'Unity',
+          color: '#317CFF'
+        }
+      ]
+    },
+    {
+      projectName: 'Drunk Empire',
+      lang: 'Game Tester',
+      langColor: '#9D6ED8',
+      description: 'Android Game.',
+      link: 'https://pixelstorm.pl',
       technologies: [
         {
           name: 'C#',
