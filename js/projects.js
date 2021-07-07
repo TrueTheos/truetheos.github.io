@@ -39,7 +39,24 @@ const projects = [
       lang: 'Game Tester',
       langColor: '#9D6ED8',
       description: 'Android Game.',
-      link: 'https://pixelstorm.pl',
+      link: 'https://play.google.com/store/apps/details?id=com.PixelStorm.DrunkEmpire',
+      technologies: [
+        {
+          name: 'C#',
+          color: '#189F20'
+        },
+        {
+          name: 'Unity',
+          color: '#317CFF'
+        }
+      ]
+    },
+    {
+      projectName: 'Star Agent',
+      lang: 'Game Tester',
+      langColor: '#9D6ED8',
+      description: 'Android Game.',
+      link: 'https://play.google.com/store/apps/details?id=com.PixelStorm.StarFactory',
       technologies: [
         {
           name: 'C#',
