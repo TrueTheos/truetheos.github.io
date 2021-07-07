@@ -1,4 +1,3 @@
-//I know that this is a dirty method, but tbh it's just a static webpage
 const projects = [
     {
       projectName: 'Tower of Blood',
