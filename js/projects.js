@@ -34,6 +34,40 @@ const projects = [
       ]
     },
     {
+      projectName: 'Milkcrate',
+      lang: 'C#',
+      langColor: '#9D6ED8',
+      description: 'Hyper-Casual mobile game.',
+      link: 'https://github.com/Loiuy123/milkcrate',
+      technologies: [
+        {
+          name: 'C#',
+          color: '#189F20'
+        },
+        {
+          name: 'Unity',
+          color: '#317CFF'
+        }
+      ]
+    },
+    {
+      projectName: '3Dragons',
+      lang: 'C#',
+      langColor: '#9D6ED8',
+      description: 'MMORPG',
+      link: 'https://3dragons.games/',
+      technologies: [
+        {
+          name: 'C#',
+          color: '#189F20'
+        },
+        {
+          name: 'Unity',
+          color: '#317CFF'
+        }
+      ]
+    },
+    {
       projectName: 'Drunk Empire',
       lang: 'Game Tester',
       langColor: '#9D6ED8',
