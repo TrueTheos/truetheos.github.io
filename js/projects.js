@@ -68,6 +68,19 @@ const projects = [
       ]
     },
     {
+      projectName: 'Tartarus',
+      lang: 'Python',
+      langColor: '#9D6ED8',
+      description: 'Steganography Tool.',
+      link: 'https://github.com/Loiuy123/Tartarus',
+      technologies: [
+        {
+          name: 'Python',
+          color: '#189F20'
+        }
+      ]
+    },
+    {
       projectName: 'Drunk Empire',
       lang: 'Game Tester',
       langColor: '#9D6ED8',
