@@ -13,6 +13,10 @@ const projects = [
         {
           name: 'Unity',
           color: '#317CFF'
+        },
+        {
+          name: 'Git',
+          color: '#6E5494'
         }
       ]
     },
@@ -30,6 +34,31 @@ const projects = [
         {
           name: 'Unity',
           color: '#317CFF'
+        },
+        {
+          name: 'Git',
+          color: '#6E5494'
+        }
+      ]
+    },
+    {
+      projectName: 'Guess Ten',
+      lang: 'C#',
+      langColor: '#9D6ED8',
+      description: 'Word guessing mobile game with <b>Google</b> integration.',
+      link: 'https://play.google.com/store/apps/details?id=com.ShatteredBitsStudio.GuessTen&hl=pl',
+      technologies: [
+        {
+          name: 'C#',
+          color: '#189F20'
+        },
+        {
+          name: 'Unity',
+          color: '#317CFF'
+        },
+        {
+          name: 'Git',
+          color: '#6E5494'
         }
       ]
     },
@@ -47,6 +76,10 @@ const projects = [
         {
           name: 'Unity',
           color: '#317CFF'
+        },
+        {
+          name: 'Git',
+          color: '#6E5494'
         }
       ]
     },
@@ -64,6 +97,14 @@ const projects = [
         {
           name: 'Unity',
           color: '#317CFF'
+        },
+        {
+          name: 'Git',
+          color: '#6E5494'
+        },
+        {
+          name: 'Jira',
+          color: '#FFAB00'
         }
       ]
     },
