@@ -21,6 +21,27 @@ const projects = [
       ]
     },
     {
+      projectName: 'There are spiders in my tetris room!',
+      lang: 'C#',
+      langColor: '#9D6ED8',
+      description: 'GameJam arcade game.',
+      link: 'https://kimmyx.itch.io/there-are-spiders-in-my-tetris-room-what',
+      technologies: [
+        {
+          name: 'C#',
+          color: '#189F20'
+        },
+        {
+          name: 'Unity',
+          color: '#317CFF'
+        },
+        {
+          name: 'Git',
+          color: '#6E5494'
+        }
+      ]
+    },
+    {
       projectName: 'Loop Race',
       lang: 'C#',
       langColor: '#9D6ED8',
