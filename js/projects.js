@@ -1,5 +1,30 @@
 const projects = [
     {
+      projectName: 'Chronos Equilibrium',
+      lang: 'C#',
+      langColor: '#9D6ED8',
+      description: 'Third Person Multiplayer Shooter.',
+      link: 'https://www.youtube.com/watch?v=anoOy-9WZ1g',
+      technologies: [
+        {
+          name: 'C#',
+          color: '#189F20'
+        },
+        {
+          name: 'Unity',
+          color: '#317CFF'
+        },
+        {
+          name: 'Git',
+          color: '#6E5494'
+        },
+        {
+          name: 'WIP',
+          color: '#6E5494'
+        }
+      ]
+    },
+    {
       projectName: 'Tower of Blood',
       lang: 'C#',
       langColor: '#9D6ED8',
