@@ -92,7 +92,7 @@ const projects = [
       lang: 'C#',
       langColor: '#9D6ED8',
       description: 'Word guessing mobile game.',
-      link: 'https://play.google.com/store/apps/details?id=com.ShatteredBitsStudio.GuessTen&hl=pl',
+      link: 'https://github.com/TrueTheos/GuessTen',
       technologies: [
         {
           name: 'C#',
