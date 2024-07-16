@@ -109,27 +109,6 @@ const projects = [
       ]
     },
     {
-      projectName: 'Milkcrate',
-      lang: 'C#',
-      langColor: '#9D6ED8',
-      description: 'Hyper-Casual mobile game.',
-      link: 'https://github.com/Loiuy123/milkcrate',
-      technologies: [
-        {
-          name: 'C#',
-          color: '#189F20'
-        },
-        {
-          name: 'Unity',
-          color: '#317CFF'
-        },
-        {
-          name: 'Git',
-          color: '#6E5494'
-        }
-      ]
-    },
-    {
       projectName: '3Dragons',
       lang: 'C#',
       langColor: '#9D6ED8',
@@ -168,28 +147,11 @@ const projects = [
       ]
     },
     {
-      projectName: 'Drunk Empire',
-      lang: 'Game Tester',
+      projectName: 'Pong Royale',
+      lang: 'C#',
       langColor: '#9D6ED8',
       description: 'Android Game.',
-      link: 'https://play.google.com/store/apps/details?id=com.PixelStorm.DrunkEmpire',
-      technologies: [
-        {
-          name: 'C#',
-          color: '#189F20'
-        },
-        {
-          name: 'Unity',
-          color: '#317CFF'
-        }
-      ]
-    },
-    {
-      projectName: 'Star Agent',
-      lang: 'Game Tester',
-      langColor: '#9D6ED8',
-      description: 'Android Game.',
-      link: 'https://play.google.com/store/apps/details?id=com.PixelStorm.StarFactory',
+      link: 'https://play.google.com/store/apps/details?id=com.PixelStorm.Pong',
       technologies: [
         {
           name: 'C#',
