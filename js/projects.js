@@ -1,5 +1,26 @@
 const projects = [
     {
+      projectName: 'The Serpent Rogue',
+      lang: 'C#',
+      langColor: '#9D6ED8',
+      description: 'Fantasy Action RPG.',
+      link: 'https://store.steampowered.com/app/1453790/The_Serpent_Rogue/',
+      technologies: [
+        {
+          name: 'C#',
+          color: '#189F20'
+        },
+        {
+          name: 'Unity',
+          color: '#317CFF'
+        },
+        {
+          name: 'Git',
+          color: '#6E5494'
+        }
+      ]
+    },
+    {
       projectName: 'Chronos Equilibrium',
       lang: 'C#',
       langColor: '#9D6ED8',
