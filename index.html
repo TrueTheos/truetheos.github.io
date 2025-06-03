@@ -1,94 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Theos - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?;"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/topNavController.js"></script>
-    <script src="js/typeWriter.js"></script>
-    <script src="js/projects.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    <meta http-equiv='cache-control' content='no-cache'> 
-    <meta http-equiv='expires' content='0'> 
-    <meta http-equiv='pragma' content='no-cache'>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Your Name</title>
+  <style>
+    /* Base styles */
+    body {
+      margin: 0;
+      padding: 2rem;
+      background-color: #010101;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      line-height: 1.5;
+    }
+    a {
+      color: #00ff00;
+      text-decoration: none;
+      border-bottom: 1px dotted #00ff00;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+    hr {
+      border: 0;
+      border-top: 1px solid #00ff00;
+    }
+    .arrow {
+      display: inline-block;
+      margin-left: 0.25em;
+      transition: transform 0.2s;
+    }
+    a:hover .arrow {
+      transform: translateX(4px);
+    }
+
+    /* Container and centering */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Name styling with typing animation */
+    .typewriter {
+      display: inline-block;
+    }
+    .typewriter h1 {
+      display: inline-block;
+      margin: 0;
+      letter-spacing: .05em;
+      padding-bottom: 0.5rem;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typing .3s steps(30, end), blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #00ff00; }
+    }
+
+    /* Sections */
+    section {
+      margin-top: 2rem;
+    }
+    .work-entry,
+    .project-entry {
+      border: 1px solid #00ff00;
+      border-radius: 4px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    .entry-header {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .stack {
+      font-size: 0.9rem;
+      opacity: 0.75;
+    }
+
+    /* Projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="topnav" id="myTopnav">
-            <a href="#aboutMe" class="active">About me</a>
-            <a href="#projects">Projects</a>
-            <a href="javascript:void(0);" class="icon" onclick="toogleResponsive();">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-    </header>
-    <div class="container">
-        <div id="aboutMe">
-            <div class="contentBlock">
-                <h1>
-                    <span style="color: #00FF2A">></span><span id="typeWriteHeader"> Hi, I'm Jeremiasz</span><span class="blink">|</span>
-                </h1>
-    
-                <div class="card" style="background-color: transparent; line-height: 45px; font-weight: lighter;">
-                    I'm a freelance game developer and InfoSec passionate. <br/> <br/>In the spare time I golf code, play CTFs, analyse malware, research vulnerabilities, play games & board games and do a bunch of random things.<br><br>
-                    My main fields are <span style="color: #A1E727;">PC</span>, and <span style="color: #A1E727;">mobile</span>
-                    <span style="color: #A1E727;">game</span> development. <br />
-                    <span class="underlinedText" style="border-color: #9D6ED8;">C# (.NET)</span>, <span class="underlinedText" style="border-color: #9D6ED8;">Python</span> and 
-                    <span class="underlinedText" style="border-color: #189F20;">Unity</span> are my primary technologies.<br><br>                    
-                    I have experience in working with a team and using version control systems like <span class="underlinedText" style="border-color: #9D6ED8;">Github Desktop</span>, <span class="underlinedText" style="border-color: #9D6ED8;">Git</span> or <span class="underlinedText" style="border-color: #9D6ED8;">BitBucket</span>.
-                    <br><br>
-                    Currently working on unannounced RTS game.</a>
-                    
-                </div>
-            </div>
-            <div class="contentBlock" id="meAndLinksContentBlock">
-                <div id="meAndLinks">
-                    <div id="me">
-                        <img src="images/me6.png"/>
-                    </div>
-                    <br />
-                    <div id="links">
-                        <a href="https://github.com/TrueTheos" target="_blank">
-                            <div class="link">
-                                <img src="images/GitHub-Mark.png" />
-                                <span>Github</span>
-                            </div>
-                        </a>
-                        <a href="https://twitter.com/devjeremy_" target="_blank">
-                            <div class="link">
-                                <img src="images/Twitter_Logo_Blue.png" />
-                                <span>Twitter</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div id="contactMe">
-                    Contact me at <br /> <span style="color:white;">contact@theos.wtf</span>
-                </div>
-            </div>
-            <div style="clear:both;"></div>
-        </div>
-    <div id="projects">
-        <div class="titleText">
-            <span>My projects</span>
-        </div>
-        <div id="projectsContainer">
-
-        </div>
-        <div id="moreInfo">
-            Check out more on <a href="https://github.com/TrueTheos" target="_blank">GitHub</a>
-        </div>
+  <div class="container">
+    <div class="typewriter">
+      <h1>Theos</h1>
     </div>
-    </div>
+    <hr>
+    <p>I am a software engineer and game developer.</p>
+    <p>I love solving complex problems and learning new technologies,<br> you can take a look at my personal projects to see the variety of stuff that I do.</p>
+    <p>I have strong skills in performance critical areas.</p>
+    <p><b>GitHub:</b> <a href="https://github.com/TrueTheos" target="_blank">TrueTheos <span class="arrow">→</span></a></p>
+    <p><b>Contact: </b>loiuy538@gmail.com</p>
 
-    <footer style="background-color: #222; padding: 15px;">
-        <div class="container">
-            &copy; 2020 - Portfolio - Jeremiasz
+    <section>
+      <h2>Work History</h2>
+
+      <div class="work-entry">
+        <div class="entry-header"><a href="https://dbr77.com/pl/digitaltwin/" target="_blank">DigitalTwin &mdash; DBR77 Robotics <span class="arrow">→</span></a></div>
+        <div class="description"> AI-powered platform that creates 3D virtual replicas of manufacturing and logistics environments made with Unity. The system enables real-time simulation, scenario testing, and process optimization using IoT data and machine learning algorithms. It supports enhancing operational efficiency, reducing downtime, and facilitating data-driven decision-making in complex industrial settings.</div>
+        <div class="stack">Tech: C#, Unity, Git, ClickUp</div>
+      </div>
+
+      <div class="work-entry">
+        <div class="entry-header"><a href="store.steampowered.com/app/2134720/Stormbinders/" target="_blank">Stormbinders &mdash; Innominate Games <span class="arrow">→</span></a></div>
+        <div class="description"> Turn based strategy game released on Steam. I worked on core gameplay loop, AI, dialogue and spells systems with custom editors just to name a few.</div>
+        <div class="stack">Tech: C#, Unity, Python, Git, Jira</div>
+      </div>
+
+      <div class="work-entry">
+        <div class="entry-header">Guess Ten &mdash; Shattered Bits Studio</div>
+        <div class="description"> Guess Ten is mobile word-guessing game. It was developed by a few people with me as a Lead Developer. I was responsible for adding In-app purchases, implementing ADs,, making the core gameplay loop and the UI. We used Git and Jira for managing our work.</div>
+        <div class="stack">Tech: C#, Unity, Git, Jira, AdMob SDK</div>
+      </div>
+
+      <div class="work-entry">
+        <div class="entry-header"><a href="https://3dragons.games" target="_blank">3Dragons <span class="arrow">→</span></a></div>
+        <div class="description"> 3Dragons is a 3D MMORPG with a top-down view, highly inspired by Tibia. I worked in a team consisting of 20+ people, we used Jira and Git. I was mainly working on fixing bugs, adding the QoL features and writing important systems like pathfinding for enemies or spell casting system.</div>
+        <div class="stack">Tech: C#, Unity, Git</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Personal Projects</h2>
+      <div class="projects-grid">
+        <div class="project-entry">
+          <div class="entry-header"><a href="https://github.com/TrueTheos/Aniki" target="_blank">Aniki <span class="arrow">→</span></a></div>
+          <div class="description">Aniki is a cross-platform desktop application built with Avalonia UI and .NET for managing and watching your favorite anime.</div>
+          <div class="stack">Tech: C#, .NET, Avalonia, XAML, MVVM, Git</div>  
         </div>
-    </footer>
-    <script src="js/cardGenerator.js"></script>
+        <div class="project-entry">
+          <div class="entry-header"><a href="https://github.com/TrueTheos/ils.ils" target="_blank">ILS <span class="arrow">→</span></a></div>
+          <div class="description"> ILS is a compilator for my own programming language which compiles directly to assembly. I wrote my own parser, lexer, AST and IR generator.</div>
+          <div class="stack">Tech: C#, .NET, ASM, Git</div>  
+        </div>
+       <div class="project-entry">
+          <div class="entry-header"><a href="https://github.com/TrueTheos/Bloody-Tower" target="_blank">Tower of Blood <span class="arrow">→</span></a></div>
+          <div class="description"> Retro rogue-like. Multi-threaded procedural dungeon generation, advanced turn based combat, complex AI.</div>
+          <div class="stack">Tech: C#, Unity, Python, Git</div>  
+        </div>
+        <div class="project-entry">
+          <div class="entry-header"><a href="https://kimmyx.itch.io/there-are-spiders-in-my-tetris-room-what" target="_blank">There are spiders in my tetris room <span class="arrow">→</span></a></div>
+          <div class="description"> Game-jam, arcade game. It involves on dodging waves of enemies on an isometric map and destroying or blocking their passage with blocks from the game Tetris falling from the sky.</div>
+          <div class="stack">Tech: C#, Unity, Git</div>  
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    console.log('Portfolio loaded');
+  </script>
 </body>
 </html>
