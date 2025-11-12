@@ -225,106 +225,100 @@
         </section>
 
         <section class="py-20 px-6 bg-gray-50">
-            <div class="max-w-7xl mx-auto">
-                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">
-                    Zaufali mi między innymi:
-                </h2>
-                
-                <div class="relative">
-                    <!-- Strzałka lewa -->
-                    <button onclick="scrollTestimonials('left')" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all">
-                        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                        </svg>
-                    </button>
-                    
-                    <!-- Strzałka prawa -->
-                    <button onclick="scrollTestimonials('right')" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all">
-                        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </button>
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">
+        Zaufali mi między innymi:
+      </h2>
 
-                    <div id="testimonials-container" class="overflow-hidden px-12">
-                        <div id="testimonials-track" class="flex gap-6 transition-transform duration-500 ease-in-out">
-                            
-                            <div class="flex-shrink-0 w-72">
-                                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 overflow-hidden">
-                                    <div class="h-48 bg-gray-200 overflow-hidden">
-                                        <img src="images/adrian.JPG" alt="Adrian Gorzycki" class="w-full h-full object-cover" style="object-position: center 10%;">
-                                    </div>
-                                    <div class="p-6 text-center">
-                                        <h3 class="text-xl font-bold text-gray-900 mb-2">Adrian Gorzycki</h3>
-                                        <p class="text-sm text-gray-500">Przygody Przedsiębiorców / Loża Przedsiębiorców</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex-shrink-0 w-72">
-                                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 overflow-hidden">
-                                    <div class="h-48 bg-gray-200 overflow-hidden">
-                                        <img src="images/karolina.jpg" alt="Karolina Gruszecka" class="w-full h-full object-cover" style="object-position: center top;">
-                                    </div>
-                                    <div class="p-6 text-center">
-                                        <h3 class="text-xl font-bold text-gray-900 mb-2">Karolina Gruszecka</h3>
-                                        <p class="text-sm text-gray-500">Holi Studio Klub zdrowych kobiet</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex-shrink-0 w-72">
-                                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 overflow-hidden">
-                                    <div class="h-48 bg-gray-200 overflow-hidden">
-                                        <img src="images/ojwojtek.jpg" alt="Wojtek Paździecki" class="w-full h-full object-cover" style="object-position: center 30%;">
-                                    </div>
-                                    <div class="p-6 text-center">
-                                        <h3 class="text-xl font-bold text-gray-900 mb-2">Wojtek Paździecki</h3>
-                                        <p class="text-sm text-gray-500">OjWojtek - youtuber</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex-shrink-0 w-72">
-                                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 overflow-hidden">
-                                    <div class="h-48 bg-gray-200 overflow-hidden">
-                                        <img src="images/ela.jpg" alt="Ela Kazubska" class="w-full h-full object-cover" style="object-position: center 30%;">
-                                    </div>
-                                    <div class="p-6 text-center">
-                                        <h3 class="text-xl font-bold text-gray-900 mb-2">Ela Kazubska</h3>
-                                        <p class="text-sm text-gray-500">EliPro Dubaj nieruchomości</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex-shrink-0 w-72">
-                                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 overflow-hidden">
-                                    <div class="h-48 bg-gray-200 overflow-hidden">
-                                        <img src="images/adam.jpg" alt="Adam Jagiełka" class="w-full h-full object-cover" style="object-position: center 35%;">
-                                    </div>
-                                    <div class="p-6 text-center">
-                                        <h3 class="text-xl font-bold text-gray-900 mb-2">Adam Jagiełka</h3>
-                                        <p class="text-sm text-gray-500">Blue Bird Evesta</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    
-                    <div id="testimonials-dots" class="flex justify-center gap-2 mt-8">
-                    </div>
+      <div class="relative">
+        <div id="testimonials-container" class="overflow-hidden px-12">
+          <div id="testimonials-track" class="flex gap-6 transition-transform duration-500 ease-in-out">
+            <!-- Original slides -->
+            <div class="testimonial w-72 flex-shrink-0">
+              <div class="testimonial-card bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden">
+                <div class="h-48 bg-gray-200 overflow-hidden">
+                  <img src="images/adrian.JPG" alt="Adrian Gorzycki" class="w-full h-full object-cover" style="object-position: center 10%;">
                 </div>
+                <div class="p-6 text-center">
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">Adrian Gorzycki</h3>
+                  <p class="text-sm text-gray-500">Loża Przedsiębiorców</p>
+                </div>
+              </div>
             </div>
-        </section>
 
-        <style>
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-        .scrollbar-hide {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+            <div class="testimonial w-72 flex-shrink-0">
+              <div class="testimonial-card bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden">
+                <div class="h-48 bg-gray-200 overflow-hidden">
+                  <img src="images/karolina.jpg" alt="Karolina Gruszecka" class="w-full h-full object-cover" style="object-position: center top;">
+                </div>
+                <div class="p-6 text-center">
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">Karolina Gruszecka</h3>
+                  <p class="text-sm text-gray-500">Holi Studio Klub zdrowych kobiet</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial w-72 flex-shrink-0">
+              <div class="testimonial-card bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden">
+                <div class="h-48 bg-gray-200 overflow-hidden">
+                  <img src="images/ojwojtek.jpg" alt="Wojtek Paździecki" class="w-full h-full object-cover" style="object-position: center 30%;">
+                </div>
+                <div class="p-6 text-center">
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">Wojtek Paździecki</h3>
+                  <p class="text-sm text-gray-500">OjWojtek - youtuber</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial w-72 flex-shrink-0">
+              <div class="testimonial-card bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden">
+                <div class="h-48 bg-gray-200 overflow-hidden">
+                  <img src="images/ela.jpg" alt="Ela Kazubska" class="w-full h-full object-cover" style="object-position: center 30%;">
+                </div>
+                <div class="p-6 text-center">
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">Ela Kazubska</h3>
+                  <p class="text-sm text-gray-500">EliPro Dubaj nieruchomości</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial w-72 flex-shrink-0">
+              <div class="testimonial-card bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden">
+                <div class="h-48 bg-gray-200 overflow-hidden">
+                  <img src="images/adam.jpg" alt="Adam Jagiełka" class="w-full h-full object-cover" style="object-position: center 35%;">
+                </div>
+                <div class="p-6 text-center">
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">Adam Jagiełka</h3>
+                  <p class="text-sm text-gray-500">Blue Bird Evesta</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial w-72 flex-shrink-0">
+              <div class="testimonial-card bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden">
+                <div class="h-48 bg-gray-200 overflow-hidden">
+                  <img src="images/grzegorz.jpg" alt="Grzegorz Lisewski" class="w-full h-full object-cover" style="object-position: center 35%;">
+                </div>
+                <div class="p-6 text-center">
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">Grzegorz Lisewski</h3>
+                  <p class="text-sm text-gray-500">NAI Estate Fellows</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="testimonials-dots" class="flex justify-center gap-2 mt-8"></div>
+      </div>
+    </div>
+  </section>
+         <style>
+            .testimonial-card {
+            transition: all 0.3s ease;
+            }
+            .testimonial-card:hover {
+            transform: translateY(-8px);
+            }
         </style>
     </div>
 
@@ -722,69 +716,118 @@
     </script>
 
     <script>
-        let currentTestimonialIndex = 0;
-        let testimonialInterval;
-        const totalTestimonials = 5;
+    const track = document.getElementById('testimonials-track');
+    const container = document.getElementById('testimonials-container');
+    const dotsContainer = document.getElementById('testimonials-dots');
+    
+    const testimonials = Array.from(document.querySelectorAll('.testimonial'));
+    const totalSlides = testimonials.length;
+    const slideWidth = 288 + 24; // Testimonial width (288px) + gap (24px)
+    
+    let currentIndex = 0;
+    let autoScrollInterval;
+    // let isTransitioning is removed as we will rely on transitionend event
 
-        function updateTestimonialDots() {
-            const dotsContainer = document.getElementById('testimonials-dots');
-            dotsContainer.innerHTML = '';
-            
-            for (let i = 0; i < totalTestimonials; i++) {
-                const dot = document.createElement('button');
-                dot.className = `w-3 h-3 rounded-full transition-all ${i === currentTestimonialIndex ? 'bg-blue-600 w-8' : 'bg-gray-300 hover:bg-gray-400'}`;
-                dot.onclick = () => goToTestimonial(i);
-                dotsContainer.appendChild(dot);
-            }
+    testimonials.forEach(testimonial => {
+      const clone = testimonial.cloneNode(true);
+      track.appendChild(clone);
+    });
+
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'w-2 h-2 rounded-full transition-all';
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+
+    function updateDots() {
+      const dots = dotsContainer.querySelectorAll('button');
+      dots.forEach((dot, i) => {
+        // Use modulo to correctly map the large index (for cloned slides) back to the actual dot index
+        if (i === currentIndex % totalSlides) {
+          dot.className = 'w-8 h-2 rounded-full bg-gray-800 transition-all';
+        } else {
+          dot.className = 'w-2 h-2 rounded-full bg-gray-300 transition-all';
         }
+      });
+    }
 
-        function goToTestimonial(index) {
-            currentTestimonialIndex = index;
-            const track = document.getElementById('testimonials-track');
-            const container = document.getElementById('testimonials-container');
-            const containerWidth = container.offsetWidth;
-            const cardWidth = 288; // w-72
-            const gap = 24; // gap-6
-            const totalWidth = cardWidth + gap;
-            
-            // Centrowanie aktywnej karty
-            const offset = (containerWidth / 2) - (cardWidth / 2) - (index * totalWidth);
-            track.style.transform = `translateX(${offset}px)`;
-            updateTestimonialDots();
-            resetAutoScroll();
+    function goToSlide(index, smooth = true) {
+      // Don't modify currentIndex here if manually clicking dots, 
+      // as index should represent the real dot index (0 to totalSlides-1)
+      if (typeof index !== 'undefined') {
+          currentIndex = index;
+      }
+      
+      const offset = -currentIndex * slideWidth;
+      
+      if (smooth) {
+        track.style.transition = 'transform 500ms ease-in-out';
+      } else {
+        track.style.transition = 'none';
+      }
+      
+      track.style.transform = `translateX(${offset}px)`;
+      updateDots();
+    }
+
+    function nextSlide() {
+      currentIndex++;
+      
+      // Perform the transition to the next slide (which might be a clone)
+      goToSlide(currentIndex);
+
+      // Check if we hit the first cloned slide (which is at index == totalSlides)
+      if (currentIndex >= totalSlides) {
+        // Wait for the transition to finish before snapping back
+        track.addEventListener('transitionend', function handler() {
+          // Instantly snap back to the actual first slide (index 0)
+          currentIndex = 0;
+          goToSlide(0, false); 
+          track.removeEventListener('transitionend', handler);
+        }, { once: true });
+      }
+    }
+
+    function prevSlide() {
+        // Your prevSlide logic for manual navigation is fine, but it needs the same transitionend handler for the snap back
+        if (currentIndex === 0) {
+            // Move to the cloned last slide without transition
+            currentIndex = totalSlides;
+            goToSlide(currentIndex, false);
+            // Then move to the real last slide smoothly
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    currentIndex--;
+                    goToSlide(currentIndex);
+                });
+            });
+        } else {
+            currentIndex--;
+            goToSlide(currentIndex);
         }
+    }
 
-        function scrollTestimonials(direction) {
-            if (direction === 'left') {
-                currentTestimonialIndex = (currentTestimonialIndex - 1 + totalTestimonials) % totalTestimonials;
-            } else {
-                currentTestimonialIndex = (currentTestimonialIndex + 1) % totalTestimonials;
-            }
-            goToTestimonial(currentTestimonialIndex);
-        }
+    function startAutoScroll() {
+      // **CRITICAL FIX:** Increase interval to be much longer than the transition time (500ms)
+      autoScrollInterval = setInterval(nextSlide, 2500); 
+    }
 
-        function autoScrollTestimonials() {
-            currentTestimonialIndex = (currentTestimonialIndex + 1) % totalTestimonials;
-            goToTestimonial(currentTestimonialIndex);
-        }
+    function stopAutoScroll() {
+      clearInterval(autoScrollInterval);
+    }
+    
+    // Initial calls
+    updateDots();
+    startAutoScroll();
 
-        function resetAutoScroll() {
-            clearInterval(testimonialInterval);
-            testimonialInterval = setInterval(autoScrollTestimonials, 4000);
-        }
+    // Event listeners
+    container.onmouseenter = stopAutoScroll;
+    container.onmouseleave = startAutoScroll;
 
-        // Inicjalizacja
-        window.addEventListener('DOMContentLoaded', function() {
-            updateTestimonialDots();
-            goToTestimonial(0); // Wycentruj pierwszą kartę
-            testimonialInterval = setInterval(autoScrollTestimonials, 4000);
-            
-            // Zatrzymaj auto-scroll przy hoveru
-            const container = document.getElementById('testimonials-container');
-            container.addEventListener('mouseenter', () => clearInterval(testimonialInterval));
-            container.addEventListener('mouseleave', resetAutoScroll);
-        });
-    </script>
-
+    // Call goToSlide(0, false) on load to ensure the track starts at a non-cloned position
+    goToSlide(0, false); 
+  </script>
 </body>
 </html>
