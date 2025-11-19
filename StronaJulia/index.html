@@ -66,14 +66,14 @@
                     </button>
 
                     <div class="relative group">
-                        <button onclick="showPage('services')" class="nav-link font-semibold text-gray-600 hover:text-blue-600 transition-colors inline-flex items-center" data-page="services">
+                        <button class="nav-link font-semibold text-gray-600 hover:text-blue-600 transition-colors inline-flex items-center">
                             Oferta
                             <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
-                        <div class="absolute hidden group-hover:block w-72 bg-white shadow-xl rounded-lg mt-2 py-2 z-50 transition-all duration-300">
-                            <a href="#rekrutacja" onclick="showPage('services')" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600">Rekrutacja</a>
-                            <a href="#integracje-firmowe" onclick="showPage('services')" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600">Integracje firmowe</a>
-                            <a href="#managerka-operacyjna" onclick="showPage('services')" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600">Wirtualna Managerka Operacyjna</a>
+                        <div class="absolute hidden group-hover:block w-72 bg-white shadow-xl rounded-lg mt-0 py-2 z-50 transition-all duration-300">
+                            <a href="#" onclick="showPage('rekrutacja')" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600">Rekrutacja</a>
+                            <a href="#" onclick="showPage('integracje-firmowe')" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600">Integracje firmowe</a>
+                            <a href="#" onclick="showPage('managerka-operacyjna')" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600">Wirtualna Managerka Operacyjna</a>
                         </div>
                     </div>
                     <button onclick="showPage('support')" class="nav-link font-semibold text-gray-600 hover:text-blue-600 transition-colors" data-page="support">
@@ -100,9 +100,9 @@
                 </button>
                 
                 <div class="block w-full text-left py-2 font-semibold text-gray-900">Oferta</div>
-                <a href="#rekrutacja" onclick="showPage('services'); toggleMobileMenu();" class="block w-full text-left pl-4 py-1 text-gray-600 hover:text-blue-600 transition-colors">— Rekrutacja</a>
-                <a href="#integracje-firmowe" onclick="showPage('services'); toggleMobileMenu();" class="block w-full text-left pl-4 py-1 text-gray-600 hover:text-blue-600 transition-colors">— Integracje firmowe</a>
-                <a href="#managerka-operacyjna" onclick="showPage('services'); toggleMobileMenu();" class="block w-full text-left pl-4 py-1 text-gray-600 hover:text-blue-600 transition-colors">— Wirtualna Managerka Operacyjna</a>
+                <button onclick="showPage('rekrutacja'); toggleMobileMenu();" class="block w-full text-left pl-4 py-1 text-gray-600 hover:text-blue-600 transition-colors">— Rekrutacja</button>
+                <button onclick="showPage('integracje-firmowe'); toggleMobileMenu();" class="block w-full text-left pl-4 py-1 text-gray-600 hover:text-blue-600 transition-colors">— Integracje firmowe</button>
+                <button onclick="showPage('managerka-operacyjna'); toggleMobileMenu();" class="block w-full text-left pl-4 py-1 text-gray-600 hover:text-blue-600 transition-colors">— Wirtualna Managerka Operacyjna</button>
                 <button onclick="showPage('about'); toggleMobileMenu();" class="block w-full text-left py-2 font-semibold text-gray-600 hover:text-blue-600">
                     O mnie
                 </button>
@@ -129,7 +129,7 @@
                             <span class="text-blue-600">Julia Lucius</span>
                         </h1>
                         <p class="text-xl text-gray-600 leading-relaxed">
-                            Pomagam właścicielom firm zyskać spokój i porządek w biznesie — rekrutuję asystentki, wspieram zespoły w integracji i przejmuję codzienne zadania operacyjne.
+                            Pomagam właścicielom firm zyskać spokój i porządek w biznesie, rekrutuję asystentki, wspieram zespoły w integracji i przejmuję codzienne zadania operacyjne.
                         </p>
                         <div class="flex gap-4 pt-4">
                             <button onclick="showPage('contact')" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg">
@@ -177,7 +177,7 @@
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Wirtualna asystentka operacyjna</h3>
-                        <p class="text-gray-600">Odciążam właścicieli firm w zadaniach operacyjnych i organizacyjnych.  Bo dobra asystentka to ta, dzięki której masz przestrzeń na strategię, nie chaos.</p>
+                        <p class="text-gray-600">Odciążam właścicieli firm w zadaniach operacyjnych i organizacyjnych. Bo dobra asystentka to ta, dzięki której masz przestrzeń na strategię, nie chaos.</p>
                     </div>
 
                     <div class="bg-gradient-to-br from-white to-gray-50 p-8 rounded-2xl border-2 border-gray-100 hover:border-blue-400 hover:shadow-xl transition-all transform hover:-translate-y-2 cursor-pointer">
@@ -187,7 +187,7 @@
                             </svg>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Integracje i szkolenia firmowe</h3>
-                        <p class="text-gray-600">Tworzę warsztaty, które łączą ludzi i przywracają energię do działania.  Bo zgrany zespół to nie szczęście — to dobrze poprowadzony proces.</p>
+                        <p class="text-gray-600">Tworzę warsztaty, które łączą ludzi i przywracają energię do działania. Bo zgrany zespół to nie szczęście - to dobrze poprowadzony proces.</p>
                     </div>
                 </div>
             </div>
@@ -201,13 +201,13 @@
                             👋 Poznajmy się
                         </h2>
                         <p class="text-xl font-semibold text-blue-600 text-center">
-                            Cześć, jestem Julia Lucius — cieszę się, że tu jesteś.
+                            Cześć, jestem Julia Lucius. Cieszę się, że tu jesteś.
                         </p>
                         <p class="text-lg text-gray-700 leading-relaxed text-justify">
-                            Na co dzień jestem typowym zawodnikiem – uwielbiam checklisty, działanie i odhaczanie zadań. Mam wiele pasji, które naturalnie przeplatam z pracą zawodową. Lubię angażować się w projekty społeczne i tam, gdzie tylko mogę, włączam takie inicjatywy również w działania zawodowe.
+                            Na co dzień jestem typowym zawodnikiem, uwielbiam checklisty, działanie i odhaczanie zadań. Mam wiele pasji, które naturalnie przeplatam z pracą zawodową. Lubię angażować się w projekty społeczne i tam, gdzie tylko mogę, włączam takie inicjatywy również w działania zawodowe.
                         </p>
                         <p class="text-lg text-gray-700 leading-relaxed text-justify">
-                            Mam szczęście do ludzi. Współpracowałam z wieloma przedsiębiorcami i osobami z wyższej kadry zarządzającej — z każdym znajduję wspólny język. Jestem optymistką i realistką… a może po prostu optymistyczną realistką – jeśli tak można powiedzieć.
+                            Mam szczęście do ludzi. Współpracowałam z wieloma przedsiębiorcami i osobami z wyższej kadry zarządzającej. Z każdym znajduję wspólny język. Jestem optymistką i realistką… a może po prostu optymistyczną realistką – jeśli tak można powiedzieć.
                         </p>
                         <div class="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border-2 border-blue-100">
                             <p class="text-lg text-gray-800 leading-relaxed">
@@ -374,13 +374,13 @@
                         <div>
                             <h2 class="text-3xl font-semibold text-blue-900 mb-6">💫 Cześć, jestem Julia Lucius</h2>
                             <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
-                                Cieszę się, że tu jesteś. Jestem osobą, która łączy ludzi i dowozi rezultaty — z uśmiechem, energią i konkretem. Napędza mnie praca z ludźmi mądrzejszymi ode mnie oraz dzielenie się własnym doświadczeniem zawodowym.
+                                Cieszę się, że tu jesteś. Jestem osobą, która łączy ludzi i dowozi rezultaty z uśmiechem, energią i konkretem. Napędza mnie praca z ludźmi mądrzejszymi ode mnie oraz dzielenie się własnym doświadczeniem zawodowym.
                             </p>
                             <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
-                                Na co dzień jestem typowym zawodnikiem – uwielbiam checklisty, działanie i odhaczanie zadań. Mam wiele pasji, które naturalnie przeplatam z życiem zawodowym. Lubię angażować się w inicjatywy społeczne i tam, gdzie mogę, łączyć sens z działaniem.
+                                Na co dzień jestem typowym zawodnikiem, uwielbiam checklisty, działanie i odhaczanie zadań. Mam wiele pasji, które naturalnie przeplatam z życiem zawodowym. Lubię angażować się w inicjatywy społeczne i tam, gdzie mogę, łączyć sens z działaniem.
                             </p>
                             <p class="text-lg text-gray-700 leading-relaxed text-justify">
-                                Mam szczęście do ludzi – współpracowałam z wieloma przedsiębiorcami i osobami z wyższej kadry zarządzającej, z którymi zawsze potrafię znaleźć wspólny język. Jestem optymistką i realistką… a może raczej optymistyczną realistką – jeśli tak można powiedzieć.
+                                Mam szczęście do ludzi. Współpracowałam z wieloma przedsiębiorcami i osobami z wyższej kadry zarządzającej, z którymi zawsze potrafię znaleźć wspólny język. Jestem optymistką i realistką… a może raczej optymistyczną realistką – jeśli tak można powiedzieć.
                             </p>
                         </div>
                         <div class="rounded-2xl overflow-hidden shadow-lg">
@@ -414,7 +414,7 @@
                                 Od planu nagrań po rozmowy z ludźmi, którzy inspirują.
                             </p>
                             <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
-                                Mam za sobą setki godzin pracy przy wywiadach i produkcjach wideo — od planowania, przez logistykę, po koordynację gości. Miałam okazję współorganizować rozmowy z wyjątkowymi osobami, m.in.:
+                                Mam za sobą setki godzin pracy przy wywiadach i produkcjach wideo, od planowania, przez logistykę, po koordynację gości. Miałam okazję współorganizować rozmowy z wyjątkowymi osobami, m.in.:
                             </p>
                             <ul class="space-y-2 text-gray-700">
                                 <li>👉 Premierem Mateuszem Morawieckim</li>
@@ -519,13 +519,10 @@
         </div>
     </div>
 
-    <div id="services-page" class="page">
+    <div id="rekrutacja-page" class="page">
         <div class="min-h-screen bg-gradient-to-br from-pink-50 to-white py-20 px-6">
             <div class="max-w-6xl mx-auto">
-                <h1 class="text-5xl font-bold text-gray-900 mb-6 text-center pt-16">Oferta</h1>
-                <p class="text-xl text-gray-600 text-center mb-16">Rekrutacja • Integracje firmowe • Wirtualna Managerka Operacyjna</p>
-
-                <section id="rekrutacja" class="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-16 pt-16 -mt-16 scroll-mt-16 border-l-4 border-blue-400">
+                <section id="rekrutacja" class="bg-white rounded-3xl shadow-xl p-8 md:p-12 pt-16 scroll-mt-16 border-l-4 border-blue-400">
                     <div class="grid md:grid-cols-2 gap-10 items-center">
                         <div class="order-2 md:order-1">
                             <h2 class="text-4xl font-bold text-gray-900 mb-6">
@@ -550,7 +547,7 @@
 
                     <div class="mt-8 space-y-4">
                         <p class="text-lg text-gray-700 leading-relaxed">
-                            💬Doba ma tylko 24 godziny. Pomogę Ci przestać tracić je na rzeczy, które ktoś inny zrobi lepiej i szybciej.
+                            Doba ma tylko 24 godziny. Pomogę Ci przestać tracić je na rzeczy, które ktoś inny zrobi lepiej i szybciej.
                         </p>
                         <p class="text-lg text-gray-700 leading-relaxed text-justify">
                             Wiem, jak to jest, gdy doba jest za krótka. Gdy zamiast rozwijać firmę, gasisz pożary. Gdy zamiast myśleć strategicznie odbierasz telefony, umawiasz spotkania, wypełniasz dokumenty i jeździsz po urzędach. Wielu przedsiębiorców szuka asystentki wtedy, gdy czują, że sami już nie wyrabiają. Tylko że rekrutacja często zabiera jeszcze więcej czasu, energii i nerwów.
@@ -639,14 +636,20 @@
                         </p>
                     </div>
                 </section>
+            </div>
+        </div>
+    </div>
 
-                <section id="integracje-firmowe" class="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-16 pt-16 -mt-16 scroll-mt-16 border-l-4 border-pink-400">
+    <div id="integracje-firmowe-page" class="page">
+        <div class="min-h-screen bg-gradient-to-br from-pink-50 to-white py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <section id="integracje-firmowe" class="bg-white rounded-3xl shadow-xl p-8 md:p-12 pt-16 scroll-mt-16 border-l-4 border-pink-400">
                     <h2 class="text-4xl font-bold text-gray-900 mb-6 text-center md:text-left flex items-center justify-center md:justify-start">
                         <span class="text-4xl mr-3">🎭</span> Integracje i szkolenia firmowe
                     </h2>
                     <div class="grid md:grid-cols-2 gap-10 items-start">
                         <div class="order-2 md:order-1 space-y-4">
-                            <p class="text-xl font-semibold text-blue-600 mb-4">💬 Relacje robią robotę, my robimy relacje.</p>
+                            <p class="text-xl font-semibold text-blue-600 mt-8 mb-4">💬 Relacje robią robotę, my robimy relacje.</p>
                             <p class="text-lg text-gray-700 leading-relaxed text-justify">
                                 Zamiast kolejnych, nudnych „szkoleń z komunikacji”, oferujemy doświadczenie, które realnie zmienia zespół. Łączymy improwizację, dialog i wspólne przeżycia, by odbudować zaufanie, współpracę i energię w Twojej firmie. Są to warsztaty bazujące na improwizacji teatralnej i aktywnościach budujących zespół poprzez zabawę.
                             </p>
@@ -669,7 +672,7 @@
                         
                         <div class="order-1 md:order-2">
                             <div class="rounded-3xl overflow-hidden shadow-2xl">
-                                <img src="images/integracje.jpg" alt="Integracje firmowe" class="w-full h-auto object-cover">
+                                <img src="images/julaola.jpg" alt="Integracje firmowe" class="w-full h-auto object-cover">
                             </div>
                         </div>
                     </div>
@@ -746,14 +749,19 @@
                         </div>
                     </div>
                 </section>
-                
-                <section id="managerka-operacyjna" class="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-16 pt-16 -mt-16 scroll-mt-16 border-l-4 border-blue-600">
+            </div>
+        </div>
+    </div>
+
+    <div id="managerka-operacyjna-page" class="page">
+        <div class="min-h-screen bg-gradient-to-br from-pink-50 to-white py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <section id="managerka-operacyjna" class="bg-white rounded-3xl shadow-xl p-8 md:p-12 pt-16 scroll-mt-16 border-l-4 border-blue-600">
                     <h2 class="text-4xl font-bold text-gray-900 mb-6 text-center md:text-left flex items-center justify-center md:justify-start">
                         <span class="text-4xl mr-3">⭐</span> Wirtualna Managerka Operacyjna
                     </h2>
                     <div class="grid md:grid-cols-2 gap-10 items-start">
                         <div class="order-1 md:order-1 space-y-4">
-                            <p class="text-xl font-semibold text-blue-600 mb-4">(współpraca projektowa & zadaniowa)</p>
                             <p class="text-lg text-gray-700 leading-relaxed text-justify">
                                 Są obszary w firmie, które wymagają więcej niż zwykłej asysty potrzebują kogoś, kto ogarnia operacje, myśli strategicznie i potrafi dowieźć rezultat. Właśnie w takich zadaniach wspieram przedsiębiorców. Pomagam w projektach, procesach, organizacji pracy i elementach biznesu, które muszą być wykonane dokładnie, przewidywalnie i bez Twojej kontroli na każdym kroku.
                             </p>
@@ -792,7 +800,7 @@
                         
                         <div class="order-2 md:order-2">
                             <div class="rounded-3xl overflow-hidden shadow-2xl">
-                                <img src="images/managerka.jpg" alt="Wirtualna Managerka Operacyjna" class="w-full h-auto object-cover">
+                                <img src="images/asystentka.jpg" alt="Wirtualna Managerka Operacyjna" class="w-full h-auto object-cover">
                             </div>
                         </div>
                     </div>
@@ -856,7 +864,7 @@
                 <div class="bg-white p-10 md:p-16 rounded-3xl shadow-2xl grid md:grid-cols-2 gap-10">
                     <div class="flex-1">
                         <h2 class="text-3xl font-bold text-gray-900 mb-6">Napisz do mnie</h2>
-                        <form action="#" method="POST" class="space-y-6 h-full flex flex-col justify-between">
+                        <form action="#" method="POST" class="space-y-6 h-full flex flex-col justify-between pb-6">
                             <div>
                                 <input type="text" name="name" id="name" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors" placeholder="Imię i nazwisko">
                             </div>
@@ -866,7 +874,7 @@
                             <div class="flex-grow">
                                 <textarea name="message" id="message" rows="5" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors h-full resize-none" placeholder="Opisz swoje potrzeby..."></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-pink-600 text-white py-4 rounded-lg font-bold text-lg hover:shadow-xl transition-all transform hover:scale-105"> Wyślij wiadomość </button>
+                            <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-pink-600 text-white py-4 rounded-lg font-bold text-lg hover:shadow-xl transition-all transform hover:scale-105 mb-6"> Wyślij wiadomość </button>
                         </form>
                     </div>
                     <div class="rounded-3xl overflow-hidden shadow-2xl flex-1 h-full">
@@ -949,12 +957,14 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             // Check for initial hash in URL and activate the correct page
-            if (window.location.hash && window.location.hash.includes('-page')) {
+            if (window.location.hash) {
                 const pageId = window.location.hash.substring(1).replace('-page', '');
-                showPage(pageId);
-            } else if (window.location.hash && document.querySelector(window.location.hash)) {
-                // If it's an anchor within the services page, activate services page
-                showPage('services');
+                const targetPage = document.getElementById(pageId + '-page');
+                if (targetPage) {
+                    showPage(pageId);
+                } else {
+                    showPage('home');
+                }
             } else {
                 showPage('home');
             }
