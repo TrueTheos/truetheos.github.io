@@ -43,6 +43,9 @@
             margin-right: -2rem;
             margin-top: -2rem;
         }
+        .scroll-mt-16 {
+            scroll-margin-top: 4rem; /* Dla stałej nawigacji */
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -61,9 +64,18 @@
                     <button onclick="showPage('about')" class="nav-link font-semibold text-gray-600 hover:text-blue-600 transition-colors" data-page="about">
                         O mnie
                     </button>
-                    <button onclick="showPage('services')" class="nav-link font-semibold text-gray-600 hover:text-blue-600 transition-colors" data-page="services">
-                        Oferta
-                    </button>
+
+                    <div class="relative group">
+                        <button onclick="showPage('services')" class="nav-link font-semibold text-gray-600 hover:text-blue-600 transition-colors inline-flex items-center" data-page="services">
+                            Oferta
+                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="absolute hidden group-hover:block w-72 bg-white shadow-xl rounded-lg mt-2 py-2 z-50 transition-all duration-300">
+                            <a href="#rekrutacja" onclick="showPage('services')" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600">Rekrutacja</a>
+                            <a href="#integracje-firmowe" onclick="showPage('services')" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600">Integracje firmowe</a>
+                            <a href="#managerka-operacyjna" onclick="showPage('services')" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600">Wirtualna Managerka Operacyjna</a>
+                        </div>
+                    </div>
                     <button onclick="showPage('support')" class="nav-link font-semibold text-gray-600 hover:text-blue-600 transition-colors" data-page="support">
                         Wspieram
                     </button>
@@ -86,9 +98,11 @@
                 <button onclick="showPage('home'); toggleMobileMenu();" class="block w-full text-left py-2 font-semibold text-gray-600 hover:text-blue-600">
                     Strona główna
                 </button>
-                <button onclick="showPage('services'); toggleMobileMenu();" class="block w-full text-left py-2 font-semibold text-gray-600 hover:text-blue-600">
-                    Oferta
-                </button>
+                
+                <div class="block w-full text-left py-2 font-semibold text-gray-900">Oferta</div>
+                <a href="#rekrutacja" onclick="showPage('services'); toggleMobileMenu();" class="block w-full text-left pl-4 py-1 text-gray-600 hover:text-blue-600 transition-colors">— Rekrutacja</a>
+                <a href="#integracje-firmowe" onclick="showPage('services'); toggleMobileMenu();" class="block w-full text-left pl-4 py-1 text-gray-600 hover:text-blue-600 transition-colors">— Integracje firmowe</a>
+                <a href="#managerka-operacyjna" onclick="showPage('services'); toggleMobileMenu();" class="block w-full text-left pl-4 py-1 text-gray-600 hover:text-blue-600 transition-colors">— Wirtualna Managerka Operacyjna</a>
                 <button onclick="showPage('about'); toggleMobileMenu();" class="block w-full text-left py-2 font-semibold text-gray-600 hover:text-blue-600">
                     O mnie
                 </button>
@@ -180,7 +194,7 @@
         </section>
 
         <section class="py-20 px-6">
-            <div class="max-w-6xl mx-auto">
+        <div class="max-w-6xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="space-y-6">
                         <h2 class="text-center text-4xl md:text-5xl font-bold text-gray-900">
@@ -233,7 +247,6 @@
             <div class="relative">
                 <div id="testimonials-container" class="overflow-hidden px-12">
                 <div id="testimonials-track" class="flex gap-6 transition-transform duration-500 ease-in-out">
-                    <!-- Original slides -->
                     <div class="testimonial w-72 flex-shrink-0">
                     <div class="testimonial-card bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden">
                         <div class="h-48 bg-gray-200 overflow-hidden">
@@ -323,7 +336,6 @@
         <section class="pt-20 pb-0 px-6 bg-gradient-to-br from-blue-50 to-pink-50 relative overflow-hidden">
             <div class="max-w-6xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <!-- Tekst po lewej -->
                     <div class="space-y-6 text-center md:text-left -mt-20">
                         <h2 class="text-4xl md:text-5xl font-bold text-gray-900">
                             Gotowy na współpracę?
@@ -353,429 +365,482 @@
     </div>
 
    <div id="about-page" class="page">
-    <div class="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-6">
-        <div class="max-w-6xl mx-auto">
-            <h1 class="text-5xl font-bold text-gray-900 mb-12 pt-16 text-center">O MNIE</h1>
-            
-            <!-- Sekcja wprowadzająca -->
-            <div class="bg-white rounded-3xl shadow-xl p-10 md:p-12 mb-16">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <h2 class="text-3xl font-semibold text-blue-900 mb-6">💫 Cześć, jestem Julia Lucius</h2>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
-                            Cieszę się, że tu jesteś. Jestem osobą, która łączy ludzi i dowozi rezultaty — z uśmiechem, energią i konkretem. Napędza mnie praca z ludźmi mądrzejszymi ode mnie oraz dzielenie się własnym doświadczeniem zawodowym.
-                        </p>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
-                            Na co dzień jestem typowym zawodnikiem – uwielbiam checklisty, działanie i odhaczanie zadań. Mam wiele pasji, które naturalnie przeplatam z życiem zawodowym. Lubię angażować się w inicjatywy społeczne i tam, gdzie mogę, łączyć sens z działaniem.
-                        </p>
-                        <p class="text-lg text-gray-700 leading-relaxed text-justify">
-                            Mam szczęście do ludzi – współpracowałam z wieloma przedsiębiorcami i osobami z wyższej kadry zarządzającej, z którymi zawsze potrafię znaleźć wspólny język. Jestem optymistką i realistką… a może raczej optymistyczną realistką – jeśli tak można powiedzieć.
-                        </p>
-                    </div>
-                    <div class="rounded-2xl overflow-hidden shadow-lg">
-                        <img src="images/3.jpg" alt="Julia Lucius" class="w-full h-full object-cover">
-                    </div>
-                </div>
+        <div class="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-5xl font-bold text-gray-900 mb-12 pt-16 text-center">O MNIE</h1>
                 
-                <div class="mt-8 bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-400">
-                    <p class="text-lg text-gray-800 leading-relaxed mb-3">
-                        <strong>Byłam częścią zespołów tworzących:</strong>
-                    </p>
-                    <div class="grid md:grid-cols-3 gap-4 text-gray-700">
-                        <div>🎥 Przygody Przedsiębiorców</div>
-                        <div>🎤 Święto Kapitalizmu</div>
-                        <div>💬 Lożę Przedsiębiorców</div>
+                <div class="bg-white rounded-3xl shadow-xl p-10 md:p-12 mb-16">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h2 class="text-3xl font-semibold text-blue-900 mb-6">💫 Cześć, jestem Julia Lucius</h2>
+                            <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
+                                Cieszę się, że tu jesteś. Jestem osobą, która łączy ludzi i dowozi rezultaty — z uśmiechem, energią i konkretem. Napędza mnie praca z ludźmi mądrzejszymi ode mnie oraz dzielenie się własnym doświadczeniem zawodowym.
+                            </p>
+                            <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
+                                Na co dzień jestem typowym zawodnikiem – uwielbiam checklisty, działanie i odhaczanie zadań. Mam wiele pasji, które naturalnie przeplatam z życiem zawodowym. Lubię angażować się w inicjatywy społeczne i tam, gdzie mogę, łączyć sens z działaniem.
+                            </p>
+                            <p class="text-lg text-gray-700 leading-relaxed text-justify">
+                                Mam szczęście do ludzi – współpracowałam z wieloma przedsiębiorcami i osobami z wyższej kadry zarządzającej, z którymi zawsze potrafię znaleźć wspólny język. Jestem optymistką i realistką… a może raczej optymistyczną realistką – jeśli tak można powiedzieć.
+                            </p>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden shadow-lg">
+                            <img src="images/3.jpg" alt="Julia Lucius" class="w-full h-full object-cover">
+                        </div>
                     </div>
-                    <p class="text-gray-700 mt-4">
-                        Koordynowałam nagrania, wystąpienia prelegentów oraz logistykę wydarzeń z udziałem ponad 200 przedsiębiorców.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Koordynacja wywiadów -->
-            <div class="bg-white rounded-3xl shadow-xl p-10 md:p-12 mb-16">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="order-2 md:order-1 rounded-2xl overflow-hidden shadow-lg">
-                        <img src="images/wywiad1.jpg" alt="Koordynacja wywiadów" class="w-full h-full object-cover">
-                    </div>
-                    <div class="order-1 md:order-2">
-                        <h2 class="text-3xl font-bold text-gray-900 mb-6">🧠 Koordynacja wywiadów i produkcji YouTube</h2>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
-                            Od planu nagrań po rozmowy z ludźmi, którzy inspirują.
+                    
+                    <div class="mt-8 bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-400">
+                        <p class="text-lg text-gray-800 leading-relaxed mb-3">
+                            <strong>Byłam częścią zespołów tworzących:</strong>
                         </p>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
-                            Mam za sobą setki godzin pracy przy wywiadach i produkcjach wideo — od planowania, przez logistykę, po koordynację gości. Miałam okazję współorganizować rozmowy z wyjątkowymi osobami, m.in.:
-                        </p>
-                        <ul class="space-y-2 text-gray-700">
-                            <li>👉 Premierem Mateuszem Morawieckim</li>
-                            <li>👉 Marszałkiem Szymonem Hołownią</li>
-                            <li>👉 Joanną Jędrzejczyk</li>
-                            <li>👉 Janem Błachowiczem</li>
-                            <li>👉 Janiną Bąk</li>
-                        </ul>
+                        <div class="grid md:grid-cols-3 gap-4 text-gray-700">
+                            <div>🎥 Przygody Przedsiębiorców</div>
+                            <div>🎤 Święto Kapitalizmu</div>
+                            <div>💬 Lożę Przedsiębiorców</div>
+                        </div>
                         <p class="text-gray-700 mt-4">
-                            A także z wieloma przedsiębiorcami, sportowcami i ludźmi, którzy na co dzień inspirują innych.
+                            Koordynowałam nagrania, wystąpienia prelegentów oraz logistykę wydarzeń z udziałem ponad 200 przedsiębiorców.
                         </p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Eventy -->
-            <div class="bg-white rounded-3xl shadow-xl p-10 md:p-12 mb-16">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <h2 class="text-3xl font-bold text-gray-900 mb-6">🎟️ Eventy</h2>
-                        <p class="text-xl font-semibold text-blue-600 mb-4">
-                            Tworzę wydarzenia, które łączą ludzi.
-                        </p>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
-                            Uwielbiam tworzyć przestrzeń, w której ludzie mogą się spotkać, wymienić doświadczeniami i po prostu dobrze bawić.
-                        </p>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
-                            Pomagałam w organizacji ponad 40 eventów online oraz wielu spotkań stacjonarnych, m.in.:
-                        </p>
-                        <ul class="space-y-2 text-gray-700 mb-4">
-                            <li>🏁 wyścigi gokartów elektrycznych</li>
-                            <li>🎯 treningi strzeleckie</li>
-                            <li>🤝 spotkania networkingowe dla przedsiębiorców</li>
-                        </ul>
-                        <p class="text-gray-700 text-justify">
-                            Koordynowałam również wejścia prelegentów podczas Święta Kapitalizmu, współpracując z liderami z różnych branż i dbając o perfekcyjną organizację każdego szczegółu.
-                        </p>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="rounded-2xl overflow-hidden shadow-lg">
-                            <img src="images/event1.JPEG" alt="Event 1" class="w-full h-full object-cover">
+                <div class="bg-white rounded-3xl shadow-xl p-10 md:p-12 mb-16">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="order-2 md:order-1 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="images/wywiad1.jpg" alt="Koordynacja wywiadów" class="w-full h-full object-cover">
                         </div>
-                        <div class="rounded-2xl overflow-hidden shadow-lg">
-                            <img src="images/event2.JPEG" alt="Event 2" class="w-full h-full object-cover">
+                        <div class="order-1 md:order-2">
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6">🧠 Koordynacja wywiadów i produkcji YouTube</h2>
+                            <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
+                                Od planu nagrań po rozmowy z ludźmi, którzy inspirują.
+                            </p>
+                            <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
+                                Mam za sobą setki godzin pracy przy wywiadach i produkcjach wideo — od planowania, przez logistykę, po koordynację gości. Miałam okazję współorganizować rozmowy z wyjątkowymi osobami, m.in.:
+                            </p>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>👉 Premierem Mateuszem Morawieckim</li>
+                                <li>👉 Marszałkiem Szymonem Hołownią</li>
+                                <li>👉 Joanną Jędrzejczyk</li>
+                                <li>👉 Janem Błachowiczem</li>
+                                <li>👉 Janiną Bąk</li>
+                            </ul>
+                            <p class="text-gray-700 mt-4"> A także z wieloma przedsiębiorcami, sportowcami i ludźmi, którzy na co dzień inspirują innych. </p>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Współprace -->
-            <div class="bg-white rounded-3xl shadow-xl p-10 md:p-12 mb-16">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="order-2 md:order-1 rounded-2xl overflow-hidden shadow-lg">
-                        <img src="images/wspolpraca.JPEG" alt="Współprace" class="w-full h-full object-cover">
+                <div class="bg-white rounded-3xl shadow-xl p-10 md:p-12 mb-16">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6">🎟️ Eventy</h2>
+                            <p class="text-xl font-semibold text-blue-600 mb-4"> Tworzę wydarzenia, które łączą ludzi. </p>
+                            <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify"> Uwielbiam tworzyć przestrzeń, w której ludzie mogą się spotkać, wymienić doświadczeniami i po prostu dobrze bawić. </p>
+                            <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify"> Pomagałam w organizacji ponad 40 eventów online oraz wielu spotkań stacjonarnych, m.in.: </p>
+                            <ul class="space-y-2 text-gray-700 mb-4">
+                                <li>🏁 wyścigi gokartów elektrycznych</li>
+                                <li>🎯 treningi strzeleckie</li>
+                                <li>🤝 spotkania networkingowe dla przedsiębiorców</li>
+                            </ul>
+                            <p class="text-gray-700 text-justify"> Koordynowałam również wejścia prelegentów podczas Święta Kapitalizmu, współpracując z liderami z różnych branż i dbając o perfekcyjną organizację każdego szczegółu. </p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="rounded-2xl overflow-hidden shadow-lg">
+                                <img src="images/event1.JPEG" alt="Event 1" class="w-full h-full object-cover">
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-lg">
+                                <img src="images/event2.JPEG" alt="Event 2" class="w-full h-full object-cover">
+                            </div>
+                        </div>
                     </div>
-                    <div class="order-1 md:order-2">
-                        <h2 class="text-3xl font-bold text-gray-900 mb-6">🤝 Współprace</h2>
-                        <p class="text-xl font-semibold text-blue-600 mb-4">
-                            Łączę marki, ludzi i dobre doświadczenia.
-                        </p>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
-                            W swojej pracy miałam okazję współpracować z wieloma partnerami, markami i organizacjami, które cenią jakość i profesjonalizm.
-                        </p>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
-                            Dopinałam projekty i współprace m.in. z:
-                        </p>
-                        <ul class="space-y-2 text-gray-700 mb-4">
-                            <li>🏨 Hotelem Marriott</li>
-                            <li>🚢 Royal Caribbean</li>
-                            <li>🏎️ Wypożyczalniami sportowych aut</li>
-                            <li>🏡 Slowhopami</li>
-                            <li>🎓 Uczelnią WSB Merito</li>
-                        </ul>
-                        <p class="text-gray-700 text-justify">
-                            Każda z tych współprac nauczyła mnie, jak ważne jest zaufanie, komunikacja i dbałość o szczegóły — niezależnie od skali projektu.
-                        </p>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-xl p-10 md:p-12 mb-16">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="order-1 md:order-2">
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6">❤️ Wolontariaty i współprace społeczne</h2>
+                            <p class="text-xl font-semibold text-blue-600 mb-4"> Chcę wspierać tych, którzy działają z sercem. </p>
+                            <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify"> Poza projektami zawodowymi angażuję się w inicjatywy, które mają sens i serce. </p>
+                            <p class="text-lg text-gray-700 leading-relaxed mb-4"> Zorganizowałam m.in.: </p>
+                            <ul class="space-y-2 text-gray-700 mb-4">
+                                <li>🌳 akcję sprzątania lasu</li>
+                                <li>🎁 zbiórkę w ramach Szlachetnej Paczki</li>
+                                <li>🐾 wsparcie dla schronisk</li>
+                                <li>💄 Beauty Day dla dzieci z domów dziecka</li>
+                                <li>🎧 wizytę w studiu nagraniowym dla najmłodszych</li>
+                            </ul>
+                            <p class="text-gray-700 text-justify"> Brałam też udział w wolontariatach zagranicznych, m.in. dwumiesięczny projekt w Gruzji, gdzie wspierałam lokalne społeczności. </p>
+                        </div>
+                        <div class="order-2 md:order-1 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="images/pomoc.jpg" alt="Współprace" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-xl p-10 md:p-12 mb-16">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="order-2 md:order-1 rounded-2xl overflow-hidden shadow-lg">
+                            <img src="images/nietypowe.JPG" alt="Nietypowe projekty" class="w-full h-full object-cover">
+                        </div>
+                        <div class="order-1 md:order-2">
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6">🕵️‍♀️ Nietypowe projekty</h2>
+                            <p class="text-xl font-semibold text-blue-600 mb-4"> Bo czasem najbardziej zapamiętuje się te zadania spoza schematu. </p>
+                            <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify"> Nie boję się wyzwań, które wymagają pomysłowości, odwagi i szybkiego działania. </p>
+                            <p class="text-lg text-gray-700 leading-relaxed mb-4"> Wśród moich bardziej nietypowych zadań znalazły się: </p>
+                            <ul class="space-y-2 text-gray-700 list-disc pl-5">
+                                <li>planowanie lotu balonem na ogrzane powietrze,</li>
+                                <li>organizacja rejsu po Odrze,</li>
+                                <li>koordynacja wdrożenia nowego CRM w dużej firmie,</li>
+                                <li>organizacja sesji wizerunkowych w trudnych, nietypowych lokalizacjach.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-center">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-8">Moje Supermoce</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-gradient-to-br from-blue-100 to-gray-50 p-6 rounded-2xl border-2 border-gray-100 hover:border-blue-400 hover:shadow-xl transition-all">
+                            <div class="text-4xl mb-3">🤝</div>
+                            <p class="font-semibold text-xl text-blue-900 mb-2">Relacje i komunikacja</p>
+                            <p class="text-gray-700 text-sm">Jestem osobą, która szybko nawiązuje kontakt i buduje zaufanie. Wierzę, że jasna komunikacja jest kluczem do sukcesu. To dzięki relacjom dowożę projekty i to one są moim największym kapitałem.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-pink-100 to-gray-50 p-6 rounded-2xl border-2 border-gray-100 hover:border-blue-400 hover:shadow-xl transition-all">
+                            <div class="text-4xl mb-3">⚡️</div>
+                            <p class="font-semibold text-xl text-pink-900 mb-2">Decyzyjność i wdrożenie</p>
+                            <p class="text-gray-700 text-sm">Potrafię szybko diagnozować sytuację, podejmować decyzje i wprowadzać je w życie. Nie analizuję w nieskończoność — po prostu działam. W zespole często przejmuję inicjatywę i doprowadzam projekty do końca.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-green-100 to-gray-50 p-6 rounded-2xl border-2 border-gray-100 hover:border-blue-400 hover:shadow-xl transition-all">
+                            <div class="text-4xl mb-3">🧠</div>
+                            <p class="font-semibold text-xl text-green-900 mb-2">Logiczne myślenie</p>
+                            <p class="text-gray-700 text-sm">Ufam faktom, nie przypuszczeniom. W pracy bazuję na sprawdzonych danych, obserwacjach i doświadczeniu. Lubię porządek, jasne zasady i konkretne cele.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Działania społeczne -->
-            <div class="bg-white rounded-3xl shadow-xl p-10 md:p-12 mb-16">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <h2 class="text-3xl font-bold text-gray-900 mb-6">💚 Działania społeczne</h2>
-                        <p class="text-xl font-semibold text-blue-600 mb-4">
-                            Lubię robić coś dobrego — po prostu
-                        </p>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
-                            Poza projektami zawodowymi angażuję się w inicjatywy, które mają sens i serce.
-                        </p>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
-                            Zorganizowałam m.in.:
-                        </p>
-                        <ul class="space-y-2 text-gray-700 mb-4">
-                            <li>🌳 akcję sprzątania lasu</li>
-                            <li>🎁 zbiórkę w ramach Szlachetnej Paczki</li>
-                            <li>🐾 wsparcie dla schronisk</li>
-                            <li>💄 Beauty Day dla dzieci z domów dziecka</li>
-                            <li>🎧 wizytę w studiu nagraniowym dla najmłodszych</li>
-                        </ul>
-                        <p class="text-gray-700 text-justify">
-                            Brałam też udział w wolontariatach zagranicznych, m.in. dwumiesięczny projekt w Gruzji, gdzie wspierałam lokalne społeczności.
-                        </p>
-                    </div>
-                    <div class="order-2 md:order-1 rounded-2xl overflow-hidden shadow-lg">
-                        <img src="images/pomoc.jpg" alt="Współprace" class="w-full h-full object-cover">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Nietypowe projekty -->
-            <div class="bg-white rounded-3xl shadow-xl p-10 md:p-12 mb-16">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div class="order-2 md:order-1 rounded-2xl overflow-hidden shadow-lg">
-                        <img src="images/nietypowe.JPG" alt="Nietypowe projekty" class="w-full h-full object-cover">
-                    </div>
-                    <div class="order-1 md:order-2">
-                        <h2 class="text-3xl font-bold text-gray-900 mb-6">🕵️‍♀️ Nietypowe projekty</h2>
-                        <p class="text-xl font-semibold text-blue-600 mb-4">
-                            Bo czasem najbardziej zapamiętuje się te zadania spoza schematu.
-                        </p>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4 text-justify">
-                            Nie boję się wyzwań, które wymagają pomysłowości, odwagi i szybkiego działania.
-                        </p>
-                        <p class="text-lg text-gray-700 leading-relaxed mb-4">
-                            Wśród moich bardziej nietypowych zadań znalazły się:
-                        </p>
-                        <ul class="space-y-2 text-gray-700 mb-4">
-                            <li>🎈 organizacja ogromnego baneru-niespodzianki w centrum Wrocławia</li>
-                            <li>🔫 pomoc w przejściu całego procesu uzyskania licencji na broń</li>
-                            <li>🕵️‍♀️ koordynacja formalności związanych z licencją detektywa</li>
-                        </ul>
-                        <p class="text-gray-700 italic text-justify">
-                            Lubię, gdy coś wydaje się „nie do zrobienia" — wtedy zaczyna się najlepsza część mojej pracy.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Moje cechy -->
-            <div class="bg-white rounded-3xl shadow-xl p-10 md:p-12">
-                <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Moje Cechy i Zalety</h2>
-                <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center max-w-3xl mx-auto">
-                    Moja skuteczność opiera się na konkretnych predyspozycjach. To one stanowią fundament mojego stylu pracy.
-                </p>
-                <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                    <div class="bg-gradient-to-br from-blue-100 to-gray-50 p-6 rounded-2xl border-2 border-gray-100 hover:border-blue-400 hover:shadow-xl transition-all">
-                        <div class="text-4xl mb-3">💥</div>
-                        <p class="font-semibold text-xl text-blue-900 mb-2">Zorientowanie na cel</p>
-                        <p class="text-gray-700 text-sm">Zawsze wiem, dokąd zmierzam. Skupiam się na faktach, priorytetach i rozwiązaniach, które realnie przybliżają mnie do celu. Nie gubię się w chaosie – działam krok po kroku, aż do efektu.</p>
-                    </div>
-                    <div class="bg-gradient-to-br from-yellow-100 to-gray-50 p-6 rounded-2xl border-2 border-gray-100 hover:border-blue-400 hover:shadow-xl transition-all">
-                        <div class="text-4xl mb-3">⚙️</div>
-                        <p class="font-semibold text-xl text-yellow-900 mb-2">Skuteczność i decyzyjność</p>
-                        <p class="text-gray-700 text-sm">Potrafię szybko diagnozować sytuację, podejmować decyzje i wprowadzać je w życie. Nie analizuję w nieskończoność — po prostu działam. W zespole często przejmuję inicjatywę i doprowadzam projekty do końca.</p>
-                    </div>
-                    <div class="bg-gradient-to-br from-pink-100 to-gray-50 p-6 rounded-2xl border-2 border-gray-100 hover:border-blue-400 hover:shadow-xl transition-all">
-                        <div class="text-4xl mb-3">🧠</div>
-                        <p class="font-semibold text-xl text-pink-900 mb-2">Logiczne myślenie</p>
-                        <p class="text-gray-700 text-sm">Ufam faktom, nie przypuszczeniom. W pracy bazuję na sprawdzonych danych, obserwacjach i doświadczeniu. Lubię porządek, jasne zasady i konkretne cele.</p>
-                    </div>
-                    <div class="bg-gradient-to-br from-green-100 to-gray-50 p-6 rounded-2xl border-2 border-gray-100 hover:border-blue-400 hover:shadow-xl transition-all">
-                        <div class="text-4xl mb-3">🚀</div>
-                        <p class="font-semibold text-xl text-green-900 mb-2">Zadaniowość i energia w działaniu</p>
-                        <p class="text-gray-700 text-sm">Lubię tempo, konkret i rezultaty. Najlepiej czuję się, gdy mogę działać w czasie rzeczywistym — koordynować, decydować i widzieć natychmiastowe efekty pracy.</p>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
-</div>
 
     <div id="services-page" class="page">
         <div class="min-h-screen bg-gradient-to-br from-pink-50 to-white py-20 px-6">
             <div class="max-w-6xl mx-auto">
                 <h1 class="text-5xl font-bold text-gray-900 mb-6 text-center pt-16">Oferta</h1>
-                <p class="text-xl text-gray-600 text-center mb-16">Rekrutacja • Integracje firmowe • Twoja asystentka operacyjna</p>
+                <p class="text-xl text-gray-600 text-center mb-16">Rekrutacja • Integracje firmowe • Wirtualna Managerka Operacyjna</p>
+
+                <section id="rekrutacja" class="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-16 pt-16 -mt-16 scroll-mt-16 border-l-4 border-blue-400">
+                    <div class="grid md:grid-cols-2 gap-10 items-center">
+                        <div class="order-2 md:order-1">
+                            <h2 class="text-4xl font-bold text-gray-900 mb-6">
+                                Znajdź idealną asystentkę do swojego biznesu.
+                            </h2>
+                            <div class="flex gap-4 pt-4 mb-8">
+                                <a href="#contact" onclick="showPage('contact')" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg">
+                                    Zleć rekrutację
+                                </a>
+                                <a href="#contact" onclick="showPage('contact')" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-colors">
+                                    Zgłoś się jako asystentka
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="order-1 md:order-2">
+                            <div class="rounded-3xl overflow-hidden shadow-2xl">
+                                <img src="images/rekrutacja.jpg" alt="Rekrutacja" class="w-full h-auto object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 space-y-4">
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            💬Doba ma tylko 24 godziny. Pomogę Ci przestać tracić je na rzeczy, które ktoś inny zrobi lepiej i szybciej.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed text-justify">
+                            Wiem, jak to jest, gdy doba jest za krótka. Gdy zamiast rozwijać firmę, gasisz pożary. Gdy zamiast myśleć strategicznie odbierasz telefony, umawiasz spotkania, wypełniasz dokumenty i jeździsz po urzędach. Wielu przedsiębiorców szuka asystentki wtedy, gdy czują, że sami już nie wyrabiają. Tylko że rekrutacja często zabiera jeszcze więcej czasu, energii i nerwów.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed text-justify">
+                            Tu wchodzę ja. Znam świat asystentek od podszewki - sama przechodziłam przez te stanowiska, więc wiem, jakie kompetencje i cechy naprawdę robią różnicę. Mam oko do ludzi i szczęście do trafnych wyborów.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed text-justify">
+                            Nie działam „hurtowo” każda rekrutacja to indywidualny projekt. Dobieram kandydatkę, która nie tylko ma umiejętności, ale też pasuje do Twojego stylu pracy i charakteru firmy.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed text-justify">
+                            Moim celem jest, byś w końcu mógł skupić się na tym, co naprawdę ważne: strategii, rozwoju, wizji, a nie na zadaniach, które ktoś inny może zrobić za Ciebie.
+                        </p>
+                    </div>
+
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                            <span class="text-3xl mr-2">👩‍💼</span> Kogo głównie rekrutuję
+                        </h3>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Specjalizuję się w rekrutacjach stanowisk takich jak:
+                        </p>
+                        <ul class="grid md:grid-cols-2 gap-2 text-gray-700 list-disc pl-5">
+                            <li>Asystentki i Asystenci Zarządu</li>
+                            <li>Asystentki Osobiste / Prywatne</li>
+                            <li>Wirtualne Asystentki</li>
+                            <li>Office Managerowie</li>
+                            <li>Prawa ręka przedsiębiorcy</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                            <span class="text-3xl mr-2">🔄</span> Jak wygląda proces
+                        </h3>
+                        <div class="relative flex justify-between items-start text-center border-t-2 border-b-2 border-blue-200 py-10 my-6">
+                            <div class="absolute top-1/2 left-0 right-0 h-1 bg-blue-400 opacity-50 -z-10 hidden sm:block" style="margin-top: -2px;"></div>
+
+                            <div class="flex-1 px-2 relative z-10">
+                                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-600 text-white mx-auto mb-3 text-lg font-bold shadow-lg">1</div>
+                                <p class="font-semibold text-gray-900 mb-1">Rozmowa z pracodawcą</p>
+                                <p class="text-sm text-gray-600 hidden sm:block">poznaję potrzeby, styl pracy i oczekiwania.</p>
+                            </div>
+                            <div class="flex-1 px-2 relative z-10">
+                                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-600 text-white mx-auto mb-3 text-lg font-bold shadow-lg">2</div>
+                                <p class="font-semibold text-gray-900 mb-1">Wystawienie ogłoszenia</p>
+                                <p class="text-sm text-gray-600 hidden sm:block">przygotowuję profesjonalny opis stanowiska i publikuję w wybranych kanałach.</p>
+                            </div>
+                            <div class="flex-1 px-2 relative z-10">
+                                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-600 text-white mx-auto mb-3 text-lg font-bold shadow-lg">3</div>
+                                <p class="font-semibold text-gray-900 mb-1">Selekcja i rozmowy</p>
+                                <p class="text-sm text-gray-600 hidden sm:block">sprawdzam doświadczenie, komunikację, postawę i dopasowanie osobowościowe.</p>
+                            </div>
+                            <div class="flex-1 px-2 relative z-10">
+                                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-600 text-white mx-auto mb-3 text-lg font-bold shadow-lg">4</div>
+                                <p class="font-semibold text-gray-900 mb-1">Rekomendacja</p>
+                                <p class="text-sm text-gray-600 hidden sm:block">przedstawiam wyselekcjonowanych kandydatów i wspólnie z Tobą wybieramy najlepszego.</p>
+                            </div>
+                            <div class="flex-1 px-2 relative z-10">
+                                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-600 text-white mx-auto mb-3 text-lg font-bold shadow-lg">5</div>
+                                <p class="font-semibold text-gray-900 mb-1">Finish!</p>
+                                <p class="text-sm text-gray-600 hidden sm:block">wspieram Cię przy finalizacji i wdrożeniu nowej osoby.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-6 rounded-xl mt-8 border-l-4 border-blue-500">
+                            <h4 class="text-xl font-bold text-gray-900 mb-3 flex items-center">💡 Proces jest szybki, przejrzysty i dostosowany do Twojego tempa działania.</h4>
+                            <p class="text-lg text-gray-700 leading-relaxed">
+                                3 dni zamiast 30? Brzmi dobrze? Wystarczą trzy dni , by znaleźć Twoją idealną asystentkę.
+                            </p>
+                            <ul class="list-disc pl-5 text-gray-700">
+                                <li><strong>1 dzień</strong> – rozmawiamy o tym, kogo potrzebujesz.</li>
+                                <li><strong>2 dzień</strong> – przedstawiam Ci kandydatkę.</li>
+                                <li><strong>3 dzień</strong> – wybierasz i podpisujesz umowę.</li>
+                            </ul>
+                            <p class="text-sm text-gray-600 mt-2">To tylko 3 dni Twojej uwagi. W resztę dni to ja pracuje, by wybrać dla Ciebie najlepszego kandydata.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                            <span class="text-3xl mr-2">🤝</span> Współpracowałam m.in.
+                        </h3>
+                        <p class="text-lg text-gray-700">
+                            OJWojtek, Adam Jagiełka, Blue Bird Evesta, Marek Golan, DogTronic, Dawid Lech, Carcon, Adam Sadkowski, delikatesylemonia, Elżbieta Kazubska (Eli Pro Dubaj), Sylwester Sałasiński, Thai Organic, grzegorz lisewski, RG BUD.
+                        </p>
+                    </div>
+                </section>
+
+                <section id="integracje-firmowe" class="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-16 pt-16 -mt-16 scroll-mt-16 border-l-4 border-pink-400">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6 text-center md:text-left flex items-center justify-center md:justify-start">
+                        <span class="text-4xl mr-3">🎭</span> Integracje i szkolenia firmowe
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-10 items-start">
+                        <div class="order-2 md:order-1 space-y-4">
+                            <p class="text-xl font-semibold text-blue-600 mb-4">💬 Relacje robią robotę, my robimy relacje.</p>
+                            <p class="text-lg text-gray-700 leading-relaxed text-justify">
+                                Zamiast kolejnych, nudnych „szkoleń z komunikacji”, oferujemy doświadczenie, które realnie zmienia zespół. Łączymy improwizację, dialog i wspólne przeżycia, by odbudować zaufanie, współpracę i energię w Twojej firmie. Są to warsztaty bazujące na improwizacji teatralnej i aktywnościach budujących zespół poprzez zabawę.
+                            </p>
+
+                            <div class="pt-4">
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                                    <span class="text-3xl mr-2">💡</span> Co robimy
+                                </h3>
+                                <p class="text-lg text-gray-700 mb-4">
+                                    Budujemy zespoły, które naprawdę ze sobą współpracują, nie tylko „pracują obok siebie”. Nasze warsztaty oparte o improwizację i komunikację pomagają:
+                                </p>
+                                <ul class="space-y-2 text-gray-700 list-disc pl-5">
+                                    <li>wzmocnić zaufanie w zespole,</li>
+                                    <li>poprawić komunikację i współpracę,</li>
+                                    <li>rozwiązać konflikty,</li>
+                                    <li>zwiększyć kreatywność i odpowiedzialność za wspólne cele.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="order-1 md:order-2">
+                            <div class="rounded-3xl overflow-hidden shadow-2xl">
+                                <img src="images/integracje.jpg" alt="Integracje firmowe" class="w-full h-auto object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center flex items-center justify-center">
+                            <span class="text-3xl mr-2">🔄</span> Jak to działa
+                        </h3>
+                        <div class="grid sm:grid-cols-5 gap-4 text-center">
+                            <div class="p-4 rounded-xl bg-blue-50 border-blue-200 border-b-4 hover:border-blue-500 transition-all">
+                                <div class="text-3xl mb-2">1️⃣</div>
+                                <p class="font-semibold text-gray-900">Rozmowa z firmą</p>
+                                <p class="text-sm text-gray-600">poznajemy Twój zespół, cele i wyzwania.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-blue-50 border-blue-200 border-b-4 hover:border-blue-500 transition-all">
+                                <div class="text-3xl mb-2">2️⃣</div>
+                                <p class="font-semibold text-gray-900">Dopasowanie programu</p>
+                                <p class="text-sm text-gray-600">projektujemy warsztat do Waszych potrzeb (komunikacja, zaufanie, współpraca).</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-blue-50 border-blue-200 border-b-4 hover:border-blue-500 transition-all">
+                                <div class="text-3xl mb-2">3️⃣</div>
+                                <p class="font-semibold text-gray-900">Realizacja warsztatu</p>
+                                <p class="text-sm text-gray-600">improv, ćwiczenia, scenki, wspólne zadania.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-blue-50 border-blue-200 border-b-4 hover:border-blue-500 transition-all">
+                                <div class="text-3xl mb-2">4️⃣</div>
+                                <p class="font-semibold text-gray-900">Omówienie i wnioski</p>
+                                <p class="text-sm text-gray-600">wspólnie analizujemy efekty i planujemy dalsze działania.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-blue-50 border-blue-200 border-b-4 hover:border-blue-500 transition-all">
+                                <div class="text-3xl mb-2">5️⃣</div>
+                                <p class="font-semibold text-gray-900">Efekt: Dream Team!</p>
+                                <p class="text-sm text-gray-600">zespół, który działa jak organizm, nie zbiór indywidualności.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                            <span class="text-3xl mr-2">🚀</span> Co zyskujesz
+                        </h3>
+                        <ul class="grid md:grid-cols-2 gap-2 text-gray-700 list-disc pl-5">
+                            <li>Lepszą atmosferę w pracy i widoczne zaangażowanie.</li>
+                            <li>Krótszy czas realizacji projektów.</li>
+                            <li>O 40% mniej konfliktów w zespole (potwierdzone przez klientów).</li>
+                            <li>Więcej energii, motywacji i kreatywnych pomysłów.</li>
+                            <li>Mniejszą rotację — zintegrowane zespoły zostają na dłużej.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-12 bg-gray-50 p-6 rounded-2xl border-l-4 border-pink-400">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                            <span class="text-3xl mr-2">🌟</span> Dlaczego my
+                        </h3>
+                        <p class="text-lg text-gray-700 mb-4">Działamy w duecie:</p>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><strong>👩‍💼 Ola Gornowicz</strong> – mistrzyni organizacji, struktury i relacji w firmach.</li>
+                            <li><strong>🎭 Julia Lucius</strong> – aktorka improwizacji, która potrafi rozkręcić każdy zespół.</li>
+                        </ul>
+                        <p class="text-lg text-gray-700 mt-4">
+                            Wspólnie łączymy organizacyjną precyzję i sceniczną energię, tworząc warsztaty, które angażują, inspirują i zostają z zespołem na długo.
+                        </p>
+                        
+                        <div class="pt-6">
+                            <h4 class="text-xl font-bold text-gray-900 mb-3 flex items-center">
+                                <span class="text-3xl mr-2">🧩</span> Dopasowanie do Twojej firmy
+                            </h4>
+                            <p class="text-lg text-gray-700 mb-4">Znamy się na zespołach zarówno tych świeżych, jak i długo współpracujących. Każdy warsztat dopasowujemy do ludzi, nie odwrotnie:</p>
+                            <ul class="space-y-2 text-gray-700 list-disc pl-5">
+                                <li>forma spotkania</li>
+                                <li>długość warsztatu</li>
+                                <li>energia (warsztat motywacyjny, relacyjny, kreatywny lub integracyjny).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
                 
-                <div class="space-y-8">
-                    <div class="bg-white rounded-3xl shadow-xl p-12 hover:shadow-2xl transition-all">
-                        <div class="flex flex-col md:flex-row items-start gap-6">
-                            <div class="text-blue-600 bg-blue-50 p-4 rounded-2xl">
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                                </svg>
+                <section id="managerka-operacyjna" class="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-16 pt-16 -mt-16 scroll-mt-16 border-l-4 border-blue-600">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6 text-center md:text-left flex items-center justify-center md:justify-start">
+                        <span class="text-4xl mr-3">⭐</span> Wirtualna Managerka Operacyjna
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-10 items-start">
+                        <div class="order-1 md:order-1 space-y-4">
+                            <p class="text-xl font-semibold text-blue-600 mb-4">(współpraca projektowa & zadaniowa)</p>
+                            <p class="text-lg text-gray-700 leading-relaxed text-justify">
+                                Są obszary w firmie, które wymagają więcej niż zwykłej asysty potrzebują kogoś, kto ogarnia operacje, myśli strategicznie i potrafi dowieźć rezultat. Właśnie w takich zadaniach wspieram przedsiębiorców. Pomagam w projektach, procesach, organizacji pracy i elementach biznesu, które muszą być wykonane dokładnie, przewidywalnie i bez Twojej kontroli na każdym kroku.
+                            </p>
+                            
+                            <div class="pt-4">
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4">Jak pracuję?</h3>
+                                <p class="text-lg text-gray-700 mb-4">
+                                    Działam zadaniowo lub godzinowo przy bardziej zaawansowanych obszarach, takich jak:
+                                </p>
+                                <ul class="space-y-2 text-gray-700 list-disc pl-5">
+                                    <li>prowadzenie i koordynacja projektów,</li>
+                                    <li>usprawnianie procesów i narzędzi,</li>
+                                    <li>organizacja operacyjna,</li>
+                                    <li>wdrażanie zespołu (np. nowych asystentek),</li>
+                                    <li>standaryzacja pracy,</li>
+                                    <li>nadzór nad realizacją zadań,</li>
+                                    <li>działania wymagające łączenia strategii z operacją.</li>
+                                </ul>
                             </div>
-                            <div class="flex-1">
-                                <h2 class="text-3xl font-bold text-gray-900 mb-4">Rekrutacja</h2>
-                                <p class="text-lg text-gray-700 leading-relaxed mb-6">Pomagam właścicielom firm znaleźć idealnych pracowników — rekrutuję asystentki, wspieram zespoły w integracji</p>
-                                
-                                <div class="bg-blue-50 p-6 rounded-2xl">
-                                    <p class="font-semibold text-blue-900">
-                                        Zlecić rekrutację / "Zgłoś się jako asystentka" - może odsyłać do formularza kontaktowego
-                                    </p>
+                            
+                            <div class="pt-4 bg-gray-50 p-6 rounded-2xl border-l-4 border-blue-400">
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4">Moja dostępność</h3>
+                                <p class="text-lg text-gray-700 leading-relaxed mb-4">
+                                    Aktualnie współpracuję z wybranymi firmami i moje możliwości czasowe są dość ograniczone. Jeśli jednak masz zadanie, które wymaga mojego doświadczenia albo rozważasz współpracę w przyszłości - śmiało się odezwij.
+                                </p>
+                                <p class="text-lg text-gray-700 leading-relaxed">
+                                    Przyjmuję wybrane projekty. Jeśli chcesz porozmawiać – napisz.
+                                </p>
+                                <div class="pt-4 text-center md:text-left">
+                                    <a href="#contact" onclick="showPage('contact')" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg">
+                                        Napisz do mnie
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="bg-white rounded-3xl shadow-xl p-12 hover:shadow-2xl transition-all">
-                        <div class="flex flex-col md:flex-row items-start gap-6">
-                            <div class="text-blue-600 bg-blue-50 p-4 rounded-2xl">
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <h2 class="text-3xl font-bold text-gray-900 mb-4">Integracje i szkolenia firmowe</h2>
-                                <p class="text-lg text-gray-700 leading-relaxed mb-6">Organizuję wydarzenia integracyjne, szkolenia i warsztaty, które budują silne zespoły</p>
-                                
-                                <div class="bg-yellow-50 p-6 rounded-2xl border-l-4 border-yellow-400">
-                                    <p class="font-semibold">
-                                        Fotka z Olą i ze szkolenia
-                                    </p>
-                                </div>
+                        
+                        <div class="order-2 md:order-2">
+                            <div class="rounded-3xl overflow-hidden shadow-2xl">
+                                <img src="images/managerka.jpg" alt="Wirtualna Managerka Operacyjna" class="w-full h-auto object-cover">
                             </div>
                         </div>
                     </div>
-
-                    <div class="bg-white rounded-3xl shadow-xl p-12 hover:shadow-2xl transition-all">
-                        <div class="flex flex-col md:flex-row items-start gap-6">
-                            <div class="text-blue-600 bg-blue-50 p-4 rounded-2xl">
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <h2 class="text-3xl font-bold text-gray-900 mb-4">Wirtualna asystentka operacyjna</h2>
-                                <p class="text-lg text-gray-700 leading-relaxed mb-6">Przejmuję codzienne zadania operacyjne, abyś mógł skupić się na rozwoju biznesu</p>
-                                
-                                <div class="bg-pink-50 p-6 rounded-2xl">
-                                    <p class="font-semibold text-pink-900">
-                                        Wirtualna asystentka do zrobienia
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-16 bg-gradient-to-r from-blue-600 to-pink-600 rounded-3xl p-12 text-white text-center">
-                    <h3 class="text-3xl font-bold mb-4">Znajdź idealną asystentkę do swojego biznesu</h3>
-                    <p class="text-xl mb-8">Lub zostań częścią mojego zespołu!</p>
-                    <button onclick="showPage('contact')" class="bg-white text-blue-600 px-10 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105">
-                        Skontaktuj się ze mną
-                    </button>
-                </div>
+                </section>
             </div>
         </div>
     </div>
-
-  <div id="contact-page" class="page">
-    <div class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-pink-50 py-20 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h1 class="text-5xl font-bold text-gray-900 mb-6 text-center pt-8">Kontakt</h1>
-            <p class="text-xl text-gray-600 text-center mb-16">Napisz do mnie z pewnością się odezwę :)</p>
-
-            <div class="grid md:grid-cols-2 gap-12 items-stretch">
-                <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-10 flex-1 h-full">
-                    <form class="space-y-5 h-full flex flex-col">
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Imię i nazwisko</label>
-                            <input type="text" class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors" placeholder="Wpisz swoje imię i nazwisko">
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-                            <input type="email" class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors" placeholder="twoj@email.com">
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Nazwa firmy (opcjonalnie)</label>
-                            <input type="text" class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors" placeholder="Nazwa Twojej firmy">
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Wybierz usługę</label>
-                            <select class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors">
-                                <option>Rekrutacja asystentki</option>
-                                <option>Integracje i szkolenia</option>
-                                <option>Wirtualna asystentka</option>
-                                <option>Zgłoś się jako asystentka</option>
-                                <option>Inne</option>
-                            </select>
-                        </div>
-
-                        <div class="flex-grow"> <label class="block text-sm font-semibold text-gray-700 mb-2">Wiadomość</label>
-                            <textarea rows="5" class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors h-full resize-none" placeholder="Opisz swoje potrzeby..."></textarea> </div>
-
-                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-pink-600 text-white py-4 rounded-lg font-bold text-lg hover:shadow-xl transition-all transform hover:scale-105">
-                            Wyślij wiadomość
-                        </button>
-                    </form>
-                </div>
-
-                <div class="rounded-3xl overflow-hidden shadow-2xl flex-1 h-full">
-                    <img src="images/3.jpg" alt="Zdjęcie profilowe" class="w-full h-full object-cover">
-                </div>
-            </div>
-
-            <div class="mt-12 text-center">
-                <p class="text-gray-600 mb-4">Lub znajdź mnie na:</p>
-                <div class="flex justify-center gap-4">
-                    <a href="#" class="bg-blue-600 text-white p-4 rounded-full hover:bg-blue-700 transition-all transform hover:scale-110">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="bg-pink-600 text-white p-4 rounded-full hover:bg-pink-700 transition-all transform hover:scale-110">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="bg-gray-800 text-white p-4 rounded-full hover:bg-gray-900 transition-all transform hover:scale-110">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 0 00-2 2v10a2 0 002 2z"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
     <div id="support-page" class="page">
         <div class="min-h-screen bg-gradient-to-br from-blue-50 to-white py-20 px-6">
             <div class="max-w-6xl mx-auto">
-                <h1 class="text-5xl font-bold text-gray-900 mb-6 text-center pt-16">Wspieram</h1>
-                
-                <p class="text-2xl text-gray-700 text-center mb-16 font-semibold italic">
-                    „Karma wraca... dosłownie”
+                <h1 class="text-5xl font-bold text-gray-900 mb-12 pt-16 text-center">WSPARCIE</h1>
+                <p class="text-xl text-gray-600 text-center mb-16">
+                    Wspieram inicjatywy społeczne, które mają sens i serce. Działam tam, gdzie pomoc jest najbardziej potrzebna.
                 </p>
 
-                <div class="text-center max-w-3xl mx-auto mb-12">
-                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
-                        Nie ratuję wszystkich psiaków świata, ale przynajmniej próbuję! 🐶
-                    </p>
-                    <p class="text-lg text-gray-700 leading-relaxed">
-                        Bo los zwierzaków to dla mnie nie tylko temat — to sprawa serca.
-                        Zachęcam do wsparcia organizacji, które robią niesamowitą robotę. Każda pomoc ma znaczenie.
-                    </p>
-                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10 hover:shadow-2xl transition-all transform hover:-translate-y-2 flex flex-col items-center text-center">
+                        <div class="text-pink-600 bg-pink-50 p-4 rounded-2xl mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 0112 20c-2.31 0-4.52-1.02-6.096-2.736a8.001 8.001 0 01-1.904-8.724 8 8 0 0110.824-3.537 8.001 8.001 0 013.537 10.824zM12 18a6 6 0 00-6-6m6 6a6 6 0 01-6-6m6 6a6 6 0 006-6m-6 6a6 6 0 016-6"></path></svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-3">Adrian Gorzycki</h2>
+                        <p class="text-gray-700 leading-relaxed mb-6 flex-grow">
+                            Współorganizacja eventów, które łączą przedsiębiorców. Adrian inspiruje i uczy jak żyć na wysokich obrotach.
+                        </p>
+                        <a href="https://adriangorzycki.com/" target="_blank" rel="noopener noreferrer" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg">
+                            Odwiedź stronę
+                        </a>
+                    </div>
 
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    
                     <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10 hover:shadow-2xl transition-all transform hover:-translate-y-2 flex flex-col items-center text-center">
                         <div class="text-blue-600 bg-blue-50 p-4 rounded-2xl mb-4">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
                         </div>
                         <h2 class="text-2xl font-bold text-gray-900 mb-3">TOZ Grupa Mogilno</h2>
-                        <p class="text-gray-700 leading-relaxed mb-6 flex-grow">
-                            Towarzystwo Opieki nad Zwierzętami w Mogilnie. Wspieraj lokalne działania na rzecz potrzebujących zwierząt.
-                        </p>
-                        <a href="https://tozgrupamogilno.pl/?fbclid=IwY2xjawNxaMlleHRuA2FlbQIxMABicmlkETFKbXFzd3NJdjBCRnJkdms2AR6fVukQIfK6ghXd7QIShr016h-YkUOY6XFoRMtRREIjzhEpZKB0Adkr9zTBug_aem_BfaZ7p84ZCZSLUc8nHmEYA#jak-nas-wesprze%C4%87" target="_blank" rel="noopener noreferrer" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg">
-                            Zobacz, jak pomóc
-                        </a>
+                        <p class="text-gray-700 leading-relaxed mb-6 flex-grow"> Towarzystwo Opieki nad Zwierzętami w Mogilnie. Wspieraj lokalne działania na rzecz potrzebujących zwierząt. </p>
+                        <a href="https://tozgrupamogilno.pl/?fbclid=IwY2xjawNxaMlleHRuA2FlbQIxMABicmlkETFKbXFzd3NJdjBCRnJkdms2AR6fVukQIfK6ghXd7QIShr016h-YkUOY6XFoRMtRREIjzhEpZKB0Adkr9zTBug_aem_BfaZ7p84ZCZSLUc8nHmEYA#jak-nas-wesprzy%C4%87" target="_blank" rel="noopener noreferrer" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 shadow-lg"> Zobacz, jak pomóc </a>
                     </div>
 
                     <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10 hover:shadow-2xl transition-all transform hover:-translate-y-2 flex flex-col items-center text-center">
-                        <div class="text-pink-600 bg-pink-50 p-4 rounded-2xl mb-4">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        <div class="text-green-600 bg-green-50 p-4 rounded-2xl mb-4">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3v-1a3 3 0 013-3h7a3 3 0 013 3z"></path></svg>
                         </div>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-3">Fundacja Kundelek</h2>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-3">Lokalne akcje</h2>
                         <p class="text-gray-700 leading-relaxed mb-6 flex-grow">
-                            Fundacja ratująca psy i koty. Możesz wesprzeć ich finansowo, aby mogli kontynuować swoją misję.
+                            Biorę udział w wolontariatach zagranicznych i organizuję lokalne akcje społeczne (sprzątanie lasów, Szlachetna Paczka).
                         </p>
-                        <a href="https://www.fundacjakundelek.pl/wsparcie-finansowe/#sec-8b66" target="_blank" rel="noopener noreferrer" class="bg-pink-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-pink-700 transition-all transform hover:scale-105 shadow-lg">
-                            Wesprzyj finansowo
+                        <a href="#" onclick="showPage('contact')" class="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold border-2 border-green-600 hover:bg-green-50 transition-all transform hover:scale-105 shadow-lg">
+                            Zgłoś inicjatywę
                         </a>
                     </div>
                 </div>
@@ -783,34 +848,68 @@
         </div>
     </div>
 
-    <footer class="bg-gray-900 text-white py-12 px-6">
-        <div class="max-w-6xl mx-auto text-center">
-            <p class="text-xl font-semibold mb-4">Julia Lucius</p>
-            <p class="text-gray-400 mb-6">Twoja asystentka operacyjna • Rekrutacja • Integracje</p>
-            <div class="flex justify-center gap-6 mb-8">
-                <a href="www.linkedin.com/in/julia-lucius-b63412235" target="_blank" rel="noopener noreferrer">
-                    <svg class="w-6 h-6 cursor-pointer hover:text-blue-400 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                </a>
-                <a href="https://www.instagram.com/julia_lucius_/" target="_blank" rel="noopener noreferrer">
-                    <svg class="w-6 h-6 cursor-pointer hover:text-pink-400 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </a>
+    <div id="contact-page" class="page">
+        <div class="min-h-screen bg-gradient-to-br from-pink-50 to-blue-50 py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-5xl font-bold text-gray-900 mb-12 pt-16 text-center">Kontakt</h1>
+
+                <div class="bg-white p-10 md:p-16 rounded-3xl shadow-2xl grid md:grid-cols-2 gap-10">
+                    <div class="flex-1">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Napisz do mnie</h2>
+                        <form action="#" method="POST" class="space-y-6 h-full flex flex-col justify-between">
+                            <div>
+                                <input type="text" name="name" id="name" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors" placeholder="Imię i nazwisko">
+                            </div>
+                            <div>
+                                <input type="email" name="email" id="email" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors" placeholder="Adres e-mail">
+                            </div>
+                            <div class="flex-grow">
+                                <textarea name="message" id="message" rows="5" required class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors h-full resize-none" placeholder="Opisz swoje potrzeby..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-pink-600 text-white py-4 rounded-lg font-bold text-lg hover:shadow-xl transition-all transform hover:scale-105"> Wyślij wiadomość </button>
+                        </form>
+                    </div>
+                    <div class="rounded-3xl overflow-hidden shadow-2xl flex-1 h-full">
+                        <img src="images/3.jpg" alt="Zdjęcie profilowe" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <p class="text-gray-600 mb-4">Lub znajdź mnie na:</p>
+                    <div class="flex justify-center gap-4">
+                        <a href="#" class="bg-blue-600 text-white p-4 rounded-full hover:bg-blue-700 transition-all transform hover:scale-110">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="bg-pink-600 text-white p-4 rounded-full hover:bg-pink-700 transition-all transform hover:scale-110">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2c2.693 0 3.014.01 4.07.059 1.056.05 1.756.23 2.403.484.647.256 1.157.616 1.666 1.125s.869 1.019 1.125 1.666c.254.647.434 1.347.484 2.403.049 1.056.059 1.377.059 4.07s-.01 3.014-.059 4.07c-.05 1.056-.23 1.756-.484 2.403-.256.647-.616 1.157-1.125 1.666s-1.019.869-1.666 1.125c-.647.254-1.347.434-2.403.484-1.056.049-1.377.059-4.07.059s-3.014-.01-4.07-.059c-1.056-.05-1.756-.23-2.403-.484-.647-.256-1.157-.616-1.666-1.125s-.869-1.019-1.125-1.666c-.254-.647-.434-1.347-.484-2.403-.049-1.056-.059-1.377-.059-4.07s.01-3.014.059-4.07c.05-1.056.23-1.756.484-2.403.256-.647.616-1.157 1.125-1.666s1.019-.869 1.666-1.125c.647-.254 1.347-.434 2.403-.484 1.056-.049 1.377-.059 4.07-.059zm0 2.2c-2.613 0-2.913.01-3.922.057-1.008.046-1.619.224-2.071.401-.453.178-.718.418-.945.645s-.467.492-.645.945c-.177.452-.355 1.063-.401 2.071-.047 1.009-.057 1.309-.057 3.922s.01 2.913.057 3.922c.046 1.008.224 1.619.401 2.071.178.453.418.718.645.945s.492.467.945.645c.452.177 1.063.355 2.071.401 1.009.047 1.309.057 3.922.057s2.913-.01 3.922-.057c1.008-.046 1.619-.224 2.071-.401.453-.178.718-.418.945-.645s.467-.492.645-.945c.177-.452.355-1.063.401-2.071.047-1.009.057-1.309.057-3.922s-.01-2.913-.057-3.922c-.046-1.008-.224-1.619-.401-2.071-.178-.453-.418-.718-.645-.945s-.492-.467-.945-.645c-.452-.177-1.063-.355-2.071-.401-1.009-.047-1.309-.057-3.922-.057zm0 3.7c-3.41 0-6.18 2.77-6.18 6.18s2.77 6.18 6.18 6.18 6.18-2.77 6.18-6.18-2.77-6.18-6.18-6.18zm0 10.1c-2.163 0-3.92-1.757-3.92-3.92s1.757-3.92 3.92-3.92 3.92 1.757 3.92 3.92-1.757 3.92-3.92 3.92z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="bg-red-600 text-white p-4 rounded-full hover:bg-red-700 transition-all transform hover:scale-110">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19.615 3.184c-3.472-.647-7.147-.647-10.618 0C4.305 3.832 3.1 5.38 3.1 7.426v9.148c0 2.046 1.205 3.594 5.897 4.242 3.471.647 7.146.647 10.618 0 4.692-.648 5.897-2.196 5.897-4.242V7.426c0-2.046-1.205-3.594-5.897-4.242zM10.978 15.688V8.312l5.488 3.688-5.488 3.688z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <p class="text-gray-500 text-sm">© 2025 Julia Lucius. Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-8 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <p>&copy; 2025 Julia Lucius. Wszystkie prawa zastrzeżone.</p>
         </div>
     </footer>
-
+    
     <script>
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
-            
             document.getElementById(pageId + '-page').classList.add('active');
-            
             document.querySelectorAll('.nav-link').forEach(link => {
                 if (link.dataset.page === pageId) {
                     link.classList.remove('text-gray-600');
@@ -820,15 +919,23 @@
                     link.classList.add('text-gray-600');
                 }
             });
-
-            window.scrollTo(0, 0);
+            // Dodano małe opóźnienie, aby umożliwić przeglądarce przełączenie strony przed przewinięciem do kotwicy
+            setTimeout(() => {
+                if (window.location.hash) {
+                    const targetElement = document.querySelector(window.location.hash);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                } else {
+                    window.scrollTo(0, 0);
+                }
+            }, 50);
         }
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const menuIcon = document.getElementById('menu-icon');
             const closeIcon = document.getElementById('close-icon');
-            
             if (menu.classList.contains('hidden')) {
                 menu.classList.remove('hidden');
                 menuIcon.classList.add('hidden');
@@ -841,123 +948,159 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            showPage('home');
+            // Check for initial hash in URL and activate the correct page
+            if (window.location.hash && window.location.hash.includes('-page')) {
+                const pageId = window.location.hash.substring(1).replace('-page', '');
+                showPage(pageId);
+            } else if (window.location.hash && document.querySelector(window.location.hash)) {
+                // If it's an anchor within the services page, activate services page
+                showPage('services');
+            } else {
+                showPage('home');
+            }
         });
     </script>
-
     <script>
-    const track = document.getElementById('testimonials-track');
-    const container = document.getElementById('testimonials-container');
-    const dotsContainer = document.getElementById('testimonials-dots');
-    
-    const testimonials = Array.from(document.querySelectorAll('.testimonial'));
-    const totalSlides = testimonials.length;
-    const slideWidth = 288 + 24; // Testimonial width (288px) + gap (24px)
-    
-    let currentIndex = 0;
-    let autoScrollInterval;
-    // let isTransitioning is removed as we will rely on transitionend event
+        const track = document.getElementById('testimonials-track');
+        const container = document.getElementById('testimonials-container');
+        const dotsContainer = document.getElementById('testimonials-dots');
+        const testimonials = Array.from(document.querySelectorAll('.testimonial'));
+        const totalSlides = testimonials.length;
+        let currentIndex = 0;
+        let autoScrollInterval;
 
-    testimonials.forEach(testimonial => {
-      const clone = testimonial.cloneNode(true);
-      track.appendChild(clone);
-    });
+        // Clone slides for infinite loop effect
+        const cloneFirst = testimonials[0].cloneNode(true);
+        const cloneLast = testimonials[totalSlides - 1].cloneNode(true);
+        track.appendChild(cloneFirst);
+        track.insertBefore(cloneLast, testimonials[0]);
 
-    // Create dots
-    for (let i = 0; i < totalSlides; i++) {
-      const dot = document.createElement('button');
-      dot.className = 'w-2 h-2 rounded-full transition-all';
-      dot.onclick = () => goToSlide(i);
-      dotsContainer.appendChild(dot);
-    }
+        const allSlides = Array.from(document.querySelectorAll('.testimonial-card'));
+        const totalDisplaySlides = totalSlides + 2; // Including clones
 
-    function updateDots() {
-      const dots = dotsContainer.querySelectorAll('button');
-      dots.forEach((dot, i) => {
-        // Use modulo to correctly map the large index (for cloned slides) back to the actual dot index
-        if (i === currentIndex % totalSlides) {
-          dot.className = 'w-8 h-2 rounded-full bg-gray-800 transition-all';
-        } else {
-          dot.className = 'w-2 h-2 rounded-full bg-gray-300 transition-all';
+        function createDots() {
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('w-3', 'h-3', 'rounded-full', 'bg-gray-300', 'cursor-pointer', 'transition-colors');
+                dot.onclick = () => goToSlide(i + 1); // +1 because index 0 is the clone
+                dotsContainer.appendChild(dot);
+            }
+            updateDots();
         }
-      });
-    }
 
-    function goToSlide(index, smooth = true) {
-      // Don't modify currentIndex here if manually clicking dots, 
-      // as index should represent the real dot index (0 to totalSlides-1)
-      if (typeof index !== 'undefined') {
-          currentIndex = index;
-      }
-      
-      const offset = -currentIndex * slideWidth;
-      
-      if (smooth) {
-        track.style.transition = 'transform 500ms ease-in-out';
-      } else {
-        track.style.transition = 'none';
-      }
-      
-      track.style.transform = `translateX(${offset}px)`;
-      updateDots();
-    }
-
-    function nextSlide() {
-      currentIndex++;
-      
-      // Perform the transition to the next slide (which might be a clone)
-      goToSlide(currentIndex);
-
-      // Check if we hit the first cloned slide (which is at index == totalSlides)
-      if (currentIndex >= totalSlides) {
-        // Wait for the transition to finish before snapping back
-        track.addEventListener('transitionend', function handler() {
-          // Instantly snap back to the actual first slide (index 0)
-          currentIndex = 0;
-          goToSlide(0, false); 
-          track.removeEventListener('transitionend', handler);
-        }, { once: true });
-      }
-    }
-
-    function prevSlide() {
-        // Your prevSlide logic for manual navigation is fine, but it needs the same transitionend handler for the snap back
-        if (currentIndex === 0) {
-            // Move to the cloned last slide without transition
-            currentIndex = totalSlides;
-            goToSlide(currentIndex, false);
-            // Then move to the real last slide smoothly
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    currentIndex--;
-                    goToSlide(currentIndex);
-                });
+        function updateDots() {
+            const dots = Array.from(dotsContainer.children);
+            dots.forEach((dot, index) => {
+                dot.classList.remove('bg-blue-600');
+                dot.classList.add('bg-gray-300');
+                if (index === (currentIndex - 1 + totalSlides) % totalSlides) {
+                    dot.classList.remove('bg-gray-300');
+                    dot.classList.add('bg-blue-600');
+                }
             });
-        } else {
-            currentIndex--;
-            goToSlide(currentIndex);
         }
-    }
 
-    function startAutoScroll() {
-      // **CRITICAL FIX:** Increase interval to be much longer than the transition time (500ms)
-      autoScrollInterval = setInterval(nextSlide, 2500); 
-    }
+        function goToSlide(index, smooth = true) {
+            const slideWidth = testimonials[0].offsetWidth + 24; // Width + gap
+            const newTransform = -slideWidth * index;
+            track.style.transition = smooth ? 'transform 0.5s ease-in-out' : 'none';
+            track.style.transform = `translateX(${newTransform}px)`;
+            currentIndex = index;
 
-    function stopAutoScroll() {
-      clearInterval(autoScrollInterval);
-    }
-    
-    // Initial calls
-    updateDots();
-    startAutoScroll();
+            if (index === totalSlides && smooth) {
+                // Snap back to the real first slide after transition
+                const handler = () => {
+                    currentIndex = 0;
+                    goToSlide(0, false);
+                    track.removeEventListener('transitionend', handler);
+                };
+                track.addEventListener('transitionend', handler);
+            } else if (index === 0 && smooth) {
+                // Snap back to the real last slide after transition for prevSlide
+                const handler = () => {
+                    currentIndex = totalSlides;
+                    goToSlide(currentIndex, false);
+                    track.removeEventListener('transitionend', handler);
+                };
+                track.addEventListener('transitionend', handler);
+            }
 
-    // Event listeners
-    container.onmouseenter = stopAutoScroll;
-    container.onmouseleave = startAutoScroll;
+            // Update dots only for real slides
+            if (index >= 1 && index <= totalSlides) {
+                updateDots();
+            } else if (index === 0) {
+                // Show last dot when on the first clone
+                // Needs a slightly more complex logic to show the correct dot during the transition
+                // For simplicity, we'll just not update the dot during the clone slide transition
+            }
+        }
 
-    // Call goToSlide(0, false) on load to ensure the track starts at a non-cloned position
-    goToSlide(0, false); 
-  </script>
+        function nextSlide() {
+            if (currentIndex < totalSlides) {
+                currentIndex++;
+                goToSlide(currentIndex);
+            } else if (currentIndex === totalSlides) {
+                // Move to the cloned first slide
+                currentIndex++;
+                goToSlide(currentIndex);
+
+                // Snap back to the real first slide without transition
+                const handler = () => {
+                    currentIndex = 1;
+                    goToSlide(1, false);
+                    track.removeEventListener('transitionend', handler);
+                    updateDots(); // Update dot here
+                };
+                track.addEventListener('transitionend', handler, { once: true });
+            }
+            updateDots();
+        }
+
+        function prevSlide() {
+            if (currentIndex > 1) {
+                currentIndex--;
+                goToSlide(currentIndex);
+            } else if (currentIndex === 1) {
+                // Move to the cloned last slide
+                currentIndex = 0;
+                goToSlide(currentIndex);
+
+                // Snap back to the real last slide without transition
+                const handler = () => {
+                    currentIndex = totalSlides;
+                    goToSlide(currentIndex, false);
+                    track.removeEventListener('transitionend', handler);
+                    updateDots(); // Update dot here
+                };
+                track.addEventListener('transitionend', handler, { once: true });
+            }
+            updateDots();
+        }
+
+        function startAutoScroll() {
+            // Start from the first real slide (index 1)
+            autoScrollInterval = setInterval(() => {
+                let nextIndex = currentIndex + 1;
+                if (nextIndex > totalSlides) {
+                    nextIndex = 1; // Loop back to the first real slide
+                }
+                goToSlide(nextIndex);
+            }, 5000); // Increased interval for better readability (5 seconds)
+        }
+
+        function stopAutoScroll() {
+            clearInterval(autoScrollInterval);
+        }
+        
+        // Initial calls
+        createDots();
+        goToSlide(1, false); // Start at the first real testimonial (index 1) without transition
+        startAutoScroll();
+
+        // Event listeners
+        container.onmouseenter = stopAutoScroll;
+        container.onmouseleave = startAutoScroll;
+
+    </script>
 </body>
 </html>
