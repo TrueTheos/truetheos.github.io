@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gift Box Animation</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #f06a19;
+      font-family: sans-serif;
+    }
+
+    .container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .img-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .box {
+      background: transparent;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      bottom: 0;
+      cursor: pointer;
+      outline: none;
+      width: 200px;
+      height: 150px;
+      background: #8B4513;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .box::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 100%;
+      background: #FFD700;
+    }
+
+    .box::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 20px;
+      background: #FFD700;
+    }
+
+    .character {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      bottom: 0;
+      z-index: -1;
+      width: 200px;
+      text-align: center;
+      opacity: 0;
+    }
+
+    .gift-text {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      padding: 20px;
+      background: rgba(255, 107, 157, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .lid {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      bottom: 150px;
+      width: 220px;
+      height: 40px;
+      background: #A0522D;
+      border-radius: 10px 10px 0 0;
+      box-shadow: 0 -3px 10px rgba(0,0,0,0.2);
+      z-index: 10;
+      animation: 1s wiggle infinite linear;
+    }
+
+    .lid::before {
+      content: '';
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 30px;
+      background: #FFD700;
+      border-radius: 50%;
+    }
+
+    .jump {
+      animation: 1s jump infinite alternate;
+      opacity: 1;
+    }
+
+    .stop-jump {
+      animation: 1s jump-once forwards;
+      opacity: 1;
+    }
+
+    @keyframes jump-once {
+      from {
+        bottom: 0;
+      }
+      to {
+        bottom: 20em;
+      }
+    }
+
+    .move {
+      animation: 1s wiggle infinite linear;
+    }
+
+    .stop-wiggle {
+      animation: none;
+    }
+
+    .rotating {
+      animation: 1s rotating forwards;
+    }
+
+    .rotated {
+      transform: rotate(145deg) translate(-70%, -170px);
+    }
+
+    @keyframes wiggle {
+      10%, 90% {
+        transform: translate(-50%) translate3d(-1px, 0, 0);
+      }
+      20%, 80% {
+        transform: translate(-50%) translate3d(2px, 0, 0);
+      }
+      30%, 50%, 70% {
+        transform: translate(-50%) translate3d(-4px, 0, 0);
+      }
+      40%, 60% {
+        transform: translate(-50%) translate3d(4px, 0, 0);
+      }
+    }
+
+    @keyframes rotating {
+      0% {
+        transform: rotate(0deg) translate(-50%, 0);
+      }
+      100% {
+        transform: rotate(145deg) translate(-70%, -170px);
+      }
+    }
+
+    @keyframes jump {
+      from {
+        bottom: 0;
+      }
+      to {
+        bottom: 20em;
+      }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      display: block;
+      left: 50%;
+      bottom: 0;
+      width: 5px;
+      height: 8px;
+      opacity: 0;
+    }
+
+    .confetti-piece.animated {
+      animation: 2s bang forwards;
+      opacity: 0.8;
+    }
+
+    @keyframes bang {
+      from {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="confetti" id="confetti"></div>
+    <div class="img-container">
+      <div class="character" id="character">
+        <div class="gift-text" id="giftText"></div>
+      </div>
+      <button class="box" id="box"></button>
+      <div class="lid" id="lid"></div>
+    </div>
+  </div>
+
+  <script>
+    const box = document.getElementById('box');
+    const lid = document.getElementById('lid');
+    const character = document.getElementById('character');
+    const confettiContainer = document.getElementById('confetti');
+    const giftText = document.getElementById('giftText');
+
+    let isAnimating = false;
+    let confettiPieces = [];
+
+    // Array of gift messages
+    const giftMessages = [
+      "You're Amazing! 🎉",
+      "You're Special! ⭐",
+      "You're Awesome! 🌟",
+      "You're Incredible! 💖",
+      "You're Wonderful! 🎊",
+      "You Rock! 🎸",
+      "You're a Star! ✨",
+      "You're the Best! 🏆",
+      "You're Brilliant! 💎",
+      "You're Fantastic! 🎭"
+    ];
+
+    // Create confetti pieces
+    function createConfetti() {
+      confettiContainer.innerHTML = '';
+      confettiPieces = [];
+      
+      for (let i = 0; i < 200; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        
+        const hue = Math.random() * 360;
+        const translateX = (Math.random() * 200 - 100);
+        const translateY = (Math.random() * 500) * -5;
+        const rotate = Math.random() * 360;
+        const scale = Math.random() * 0.5;
+        const delay = Math.random() * 0.25;
+        
+        piece.style.background = `hsla(${hue}, 100%, 50%, 1)`;
+        piece.style.transform = `skewY(${Math.random() * 50}deg) rotate(${rotate}deg) translate(${translateX}px, ${translateY}px) scale(${scale})`;
+        piece.style.animationDelay = `${delay}s`;
+        piece.style.bottom = `${Math.random() * 10}px`;
+        
+        confettiContainer.appendChild(piece);
+        confettiPieces.push(piece);
+      }
+    }
+
+    function animate() {
+      if (isAnimating) {
+        return; // Don't allow clicking again while animating
+      }
+
+      isAnimating = true;
+      
+      // Pick a random gift message
+      const randomMessage = giftMessages[Math.floor(Math.random() * giftMessages.length)];
+      giftText.textContent = randomMessage;
+      
+      // Start rotating after 300ms
+      setTimeout(() => {
+        lid.classList.add('stop-wiggle', 'rotating');
+        character.classList.add('stop-jump');
+        confettiPieces.forEach(piece => piece.classList.add('animated'));
+      }, 300);
+      
+      // Finish rotation after 1000ms
+      setTimeout(() => {
+        lid.classList.remove('rotating');
+        lid.classList.add('rotated');
+        // Don't reset isAnimating - keep it open
+      }, 1000);
+    }
+
+    box.addEventListener('click', animate);
+    
+    // Initialize confetti
+    createConfetti();
+  </script>
+</body>
+</html>
