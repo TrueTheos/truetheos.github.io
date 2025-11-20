@@ -5,29 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gift Box Animation</title>
   <style>
+    /* --- Base Styles --- */
     body {
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
-      overflow-y: auto;
       background: #1f2123;
       font-family: sans-serif;
       scroll-behavior: smooth;
     }
 
     .container {
-      position: relative;
-      width: 100vw;
+      width: 100%;
     }
     
+    /* --- Sections --- */
     .section {
-      min-height: 100vh;
+      /* Changed from min-height to height for strict full screen */
+      height: 100vh; 
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px;
       position: relative;
+      box-sizing: border-box;
+      /* Hide overflow so jumping box doesn't create scrollbars */
+      overflow: hidden; 
+      border-bottom: 1px solid #333;
     }
     
     .section-title {
@@ -35,24 +39,20 @@
       font-weight: bold;
       color: #fff;
       text-align: center;
-      padding-bottom: 100px;
       text-transform: uppercase;
-    }
-    
-    .hand-icon {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-    
-    .click-text {
-      font-size: 20px;
-      color: #fff;
-      margin-bottom: 20px;
-      text-align: center;
+      z-index: 20;
+      
+      /* NEW CODE START */
+      position: absolute; /* Detaches text from the box */
+      top: 15%;           /* Adjust this % to move it higher/lower */
+      left: 50%;
+      transform: translateX(-50%); /* Keeps it perfectly centered */
+      margin: 0;          /* Remove margin so it doesn't interfere */
+      width: 100%;        
     }
     
     .reopen-btn {
-      margin-top: 80px;
+      margin-top: 100px; /* Increased margin to clear the opened lid */
       padding: 12px 30px;
       font-size: 16px;
       font-weight: bold;
@@ -63,6 +63,8 @@
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       transition: all 0.3s ease;
+      z-index: 500; /* Ensure button is above other elements */
+      position: relative;
     }
     
     .reopen-btn:hover {
@@ -70,9 +72,11 @@
       transform: translateY(-2px);
     }
     
+    /* --- Scroll Text (Fixed Positioning) --- */
     .scroll-text {
-      position: fixed;
-      bottom: 20px;
+      /* Changed from fixed to absolute to stick to the section */
+      position: absolute; 
+      bottom: 30px;
       left: 50%;
       transform: translateX(-50%);
       font-size: 18px;
@@ -80,11 +84,13 @@
       text-align: center;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 15px;
       z-index: 50;
-      background: rgba(31, 33, 35, 0.8);
-      padding: 10px 20px;
+      background: rgba(31, 33, 35, 0.9);
+      padding: 10px 25px;
       border-radius: 25px;
+      white-space: nowrap;
     }
     
     .arrow {
@@ -94,80 +100,59 @@
     
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
+      50% { transform: translateY(5px); }
     }
     
     .section-image {
       max-width: 90%;
-      max-height: 60vh;
+      max-height: 70vh;
       object-fit: contain;
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
     
-    footer {
-      background: #0c1e42;
-      color: #fff;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .footer-logo {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-    
-    .footer-info {
-      margin: 10px 0;
-      font-size: 14px;
-      line-height: 1.8;
-    }
-    
-    .footer-tagline {
-      margin-top: 30px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
+    /* --- Gift Box Logic --- */
     .gift-container {
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      margin-top: 15vh;
     }
 
     .box {
-      background: transparent;
+      background: #8B4513;
       border: 0;
-      margin: 0;
       padding: 0;
       position: relative;
       cursor: pointer;
       outline: none;
       width: 200px;
       height: 150px;
-      background: #8B4513;
       border-radius: 10px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.1s;
+    }
+    
+    .box:active {
+      transform: scale(0.98);
     }
 
+    /* Box Ribbon (Vertical) */
     .box::before {
       content: '';
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 20px;
+      width: 30px;
       height: 100%;
       background: #FFD700;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
 
+    /* Box Ribbon (Horizontal) */
     .box::after {
       content: '';
       position: absolute;
@@ -175,31 +160,9 @@
       left: 50%;
       transform: translate(-50%, -50%);
       width: 100%;
-      height: 20px;
+      height: 30px;
       background: #FFD700;
-    }
-
-    .character {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 100;
-      width: 280px;
-      text-align: center;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .gift-text {
-      font-size: 24px;
-      font-weight: bold;
-      color: #fff;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-      padding: 20px;
-      background: rgba(255, 107, 157, 0.9);
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
 
     .lid {
@@ -213,89 +176,160 @@
       border-radius: 10px 10px 0 0;
       box-shadow: 0 -3px 10px rgba(0,0,0,0.2);
       z-index: 10;
-      animation: 1s wiggle infinite linear;
+      transform-origin: top center;
     }
 
+    /* Lid Ribbon */
     .lid::before {
       content: '';
       position: absolute;
-      top: -15px;
+      top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
-      height: 30px;
+      width: 30px;
+      height: 100%;
       background: #FFD700;
-      border-radius: 50%;
+    }
+    
+    /* Lid Bow */
+    .lid::after {
+        content: '';
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 25px;
+        background: radial-gradient(circle, #FFD700 20%, transparent 20%),
+                    radial-gradient(circle, #FFD700 20%, transparent 20%);
+        background-size: 30px 30px;
+        background-position: 0 0, 50px 0;
+        background-color: #FFD700; 
+        border-radius: 10px;
     }
 
-    .jump {
-      animation: 1s jump infinite alternate;
-      opacity: 1;
+    /* --- Hidden Character/Text --- */
+    .character {
+      position: absolute;
+      bottom: 0; 
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5; /* Behind the lid (10) but inside box */
+      width: 300px;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
     }
 
-    .stop-jump {
-      animation: 1s jump-once forwards;
-      opacity: 1;
+    .gift-text {
+      font-size: 28px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      padding: 20px 30px;
+      background: #ff4081;
+      border: 4px solid #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      display: inline-block;
+    }
+    
+    /* Triangle for speech bubble effect */
+    .gift-text::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 10px 10px 0;
+        border-style: solid;
+        border-color: #fff transparent;
+        display: block;
+        width: 0;
     }
 
-    @keyframes jump-once {
-      from {
-        bottom: 0;
-      }
-      to {
-        bottom: 20em;
-      }
-    }
-
-    .move {
-      animation: 1s wiggle infinite linear;
-    }
-
-    .stop-wiggle {
-      animation: none;
+    /* --- Animations --- */
+    .wiggle {
+      animation: 0.5s wiggle infinite linear;
     }
 
     .rotating {
-      animation: 1s rotating forwards;
+      animation: 1s rotating forwards ease-in-out;
     }
 
     .rotated {
-      transform: rotate(145deg) translate(-70%, -170px);
+      /* Keeps the lid open */
+      transform: rotate(120deg) translate(-80%, -150px);
+    }
+
+    .pop-up {
+      animation: 0.6s pop-up forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      opacity: 1;
     }
 
     @keyframes wiggle {
-      10%, 90% {
-        transform: translate(-50%) translate3d(-1px, 0, 0);
-      }
-      20%, 80% {
-        transform: translate(-50%) translate3d(2px, 0, 0);
-      }
-      30%, 50%, 70% {
-        transform: translate(-50%) translate3d(-4px, 0, 0);
-      }
-      40%, 60% {
-        transform: translate(-50%) translate3d(4px, 0, 0);
-      }
+      0%, 100% { transform: translate(-50%) rotate(0deg); }
+      25% { transform: translate(-50%) rotate(-3deg); }
+      75% { transform: translate(-50%) rotate(3deg); }
     }
 
     @keyframes rotating {
-      0% {
-        transform: rotate(0deg) translate(-50%, 0);
-      }
-      100% {
-        transform: rotate(145deg) translate(-70%, -170px);
-      }
+      0% { transform: translate(-50%) rotate(0deg); }
+      100% { transform: rotate(120deg) translate(-80%, -150px); }
     }
 
-    @keyframes jump {
-      from {
-        bottom: 0;
-      }
-      to {
-        bottom: 20em;
-      }
+    @keyframes pop-up {
+      0% { bottom: 0; opacity: 0; transform: translateX(-50%) scale(0.5); }
+      50% { opacity: 1; }
+      100% { bottom: 160px; opacity: 1; transform: translateX(-50%) scale(1); }
     }
 
+    /* --- Hands Styling --- */
+    .hands-around {
+      position: absolute;
+      font-size: 50px;
+      pointer-events: none;
+      animation: pulse-hand 1.5s ease-in-out infinite;
+      z-index: 20;
+    }
+
+    /* Positions calculated relative to the .box container */
+    .hand-top {
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%) rotate(180deg); /* Points Down */
+    }
+
+    .hand-bottom {
+      bottom: -100px;
+      left: 50%;
+      transform: translateX(-50%); /* Points Up (Default) */
+    }
+
+    .hand-left {
+      top: 50%;
+      left: -100px;
+      transform: translateY(-50%) rotate(90deg); /* Points Right */
+    }
+
+    .hand-right {
+      top: 50%;
+      right: -100px;
+      transform: translateY(-50%) rotate(-90deg); /* Points Left */
+    }
+    
+    /* Hide hands when box is opening */
+    .box.is-open .hands-around {
+        display: none;
+    }
+
+    @keyframes pulse-hand {
+      0%, 100% { margin: 0; }
+      50% { margin: 10px; } /* Moves them slightly away and back */
+    }
+
+    /* --- Confetti --- */
     .confetti {
       position: fixed;
       top: 0;
@@ -303,135 +337,91 @@
       width: 100vw;
       height: 100vh;
       pointer-events: none;
-      overflow: visible;
       z-index: 1000;
     }
 
     .confetti-piece {
       position: absolute;
       display: block;
-      left: 50%;
-      top: 50%;
       width: 10px;
       height: 10px;
       opacity: 0;
     }
 
     .confetti-piece.animated {
-      animation: 2s bang forwards;
-      opacity: 0.8;
+      animation: 2.5s bang forwards ease-out;
     }
 
     @keyframes bang {
-      from {
-        transform: translate3d(0, 0, 0);
-        opacity: 1;
-      }
-      to {
-        opacity: 0;
-      }
+      0% { opacity: 1; transform: translate3d(0,0,0) scale(1); }
+      100% { opacity: 0; transform: translate3d(var(--tx), var(--ty), 0) rotate(var(--rot)) scale(0.5); }
     }
 
-    .hands-around {
-      position: absolute;
-      font-size: 40px;
-      animation: float 2s ease-in-out infinite;
+    /* --- Footer --- */
+    footer {
+      background: #0c1e42;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
     }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-logo { font-size: 24px; font-weight: bold; margin-bottom: 20px; }
+    .footer-info { margin: 10px 0; font-size: 14px; line-height: 1.8; }
+    .footer-tagline { margin-top: 30px; font-size: 18px; font-weight: bold; }
 
-    .hand-1 {
-      top: -60px;
-      left: -80px;
-      animation-delay: 0s;
-    }
-
-    .hand-2 {
-      top: -60px;
-      right: -80px;
-      animation-delay: 0.3s;
-    }
-
-    .hand-3 {
-      bottom: -60px;
-      left: -80px;
-      animation-delay: 0.6s;
-    }
-
-    .hand-4 {
-      bottom: -60px;
-      right: -80px;
-      animation-delay: 0.9s;
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-    .hand-icon {
-      font-size: 48px;
-      margin-bottom: 10px;
-      animation: point 1s ease-in-out infinite;
-    }
-
-    @keyframes point {
-      0%, 100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(15px);
-      }
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Section 1: Gift -->
+    
     <section class="section" id="section1">
       <h1 class="section-title">ROZPAKUJ!</h1>
-      <div class="hand-icon">👇</div>
+      
       <div class="gift-container">
         <div class="confetti" id="confetti"></div>
+        
         <div class="character" id="character">
-          <div class="gift-text" id="giftText"></div>
+          <div class="gift-text" id="giftText">Jesteś super!</div>
         </div>
+
         <button class="box" id="box">
           <div class="lid" id="lid"></div>
-          <div class="hands-around hand-1">👉</div>
-          <div class="hands-around hand-2">👈</div>
-          <div class="hands-around hand-3">👆</div>
-          <div class="hands-around hand-4">👆</div>
+          
+          <div class="hands-around hand-top">👆</div>
+          <div class="hands-around hand-bottom">👆</div>
+          <div class="hands-around hand-left">👆</div>
+          <div class="hands-around hand-right">👆</div>
         </button>
       </div>
       
       <button class="reopen-btn" id="reopenBtn" style="display: none;">Otwórz ponownie</button>
       
       <div class="scroll-text">
-        <span class="arrow">←</span>
+        <span class="arrow">↓</span>
         <span>Mamy dla ciebie coś jeszcze</span>
-        <span class="arrow">→</span>
+        <span class="arrow">↓</span>
       </div>
     </section>
     
-    <!-- Section 2: First Image -->
     <section class="section" id="section2">
       <img src="https://via.placeholder.com/400x600/f06a19/ffffff?text=Obraz+1" alt="Obraz 1" class="section-image">
-      <div class="scroll-text" style="position: fixed;">
-        <span class="arrow">←</span>
+      
+      <div class="scroll-text">
+        <span class="arrow">↓</span>
         <span>Jest coś więcej</span>
-        <span class="arrow">→</span>
+        <span class="arrow">↓</span>
       </div>
     </section>
     
-    <!-- Section 3: Second Image -->
     <section class="section" id="section3">
       <img src="https://via.placeholder.com/400x600/f06a19/ffffff?text=Obraz+2" alt="Obraz 2" class="section-image">
     </section>
     
-    <!-- Footer -->
     <footer>
       <div class="footer-content">
         <div class="footer-logo">m | Grupa Moderator</div>
@@ -444,9 +434,7 @@
           Email: sekretariat@grupamoderator.pl
         </div>
         <div class="footer-info">
-          KRS 0000774601<br>
-          NIP 9671425820<br>
-          REGON 382705990
+          KRS 0000774601 | NIP 9671425820 | REGON 382705990
         </div>
         <div class="footer-tagline">
           Zmieniamy Bydgoszcz.
@@ -480,25 +468,31 @@
       "Jesteś fantastyczny! 🎭"
     ];
 
-    // Create confetti pieces
+    // Setup Confetti (run once)
     function createConfetti() {
       confettiContainer.innerHTML = '';
       confettiPieces = [];
       
-      for (let i = 0; i < 150; i++) {
+      for (let i = 0; i < 100; i++) {
         const piece = document.createElement('div');
         piece.className = 'confetti-piece';
         
-        const hue = Math.random() * 360;
-        const translateX = (Math.random() * 1000 - 500);
-        const translateY = (Math.random() * 1000 - 500);
-        const rotate = Math.random() * 720;
-        const scale = Math.random() * 1 + 0.5;
-        const delay = Math.random() * 0.3;
+        // Random props for animation
+        const hue = Math.floor(Math.random() * 360);
+        piece.style.background = `hsl(${hue}, 100%, 50%)`;
         
-        piece.style.background = `hsla(${hue}, 100%, 50%, 1)`;
-        piece.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg) scale(${scale})`;
-        piece.style.animationDelay = `${delay}s`;
+        // Set Custom Properties for CSS Animation
+        // Spread them out randomly
+        const tx = (Math.random() - 0.5) * 1500 + 'px';
+        const ty = (Math.random() - 0.5) * 1500 + 'px';
+        const rot = Math.random() * 720 + 'deg';
+        
+        piece.style.setProperty('--tx', tx);
+        piece.style.setProperty('--ty', ty);
+        piece.style.setProperty('--rot', rot);
+        
+        piece.style.left = '50%';
+        piece.style.top = '50%';
         
         confettiContainer.appendChild(piece);
         confettiPieces.push(piece);
@@ -506,49 +500,65 @@
     }
 
     function animate() {
-      if (isAnimating) {
-        return;
-      }
-
+      if (isAnimating) return;
       isAnimating = true;
       
-      // Pick a random gift message
+      // Pick random message
       const randomMessage = giftMessages[Math.floor(Math.random() * giftMessages.length)];
       giftText.textContent = randomMessage;
       
-      // Start rotating after 300ms
-      setTimeout(() => {
-        lid.classList.add('stop-wiggle', 'rotating');
-        character.classList.add('stop-jump');
-        confettiPieces.forEach(piece => piece.classList.add('animated'));
-      }, 300);
+      // 1. Start Wiggle
+      lid.classList.add('wiggle');
       
-      // Finish rotation after 1000ms
+      // 2. Hide hands
+      box.classList.add('is-open');
+
+      // 3. Open Lid and Pop Character
       setTimeout(() => {
-        lid.classList.remove('rotating');
-        lid.classList.add('rotated');
-        reopenBtn.style.display = 'block';
-      }, 1000);
+        lid.classList.remove('wiggle');
+        lid.classList.add('rotating'); // Opens lid
+        
+        // Pop up character
+        character.classList.add('pop-up');
+        
+        // Explode Confetti
+        confettiPieces.forEach(piece => {
+           // Reset animation
+           piece.classList.remove('animated');
+           void piece.offsetWidth; // force reflow
+           piece.classList.add('animated');
+        });
+        
+        // Show Reopen Button
+        setTimeout(() => {
+           lid.classList.remove('rotating');
+           lid.classList.add('rotated'); // Keep lid open
+           reopenBtn.style.display = 'block';
+        }, 1000);
+
+      }, 600);
     }
 
     function resetGift() {
-      lid.classList.remove('stop-wiggle', 'rotating', 'rotated');
-      character.classList.remove('stop-jump');
-      character.style.opacity = '0';
+      // Remove all animation classes
+      lid.classList.remove('wiggle', 'rotating', 'rotated');
+      character.classList.remove('pop-up');
+      box.classList.remove('is-open');
       
-      confettiPieces.forEach(piece => {
-        piece.classList.remove('animated');
-      });
-      
-      createConfetti();
-      isAnimating = false;
+      // Hide button
       reopenBtn.style.display = 'none';
+      
+      // CRITICAL: Create new confetti so they start from center again
+      createConfetti();
+      
+      // Allow clicking again
+      isAnimating = false;
     }
 
     box.addEventListener('click', animate);
     reopenBtn.addEventListener('click', resetGift);
     
-    // Initialize confetti
+    // Initialize
     createConfetti();
   </script>
 </body>
