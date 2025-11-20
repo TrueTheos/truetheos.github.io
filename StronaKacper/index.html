@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,21 +8,138 @@
     body {
       margin: 0;
       padding: 0;
-      overflow: hidden;
-      background: #f06a19;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: #1f2123;
       font-family: sans-serif;
+      scroll-behavior: smooth;
     }
 
     .container {
       position: relative;
       width: 100vw;
-      height: 100vh;
+    }
+    
+    .section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+    }
+    
+    .section-title {
+      font-size: 50px;
+      font-weight: bold;
+      color: #fff;
+      text-align: center;
+      padding-bottom: 100px;
+      text-transform: uppercase;
+    }
+    
+    .hand-icon {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    
+    .click-text {
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .reopen-btn {
+      margin-top: 80px;
+      padding: 12px 30px;
+      font-size: 16px;
+      font-weight: bold;
+      background: #f06a19;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .reopen-btn:hover {
+      background: #d85a15;
+      transform: translateY(-2px);
+    }
+    
+    .scroll-text {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 18px;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      z-index: 50;
+      background: rgba(31, 33, 35, 0.8);
+      padding: 10px 20px;
+      border-radius: 25px;
+    }
+    
+    .arrow {
+      font-size: 24px;
+      animation: bounce 1s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+    
+    .section-image {
+      max-width: 90%;
+      max-height: 60vh;
+      object-fit: contain;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    
+    footer {
+      background: #0c1e42;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-logo {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    
+    .footer-info {
+      margin: 10px 0;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    
+    .footer-tagline {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: bold;
     }
 
-    .img-container {
+    .gift-container {
       position: relative;
-      width: 100%;
-      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .box {
@@ -30,10 +147,7 @@
       border: 0;
       margin: 0;
       padding: 0;
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%);
-      bottom: 0;
+      position: relative;
       cursor: pointer;
       outline: none;
       width: 200px;
@@ -67,13 +181,14 @@
 
     .character {
       position: absolute;
+      top: 50%;
       left: 50%;
-      transform: translate(-50%);
-      bottom: 0;
-      z-index: -1;
-      width: 200px;
+      transform: translate(-50%, -50%);
+      z-index: 100;
+      width: 280px;
       text-align: center;
       opacity: 0;
+      pointer-events: none;
     }
 
     .gift-text {
@@ -89,9 +204,9 @@
 
     .lid {
       position: absolute;
+      top: -40px;
       left: 50%;
       transform: translate(-50%);
-      bottom: 150px;
       width: 220px;
       height: 40px;
       background: #A0522D;
@@ -182,20 +297,23 @@
     }
 
     .confetti {
-      position: absolute;
-      width: 100%;
-      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       pointer-events: none;
-      overflow: hidden;
+      overflow: visible;
+      z-index: 1000;
     }
 
     .confetti-piece {
       position: absolute;
       display: block;
       left: 50%;
-      bottom: 0;
-      width: 5px;
-      height: 8px;
+      top: 50%;
+      width: 10px;
+      height: 10px;
       opacity: 0;
     }
 
@@ -213,18 +331,128 @@
         opacity: 0;
       }
     }
+
+    .hands-around {
+      position: absolute;
+      font-size: 40px;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    .hand-1 {
+      top: -60px;
+      left: -80px;
+      animation-delay: 0s;
+    }
+
+    .hand-2 {
+      top: -60px;
+      right: -80px;
+      animation-delay: 0.3s;
+    }
+
+    .hand-3 {
+      bottom: -60px;
+      left: -80px;
+      animation-delay: 0.6s;
+    }
+
+    .hand-4 {
+      bottom: -60px;
+      right: -80px;
+      animation-delay: 0.9s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .hand-icon {
+      font-size: 48px;
+      margin-bottom: 10px;
+      animation: point 1s ease-in-out infinite;
+    }
+
+    @keyframes point {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(15px);
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="confetti" id="confetti"></div>
-    <div class="img-container">
-      <div class="character" id="character">
-        <div class="gift-text" id="giftText"></div>
+    <!-- Section 1: Gift -->
+    <section class="section" id="section1">
+      <h1 class="section-title">ROZPAKUJ!</h1>
+      <div class="hand-icon">👇</div>
+      <div class="gift-container">
+        <div class="confetti" id="confetti"></div>
+        <div class="character" id="character">
+          <div class="gift-text" id="giftText"></div>
+        </div>
+        <button class="box" id="box">
+          <div class="lid" id="lid"></div>
+          <div class="hands-around hand-1">👉</div>
+          <div class="hands-around hand-2">👈</div>
+          <div class="hands-around hand-3">👆</div>
+          <div class="hands-around hand-4">👆</div>
+        </button>
       </div>
-      <button class="box" id="box"></button>
-      <div class="lid" id="lid"></div>
-    </div>
+      
+      <button class="reopen-btn" id="reopenBtn" style="display: none;">Otwórz ponownie</button>
+      
+      <div class="scroll-text">
+        <span class="arrow">←</span>
+        <span>Mamy dla ciebie coś jeszcze</span>
+        <span class="arrow">→</span>
+      </div>
+    </section>
+    
+    <!-- Section 2: First Image -->
+    <section class="section" id="section2">
+      <img src="https://via.placeholder.com/400x600/f06a19/ffffff?text=Obraz+1" alt="Obraz 1" class="section-image">
+      <div class="scroll-text" style="position: fixed;">
+        <span class="arrow">←</span>
+        <span>Jest coś więcej</span>
+        <span class="arrow">→</span>
+      </div>
+    </section>
+    
+    <!-- Section 3: Second Image -->
+    <section class="section" id="section3">
+      <img src="https://via.placeholder.com/400x600/f06a19/ffffff?text=Obraz+2" alt="Obraz 2" class="section-image">
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">m | Grupa Moderator</div>
+        <div class="footer-info">
+          ul. Focha 12, 85-070 Bydgoszcz
+        </div>
+        <div class="footer-info">
+          Sekretariat: 52 322 37 52<br>
+          Dział handlowy: 796 909 909<br>
+          Email: sekretariat@grupamoderator.pl
+        </div>
+        <div class="footer-info">
+          KRS 0000774601<br>
+          NIP 9671425820<br>
+          REGON 382705990
+        </div>
+        <div class="footer-tagline">
+          Zmieniamy Bydgoszcz.
+        </div>
+      </div>
+    </footer>
   </div>
 
   <script>
@@ -233,22 +461,23 @@
     const character = document.getElementById('character');
     const confettiContainer = document.getElementById('confetti');
     const giftText = document.getElementById('giftText');
+    const reopenBtn = document.getElementById('reopenBtn');
 
     let isAnimating = false;
     let confettiPieces = [];
 
     // Array of gift messages
     const giftMessages = [
-      "You're Amazing! 🎉",
-      "You're Special! ⭐",
-      "You're Awesome! 🌟",
-      "You're Incredible! 💖",
-      "You're Wonderful! 🎊",
-      "You Rock! 🎸",
-      "You're a Star! ✨",
-      "You're the Best! 🏆",
-      "You're Brilliant! 💎",
-      "You're Fantastic! 🎭"
+      "Jesteś niesamowity! 🎉",
+      "Jesteś wyjątkowy! ⭐",
+      "Jesteś super! 🌟",
+      "Jesteś wspaniały! 💖",
+      "Jesteś cudowny! 🎊",
+      "Rocka dajesz! 🎸",
+      "Jesteś gwiazdą! ✨",
+      "Jesteś najlepszy! 🏆",
+      "Jesteś błyskotliwy! 💎",
+      "Jesteś fantastyczny! 🎭"
     ];
 
     // Create confetti pieces
@@ -256,21 +485,20 @@
       confettiContainer.innerHTML = '';
       confettiPieces = [];
       
-      for (let i = 0; i < 200; i++) {
+      for (let i = 0; i < 150; i++) {
         const piece = document.createElement('div');
         piece.className = 'confetti-piece';
         
         const hue = Math.random() * 360;
-        const translateX = (Math.random() * 200 - 100);
-        const translateY = (Math.random() * 500) * -5;
-        const rotate = Math.random() * 360;
-        const scale = Math.random() * 0.5;
-        const delay = Math.random() * 0.25;
+        const translateX = (Math.random() * 1000 - 500);
+        const translateY = (Math.random() * 1000 - 500);
+        const rotate = Math.random() * 720;
+        const scale = Math.random() * 1 + 0.5;
+        const delay = Math.random() * 0.3;
         
         piece.style.background = `hsla(${hue}, 100%, 50%, 1)`;
-        piece.style.transform = `skewY(${Math.random() * 50}deg) rotate(${rotate}deg) translate(${translateX}px, ${translateY}px) scale(${scale})`;
+        piece.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg) scale(${scale})`;
         piece.style.animationDelay = `${delay}s`;
-        piece.style.bottom = `${Math.random() * 10}px`;
         
         confettiContainer.appendChild(piece);
         confettiPieces.push(piece);
@@ -279,7 +507,7 @@
 
     function animate() {
       if (isAnimating) {
-        return; // Don't allow clicking again while animating
+        return;
       }
 
       isAnimating = true;
@@ -299,11 +527,26 @@
       setTimeout(() => {
         lid.classList.remove('rotating');
         lid.classList.add('rotated');
-        // Don't reset isAnimating - keep it open
+        reopenBtn.style.display = 'block';
       }, 1000);
     }
 
+    function resetGift() {
+      lid.classList.remove('stop-wiggle', 'rotating', 'rotated');
+      character.classList.remove('stop-jump');
+      character.style.opacity = '0';
+      
+      confettiPieces.forEach(piece => {
+        piece.classList.remove('animated');
+      });
+      
+      createConfetti();
+      isAnimating = false;
+      reopenBtn.style.display = 'none';
+    }
+
     box.addEventListener('click', animate);
+    reopenBtn.addEventListener('click', resetGift);
     
     // Initialize confetti
     createConfetti();
