@@ -291,6 +291,8 @@
     .hands-around {
       position: absolute;
       font-size: 50px;
+      color: #fff; /* Ustawienie białego koloru, aby pasował do tła sekcji */
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Lekki cień, aby strzałki były bardziej widoczne */
       pointer-events: none;
       animation: pulse-hand 1.5s ease-in-out infinite;
       z-index: 20;
@@ -299,13 +301,13 @@
     .hand-top {
       top: -150px;
       left: 50%;
-      transform: translateX(-50%) rotate(180deg);
+      transform: translateX(-50%) ;
     }
 
     .hand-bottom {
       bottom: -100px;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-50%) rotate(180deg);
     }
 
     .box.is-open .hands-around {
@@ -382,8 +384,8 @@
         <button class="box" id="box">
           <div class="lid" id="lid"></div>
           
-          <div class="hands-around hand-top">👆</div>
-          <div class="hands-around hand-bottom">👆</div>
+          <div class="hands-around hand-top">&#x2193;</div>
+          <div class="hands-around hand-bottom">&#x2193;</div>
         </button>
       </div>
       
