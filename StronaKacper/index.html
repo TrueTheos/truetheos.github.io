@@ -69,8 +69,12 @@
     
     /* --- FIXED BUTTON STYLES --- */
     .reopen-btn {
-      position: relative;
-      margin-top: 60px; 
+      position: absolute; /* Changed from relative to absolute */
+      bottom: 20%;        /* Positions it relative to the bottom of the screen */
+      left: 50%;          /* Centers it horizontally */
+      transform: translateX(-50%); /* Exact center alignment */
+      
+      /* Existing styles below... */
       padding: 12px 30px;
       font-size: 16px;
       font-weight: bold;
@@ -82,6 +86,9 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       transition: all 0.3s ease;
       z-index: 500;
+      
+      /* Remove margin-top as it is no longer needed */
+      margin-top: 0; 
     }
     
     .reopen-btn:hover {
