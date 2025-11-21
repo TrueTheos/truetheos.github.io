@@ -20,7 +20,6 @@
     
     /* --- Sections --- */
     .section {
-      /* Changed from min-height to height for strict full screen */
       height: 100vh; 
       width: 100%;
       display: flex;
@@ -29,7 +28,6 @@
       justify-content: center;
       position: relative;
       box-sizing: border-box;
-      /* Hide overflow so jumping box doesn't create scrollbars */
       overflow: hidden; 
       border-bottom: 1px solid #333;
     }
@@ -41,18 +39,22 @@
       text-align: center;
       text-transform: uppercase;
       z-index: 20;
-      
-      /* NEW CODE START */
-      position: absolute; /* Detaches text from the box */
-      top: 15%;           /* Adjust this % to move it higher/lower */
+      position: absolute;
+      top: 15%;
       left: 50%;
-      transform: translateX(-50%); /* Keeps it perfectly centered */
-      margin: 0;          /* Remove margin so it doesn't interfere */
+      transform: translateX(-50%);
+      margin: 0;
       width: 100%;        
     }
     
+    /* --- FIXED BUTTON STYLES --- */
     .reopen-btn {
-      margin-top: 100px; /* Increased margin to clear the opened lid */
+      /* ABSOLUTE POSITIONING: Removes button from flow so box doesn't jump */
+      position: absolute;
+      top: 65%; /* Position fixed at 65% down the screen */
+      left: 50%;
+      transform: translateX(-50%); /* Centers it horizontally */
+      
       padding: 12px 30px;
       font-size: 16px;
       font-weight: bold;
@@ -63,18 +65,16 @@
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       transition: all 0.3s ease;
-      z-index: 500; /* Ensure button is above other elements */
-      position: relative;
+      z-index: 500;
     }
     
     .reopen-btn:hover {
       background: #d85a15;
-      transform: translateY(-2px);
+      transform: translate(-50%, -2px); /* Keep the -50% X offset on hover */
     }
     
-    /* --- Scroll Text (Fixed Positioning) --- */
+    /* --- Scroll Text --- */
     .scroll-text {
-      /* Changed from fixed to absolute to stick to the section */
       position: absolute; 
       bottom: 30px;
       left: 50%;
@@ -118,7 +118,41 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-top: 15vh;
+      /* Margin top helps visual balance, but doesn't affect button now */
+      margin-top: 5vh; 
+      overflow: visible;
+    }
+
+    /* --- Sunburst Glow Effect --- */
+    .sunburst-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      z-index: -1;
+      pointer-events: none;
+      border-radius: 50%;
+      background: repeating-conic-gradient(
+        from 0deg,
+        rgba(255, 220, 100, 0.2) 0deg 10deg,
+        transparent 10deg 20deg
+      );
+      -webkit-mask-image: radial-gradient(circle, black 30%, transparent 70%);
+      mask-image: radial-gradient(circle, black 30%, transparent 70%);
+      animation: 
+        sunburst-spin 60s linear infinite, 
+        sunburst-pulse 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes sunburst-spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes sunburst-pulse {
+      0%   { opacity: 0.5; scale: 1; }
+      100% { opacity: 0.8; scale: 1.05; }
     }
 
     .box {
@@ -133,13 +167,13 @@
       border-radius: 10px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
       transition: transform 0.1s;
+      z-index: 10;
     }
     
     .box:active {
       transform: scale(0.98);
     }
 
-    /* Box Ribbon (Vertical) */
     .box::before {
       content: '';
       position: absolute;
@@ -152,7 +186,6 @@
       box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
 
-    /* Box Ribbon (Horizontal) */
     .box::after {
       content: '';
       position: absolute;
@@ -179,7 +212,6 @@
       transform-origin: top center;
     }
 
-    /* Lid Ribbon */
     .lid::before {
       content: '';
       position: absolute;
@@ -191,7 +223,6 @@
       background: #FFD700;
     }
     
-    /* Lid Bow */
     .lid::after {
         content: '';
         position: absolute;
@@ -214,7 +245,7 @@
       bottom: 0; 
       left: 50%;
       transform: translateX(-50%);
-      z-index: 5; /* Behind the lid (10) but inside box */
+      z-index: 5;
       width: 300px;
       text-align: center;
       opacity: 0;
@@ -235,7 +266,6 @@
       display: inline-block;
     }
     
-    /* Triangle for speech bubble effect */
     .gift-text::after {
         content: '';
         position: absolute;
@@ -259,7 +289,6 @@
     }
 
     .rotated {
-      /* Keeps the lid open */
       transform: rotate(120deg) translate(-80%, -150px);
     }
 
@@ -294,39 +323,37 @@
       z-index: 20;
     }
 
-    /* Positions calculated relative to the .box container */
     .hand-top {
       top: -150px;
       left: 50%;
-      transform: translateX(-50%) rotate(180deg); /* Points Down */
+      transform: translateX(-50%) rotate(180deg);
     }
 
     .hand-bottom {
       bottom: -100px;
       left: 50%;
-      transform: translateX(-50%); /* Points Up (Default) */
+      transform: translateX(-50%);
     }
 
     .hand-left {
       top: 50%;
       left: -100px;
-      transform: translateY(-50%) rotate(90deg); /* Points Right */
+      transform: translateY(-50%) rotate(90deg);
     }
 
     .hand-right {
       top: 50%;
       right: -100px;
-      transform: translateY(-50%) rotate(-90deg); /* Points Left */
+      transform: translateY(-50%) rotate(-90deg);
     }
     
-    /* Hide hands when box is opening */
     .box.is-open .hands-around {
         display: none;
     }
 
     @keyframes pulse-hand {
       0%, 100% { margin: 0; }
-      50% { margin: 10px; } /* Moves them slightly away and back */
+      50% { margin: 10px; }
     }
 
     /* --- Confetti --- */
@@ -383,6 +410,8 @@
       <h1 class="section-title">ROZPAKUJ!</h1>
       
       <div class="gift-container">
+        <div class="sunburst-glow"></div>
+
         <div class="confetti" id="confetti"></div>
         
         <div class="character" id="character">
@@ -394,8 +423,6 @@
           
           <div class="hands-around hand-top">👆</div>
           <div class="hands-around hand-bottom">👆</div>
-          <div class="hands-around hand-left">👆</div>
-          <div class="hands-around hand-right">👆</div>
         </button>
       </div>
       
@@ -409,7 +436,7 @@
     </section>
     
     <section class="section" id="section2">
-      <img src="https://via.placeholder.com/400x600/f06a19/ffffff?text=Obraz+1" alt="Obraz 1" class="section-image">
+      <img src="images/img1.png" alt="Obraz 1" class="section-image">
       
       <div class="scroll-text">
         <span class="arrow">↓</span>
@@ -419,12 +446,12 @@
     </section>
     
     <section class="section" id="section3">
-      <img src="https://via.placeholder.com/400x600/f06a19/ffffff?text=Obraz+2" alt="Obraz 2" class="section-image">
+      <img src="images/img2.jpg" alt="Obraz 2" class="section-image">
     </section>
     
     <footer>
       <div class="footer-content">
-        <div class="footer-logo">m | Grupa Moderator</div>
+        <div class="footer-logo"><img src="https://grupamoderator.pl/_Resources/Static/Packages/App.Site/Images/logo-white.png"></div>
         <div class="footer-info">
           ul. Focha 12, 85-070 Bydgoszcz
         </div>
@@ -456,19 +483,17 @@
 
     // Array of gift messages
     const giftMessages = [
-      "Jesteś niesamowity! 🎉",
-      "Jesteś wyjątkowy! ⭐",
-      "Jesteś super! 🌟",
+      "Jesteś niesamowity! 💖",
+      "Jesteś wyjątkowy! 💖",
+      "Jesteś super! 💖",
       "Jesteś wspaniały! 💖",
-      "Jesteś cudowny! 🎊",
-      "Rocka dajesz! 🎸",
-      "Jesteś gwiazdą! ✨",
-      "Jesteś najlepszy! 🏆",
-      "Jesteś błyskotliwy! 💎",
-      "Jesteś fantastyczny! 🎭"
+      "Jesteś cudowny! 💖",
+      "Jesteś gwiazdą! 💖",
+      "Jesteś najlepszy! 💖",
+      "Jesteś błyskotliwy! 💖",
+      "Jesteś fantastyczny! 💖"
     ];
 
-    // Setup Confetti (run once)
     function createConfetti() {
       confettiContainer.innerHTML = '';
       confettiPieces = [];
@@ -477,12 +502,9 @@
         const piece = document.createElement('div');
         piece.className = 'confetti-piece';
         
-        // Random props for animation
         const hue = Math.floor(Math.random() * 360);
         piece.style.background = `hsl(${hue}, 100%, 50%)`;
         
-        // Set Custom Properties for CSS Animation
-        // Spread them out randomly
         const tx = (Math.random() - 0.5) * 1500 + 'px';
         const ty = (Math.random() - 0.5) * 1500 + 'px';
         const rot = Math.random() * 720 + 'deg';
@@ -503,36 +525,26 @@
       if (isAnimating) return;
       isAnimating = true;
       
-      // Pick random message
       const randomMessage = giftMessages[Math.floor(Math.random() * giftMessages.length)];
       giftText.textContent = randomMessage;
       
-      // 1. Start Wiggle
       lid.classList.add('wiggle');
-      
-      // 2. Hide hands
       box.classList.add('is-open');
 
-      // 3. Open Lid and Pop Character
       setTimeout(() => {
         lid.classList.remove('wiggle');
-        lid.classList.add('rotating'); // Opens lid
-        
-        // Pop up character
+        lid.classList.add('rotating'); 
         character.classList.add('pop-up');
         
-        // Explode Confetti
         confettiPieces.forEach(piece => {
-           // Reset animation
            piece.classList.remove('animated');
-           void piece.offsetWidth; // force reflow
+           void piece.offsetWidth;
            piece.classList.add('animated');
         });
         
-        // Show Reopen Button
         setTimeout(() => {
            lid.classList.remove('rotating');
-           lid.classList.add('rotated'); // Keep lid open
+           lid.classList.add('rotated');
            reopenBtn.style.display = 'block';
         }, 1000);
 
@@ -540,25 +552,17 @@
     }
 
     function resetGift() {
-      // Remove all animation classes
       lid.classList.remove('wiggle', 'rotating', 'rotated');
       character.classList.remove('pop-up');
       box.classList.remove('is-open');
-      
-      // Hide button
       reopenBtn.style.display = 'none';
-      
-      // CRITICAL: Create new confetti so they start from center again
       createConfetti();
-      
-      // Allow clicking again
       isAnimating = false;
     }
 
     box.addEventListener('click', animate);
     reopenBtn.addEventListener('click', resetGift);
     
-    // Initialize
     createConfetti();
   </script>
 </body>
