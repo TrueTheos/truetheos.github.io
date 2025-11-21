@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gift Box Animation</title>
   <style>
+    /* --- GLOBAL VARIABLES --- */
+    :root {
+      /* Standard height for the text pop-up */
+      --jump-height: 240px; 
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -33,7 +39,7 @@
       padding: 20px; 
     }
     
-    /* --- UPDATED TITLE POSITION --- */
+    /* --- TITLE STYLES --- */
     .section-title {
       font-size: 50px;
       font-weight: bold;
@@ -42,19 +48,29 @@
       text-transform: uppercase;
       z-index: 20;
       
-      /* Forces the text to the top of the container */
       position: absolute;
       top: 5%; 
       left: 50%;
       transform: translateX(-50%);
       margin: 0;
-      width: 100%;        
+      width: 100%; 
+      
+      /* Add transition for fading out */
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Class to hide title when box opens */
+    .section-title.hidden {
+      opacity: 0;
+      visibility: hidden;
     }
     
     /* --- FIXED BUTTON STYLES --- */
     .reopen-btn {
       position: relative;
-      margin-top: 60px; /* Space between box and button */
+      margin-top: 60px; 
       padding: 12px 30px;
       font-size: 16px;
       font-weight: bold;
@@ -73,10 +89,10 @@
       transform: translateY(-2px);
     }
     
-    /* --- Scroll Text (Updated for Clickability) --- */
+    /* --- Scroll Text --- */
     .scroll-text {
       position: absolute; 
-      bottom: 30px; /* Pinned to bottom */
+      bottom: 30px; 
       left: 50%;
       transform: translateX(-50%);
       font-size: 18px;
@@ -91,14 +107,12 @@
       padding: 10px 25px;
       border-radius: 25px;
       white-space: nowrap;
-      
-      /* Interaction Styles */
       cursor: pointer;
       transition: background 0.3s, transform 0.2s;
     }
 
     .scroll-text:hover {
-      background: rgba(42, 48, 54, 0.9); /* Orange highlight on hover */
+      background: rgba(42, 48, 54, 0.9); 
       transform: translateX(-50%) scale(1.05);
     }
     
@@ -114,7 +128,8 @@
     
     .section-image {
       max-width: 90%;
-      max-height: 70vh;
+      max-height: 80vh;
+      max-height: 80dvh;
       object-fit: contain;
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -128,7 +143,7 @@
       align-items: center;
       justify-content: center;
       overflow: visible;
-      margin-top: 20px; /* Slight offset from center to accommodate top title */
+      margin-top: 20px; 
     }
 
     /* --- Sunburst Glow Effect --- */
@@ -165,22 +180,18 @@
 
     /* --- BOX STYLES --- */
     .box {
-      /* Replace URL with your box image */
       background-image: url('images/box.png'); 
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center bottom;
       background-color: transparent;
-      
       border: 0;
       padding: 0;
       position: relative;
       cursor: pointer;
       outline: none;
-      
       width: 250px; 
       height: 200px; 
-      
       transition: transform 0.1s;
       z-index: 10;
     }
@@ -191,21 +202,17 @@
 
     /* --- LID STYLES --- */
     .lid {
-      /* Replace URL with your lid image */
       background-image: url('images/lid.png');
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center bottom;
       background-color: transparent;
-      
       position: absolute;
       top: -50px; 
       left: 50%;
       transform: translate(-50%);
-      
       width: 520px; 
       height: 120px; 
-      
       z-index: 11;
       transform-origin: top center; 
       filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.4));
@@ -284,10 +291,12 @@
       100% { transform: rotate(120deg) translate(-80%, -250px); }
     }
 
+    /* UPDATED POP-UP ANIMATION USING VARIABLE */
     @keyframes pop-up {
       0% { bottom: 0; opacity: 0; transform: translateX(-50%) scale(0.5); }
       50% { opacity: 1; }
-      100% { bottom: 240px; opacity: 1; transform: translateX(-50%) scale(1); }
+      /* Use the CSS Variable here */
+      100% { bottom: var(--jump-height); opacity: 1; transform: translateX(-50%) scale(1); }
     }
 
     /* --- Hands Styling --- */
@@ -370,7 +379,12 @@
 
     /* --- Mobile Optimization --- */
     @media (max-height: 600px) {
-      .section-title { font-size: 36px; top: 10px; } /* Smaller title on short screens */
+      /* Change the variable to a smaller value on short screens */
+      :root {
+        --jump-height: 120px; 
+      }
+      
+      .section-title { font-size: 36px; top: 10px; } 
       .box { width: 180px; height: 144px; }
       .lid { width: 375px; height: 86px; top: -35px; }
       .hands-around { font-size: 40px; }
@@ -384,7 +398,7 @@
   <div class="container">
     
     <section class="section" id="section1">
-      <h1 class="section-title">ROZPAKUJ!</h1>
+      <h1 class="section-title" id="mainTitle">ROZPAKUJ!</h1>
       
       <div class="gift-container">
         <div class="sunburst-glow"></div>
@@ -454,8 +468,8 @@
     const confettiContainer = document.getElementById('confetti');
     const giftText = document.getElementById('giftText');
     const reopenBtn = document.getElementById('reopenBtn');
+    const mainTitle = document.getElementById('mainTitle'); // Reference to Title
     
-    // New References for Scroll Buttons
     const scrollBtn1 = document.getElementById('scrollBtn1');
     const scrollBtn2 = document.getElementById('scrollBtn2');
     const section2 = document.getElementById('section2');
@@ -494,7 +508,6 @@
       "Ciesz się chwilą."
     ];
 
-    // --- Scroll Logic ---
     scrollBtn1.addEventListener('click', () => {
       section2.scrollIntoView({ behavior: 'smooth' });
     });
@@ -503,7 +516,6 @@
       section3.scrollIntoView({ behavior: 'smooth' });
     });
 
-    // --- Confetti Logic ---
     function createConfetti() {
       confettiContainer.innerHTML = '';
       confettiPieces = [];
@@ -531,7 +543,6 @@
       }
     }
 
-    // --- Gift Logic ---
     function animate() {
       if (isAnimating) return;
       isAnimating = true;
@@ -541,6 +552,9 @@
       
       lid.classList.add('wiggle');
       box.classList.add('is-open');
+
+      // Hide the title to make room for the gift text
+      mainTitle.classList.add('hidden');
 
       setTimeout(() => {
         lid.classList.remove('wiggle');
@@ -566,6 +580,10 @@
       lid.classList.remove('wiggle', 'rotating', 'rotated');
       character.classList.remove('pop-up');
       box.classList.remove('is-open');
+      
+      // Bring the title back
+      mainTitle.classList.remove('hidden');
+      
       reopenBtn.style.display = 'none';
       createConfetti();
       isAnimating = false;
