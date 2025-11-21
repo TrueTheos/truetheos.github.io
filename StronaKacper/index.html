@@ -19,8 +19,8 @@
     
     /* --- Sections --- */
     .section {
-      height: 100vh; 
-      height: 100dvh;
+      min-height: 100vh; 
+      min-height: 100dvh;
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -30,8 +30,10 @@
       box-sizing: border-box;
       overflow: hidden; 
       border-bottom: 1px solid #333;
+      padding: 20px; 
     }
     
+    /* --- UPDATED TITLE POSITION --- */
     .section-title {
       font-size: 50px;
       font-weight: bold;
@@ -39,8 +41,10 @@
       text-align: center;
       text-transform: uppercase;
       z-index: 20;
+      
+      /* Forces the text to the top of the container */
       position: absolute;
-      top: 10%;
+      top: 5%; 
       left: 50%;
       transform: translateX(-50%);
       margin: 0;
@@ -49,17 +53,15 @@
     
     /* --- FIXED BUTTON STYLES --- */
     .reopen-btn {
-      position: absolute;
-      top: 65%; 
-      left: 50%;
-      transform: translateX(-50%);
+      position: relative;
+      margin-top: 60px; /* Space between box and button */
       padding: 12px 30px;
       font-size: 16px;
       font-weight: bold;
-      background: #f06a19;
-      color: #fff;
-      border: none;
+      background: rgb(15, 48, 110);
+      border: 4px solid #fff; 
       border-radius: 25px;
+      color: #fff;
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       transition: all 0.3s ease;
@@ -67,14 +69,14 @@
     }
     
     .reopen-btn:hover {
-      background: #d85a15;
-      transform: translate(-50%, -2px);
+      background: rgb(15, 48, 110);
+      transform: translateY(-2px);
     }
     
-    /* --- Scroll Text --- */
+    /* --- Scroll Text (Updated for Clickability) --- */
     .scroll-text {
       position: absolute; 
-      bottom: calc(30px + env(safe-area-inset-bottom));
+      bottom: 30px; /* Pinned to bottom */
       left: 50%;
       transform: translateX(-50%);
       font-size: 18px;
@@ -89,6 +91,15 @@
       padding: 10px 25px;
       border-radius: 25px;
       white-space: nowrap;
+      
+      /* Interaction Styles */
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .scroll-text:hover {
+      background: rgba(42, 48, 54, 0.9); /* Orange highlight on hover */
+      transform: translateX(-50%) scale(1.05);
     }
     
     .arrow {
@@ -116,8 +127,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-top: 5vh; 
       overflow: visible;
+      margin-top: 20px; /* Slight offset from center to accommodate top title */
     }
 
     /* --- Sunburst Glow Effect --- */
@@ -152,14 +163,14 @@
       100% { opacity: 0.8; scale: 1.05; }
     }
 
-    /* --- UPDATED BOX STYLES FOR IMAGES --- */
+    /* --- BOX STYLES --- */
     .box {
       /* Replace URL with your box image */
       background-image: url('images/box.png'); 
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center bottom;
-      background-color: transparent; /* No more solid color */
+      background-color: transparent;
       
       border: 0;
       padding: 0;
@@ -167,21 +178,18 @@
       cursor: pointer;
       outline: none;
       
-      /* Adjust WIDTH and HEIGHT to match your image aspect ratio */
       width: 250px; 
       height: 200px; 
       
       transition: transform 0.1s;
       z-index: 10;
-      
-      /* Removed box-shadow and ::before/::after ribbons */
     }
     
     .box:active {
       transform: scale(0.98);
     }
 
-    /* --- UPDATED LID STYLES FOR IMAGES --- */
+    /* --- LID STYLES --- */
     .lid {
       /* Replace URL with your lid image */
       background-image: url('images/lid.png');
@@ -191,24 +199,20 @@
       background-color: transparent;
       
       position: absolute;
-      /* Adjust these to align the lid perfectly on top of the box */
-      top: -50px; /* Move up or down depending on lid height */
+      top: -50px; 
       left: 50%;
       transform: translate(-50%);
       
-      /* Adjust WIDTH and HEIGHT to match your lid image */
-      width: 520px;  /* Usually slightly wider than the box */
+      width: 520px; 
       height: 120px; 
       
       z-index: 11;
-      transform-origin: top center; /* Keeps the rotation physics correct */
+      transform-origin: top center; 
       filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.4));
-      /* Removed ::before/::after ribbons and shadows */
     }
 
-
     .lid.rotated {
-      box-shadow: none; /* Remove shadow when lid is rotated away */
+      box-shadow: none; 
     }
 
     /* --- Hidden Character/Text --- */
@@ -231,7 +235,7 @@
       color: #fff;
       text-shadow: 0 2px 4px rgba(0,0,0,0.3);
       padding: 20px 30px;
-      background: #ff4081;
+      background: rgb(15, 48, 110);
       border: 4px solid #fff;
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.2);
@@ -260,7 +264,6 @@
       animation: 1s rotating forwards ease-in-out;
     }
 
-    /* Adjusted the rotated state for images */
     .rotated {
       transform: rotate(120deg) translate(-80%, -250px);
     }
@@ -291,8 +294,8 @@
     .hands-around {
       position: absolute;
       font-size: 50px;
-      color: #fff; /* Ustawienie białego koloru, aby pasował do tła sekcji */
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Lekki cień, aby strzałki były bardziej widoczne */
+      color: #fff; 
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); 
       pointer-events: none;
       animation: pulse-hand 1.5s ease-in-out infinite;
       z-index: 20;
@@ -364,6 +367,17 @@
     .footer-logo img { max-height: 50px; }
     .footer-info { margin: 10px 0; font-size: 14px; line-height: 1.8; }
     .footer-tagline { margin-top: 30px; font-size: 18px; font-weight: bold; }
+
+    /* --- Mobile Optimization --- */
+    @media (max-height: 600px) {
+      .section-title { font-size: 36px; top: 10px; } /* Smaller title on short screens */
+      .box { width: 180px; height: 144px; }
+      .lid { width: 375px; height: 86px; top: -35px; }
+      .hands-around { font-size: 40px; }
+      .hand-top { top: -100px; }
+      .hand-bottom { bottom: -80px; }
+      .section { padding-top: 60px; padding-bottom: 80px; }
+    }
   </style>
 </head>
 <body>
@@ -391,7 +405,7 @@
       
       <button class="reopen-btn" id="reopenBtn" style="display: none;">Otwórz ponownie</button>
       
-      <div class="scroll-text">
+      <div class="scroll-text" id="scrollBtn1">
         <span class="arrow">↓</span>
         <span>MAMY DLA CIEBIE COŚ JESZCZE</span>
         <span class="arrow">↓</span>
@@ -399,9 +413,9 @@
     </section>
     
     <section class="section" id="section2">
-      <img src="images/img1.png" alt="Obraz 1" class="section-image">
+      <img src="images/img1.jpg" alt="Obraz 1" class="section-image">
       
-      <div class="scroll-text">
+      <div class="scroll-text" id="scrollBtn2">
         <span class="arrow">↓</span>
         <span>JEST COŚ WIĘCEJ</span>
         <span class="arrow">↓</span>
@@ -440,23 +454,56 @@
     const confettiContainer = document.getElementById('confetti');
     const giftText = document.getElementById('giftText');
     const reopenBtn = document.getElementById('reopenBtn');
+    
+    // New References for Scroll Buttons
+    const scrollBtn1 = document.getElementById('scrollBtn1');
+    const scrollBtn2 = document.getElementById('scrollBtn2');
+    const section2 = document.getElementById('section2');
+    const section3 = document.getElementById('section3');
 
     let isAnimating = false;
     let confettiPieces = [];
 
-    // Array of gift messages
     const giftMessages = [
-      "Jesteś niesamowity! 💖",
-      "Jesteś wyjątkowy! 💖",
-      "Jesteś super! 💖",
-      "Jesteś wspaniały! 💖",
-      "Jesteś cudowny! 💖",
-      "Jesteś gwiazdą! 💖",
-      "Jesteś najlepszy! 💖",
-      "Jesteś błyskotliwy! 💖",
-      "Jesteś fantastyczny! 💖"
+      "Nie licz kalorii w grudniu.",
+      "Jesteś najlepszym prezentem.",
+      "Uśmiech to Twoja ozdoba.",
+      "Błyszczysz jaśniej niż choinka.",
+      "Bądź dla kogoś Mikołajem.",
+      "Masz w sobie dużo ciepła.",
+      "Zasługujesz na to, co najlepsze.",
+      "Dzisiaj wyglądasz magicznie.",
+      "Twój uśmiech topi lód.",
+      "Bądź sobą, to wystarczy.",
+      "Przytulanie jest za darmo.",
+      "Ciesz się małymi rzeczami.",
+      "Promieniujesz dobrą energią.",
+      "Jesteś kimś wyjątkowym.",
+      "Jeden piernik nie tuczy.",
+      "Lepiej zjeść i żałować, niż nie zjeść.",
+      "Wyglądasz na prezent z najwyższej półki.",
+      "Kto rano wstaje, ten zjada więcej.",
+      "Lepiej się śmiać, niż narzekać.",
+      "Zrób coś szalonego.",
+      "Pomyśl życzenie – teraz!",
+      "Wesołych Świąt!",
+      "Miłego dnia!",
+      "Uśmiechnij się!",
+      "Fajnie Cię widzieć.",
+      "Prezentów nigdy za dużo.",
+      "Ciesz się chwilą."
     ];
 
+    // --- Scroll Logic ---
+    scrollBtn1.addEventListener('click', () => {
+      section2.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    scrollBtn2.addEventListener('click', () => {
+      section3.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // --- Confetti Logic ---
     function createConfetti() {
       confettiContainer.innerHTML = '';
       confettiPieces = [];
@@ -484,6 +531,7 @@
       }
     }
 
+    // --- Gift Logic ---
     function animate() {
       if (isAnimating) return;
       isAnimating = true;
