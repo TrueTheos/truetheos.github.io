@@ -731,9 +731,8 @@
                             <div class="absolute left-0 top-0 bottom-0 w-12 md:w-24 z-10 bg-gradient-to-r from-gray-50 to-transparent pointer-events-none"></div>
                             <div class="absolute right-0 top-0 bottom-0 w-12 md:w-24 z-10 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none"></div>
 
-                            <div id="rekrutacja-testimonials-container" class="overflow-hidden py-8 px-4 no-scrollbar">
-                                <div id="rekrutacja-testimonials-track" class="flex gap-8 transition-transform duration-500 ease-in-out rekrutacja-testimonial-track">
-                                    
+                            <div id="rekrutacja-testimonials-container" class="overflow-hidden py-8 px-4">
+                                <div id="rekrutacja-testimonials-track" class="flex gap-8 transition-transform duration-500 ease-in-out">
                                     <div class="rekrutacja-testimonial-card testimonial-card w-80 flex-shrink-0 bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden flex flex-col text-center">
                                         <div class="w-full h-40">
                                             <img src="images/ojwojtek.jpg" alt="OjWojtek" class="w-full h-full object-cover" style="object-position: center 20%;">
@@ -1294,14 +1293,17 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const track = document.getElementById('rekrutacja-testimonials-track');
+    // Safety check: if track doesn't exist, stop execution to prevent errors
+    if (!track) return; 
+
     const originalCards = Array.from(track.children);
     const dotsContainer = document.getElementById('rekrutacja-testimonials-dots');
     
     // Configuration
     const cardWidth = 320;
-    const gap = 32;        // gap-8 is 32px
+    const gap = 32;        
     const totalItemWidth = cardWidth + gap;
-    const autoPlayDelay = 2000; // 2 seconds
+    const autoPlayDelay = 2000; 
 
     let currentIndex = 0;
     let intervalId;
@@ -1309,29 +1311,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalSlides = originalCards.length;
 
     // 1. Create Dots
-    originalCards.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.className = `w-3 h-3 rounded-full transition-all duration-300 ${index === 0 ? 'bg-blue-600 w-6' : 'bg-gray-300'}`;
-        dot.ariaLabel = `Go to slide ${index + 1}`;
-        dot.onclick = () => {
-            stopAutoPlay(); // Pause when user clicks
-            goToSlide(totalSlides + index); // +2 because of the clones at the start
-            startAutoPlay(); // Restart timer
-        };
-        dotsContainer.appendChild(dot);
-    });
+    if (dotsContainer) {
+        originalCards.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.className = `w-3 h-3 rounded-full transition-all duration-300 ${index === 0 ? 'bg-blue-600 w-6' : 'bg-gray-300'}`;
+            dot.ariaLabel = `Go to slide ${index + 1}`;
+            dot.onclick = () => {
+                stopAutoPlay(); 
+                goToSlide(totalSlides + index); 
+                startAutoPlay(); 
+            };
+            dotsContainer.appendChild(dot);
+        });
+    }
 
     // 2. Clone items for infinite loop
-    // We clone 2 items to the front and 2 to the back to cover the edges
-    const clonesStart = originalCards.map(el => el.cloneNode(true)); // Clone all 5
+    const clonesStart = originalCards.map(el => el.cloneNode(true)); 
     const clonesEnd = originalCards.map(el => el.cloneNode(true));
 
-    // Add clones to track
-    clonesStart.reverse().forEach(clone => track.insertBefore(clone, track.firstChild)); // Prepend
-    clonesEnd.forEach(clone => track.appendChild(clone)); // Append
+    clonesStart.reverse().forEach(clone => track.insertBefore(clone, track.firstChild)); 
+    clonesEnd.forEach(clone => track.appendChild(clone)); 
 
-    // 3. Set Initial Position (Start at the first REAL slide, not a clone)
-   currentIndex = totalSlides;
+    // 3. Set Initial Position
+    currentIndex = totalSlides;
     
     function updatePosition(smooth = true) {
         if (!smooth) {
@@ -1339,20 +1341,16 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             track.style.transition = 'transform 0.5s ease-in-out';
         }
-        // Calculate position: Index * width of item + centering offset if needed
         const currentTranslate = -(currentIndex * totalItemWidth);
         track.style.transform = `translateX(${currentTranslate}px)`;
     }
 
-    // Set initial position immediately
+    // Set initial position immediately without animation
     updatePosition(false);
 
     function updateDots() {
-        // Calculate which real slide is active
-        // -2 because of start clones, modulo to wrap around
+        if (!dotsContainer) return;
         let realIndex = (currentIndex - totalSlides) % totalSlides;
-        
-        // Handle negative modulo result
         if (realIndex < 0) realIndex += totalSlides;
 
         Array.from(dotsContainer.children).forEach((dot, index) => {
@@ -1365,36 +1363,53 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function goToSlide(index) {
+        // FIX 1: Don't animate if the slider is hidden (e.g. on another tab)
+        if (track.offsetParent === null) return;
+
         if (isTransitioning) return;
         isTransitioning = true;
         currentIndex = index;
         updatePosition();
         updateDots();
+
+        // FIX 2: Safety Valve. If transitionend fails to fire (common on mobile/hidden tabs),
+        // force unlock after 600ms (slightly longer than the 0.5s transition).
+        setTimeout(() => {
+            if(isTransitioning) {
+                isTransitioning = false;
+                // Check bounds after timeout fallback
+                checkBounds(); 
+            }
+        }, 600);
     }
 
     function nextSlide() {
-        goToSlide(currentIndex + 1);
+        // Only slide if the element is actually visible to the user
+        if (track.offsetParent !== null) {
+            goToSlide(currentIndex + 1);
+        }
     }
 
-    // 4. Handle Infinite Loop Reset
-    track.addEventListener('transitionend', () => {
-        isTransitioning = false;
-        const allCards = track.children;
-        
-        // If we scrolled past the last real slide into the end clones
-        // We act when we reach the start of the end clones
+    // Helper to snap back clones
+    function checkBounds() {
+        // If we scrolled past the last real slide
         if (currentIndex >= totalSlides * 2) { 
             track.style.transition = 'none';
-            currentIndex = totalSlides; // Snap back to first real slide
+            currentIndex = totalSlides; 
             updatePosition(false);
         }
-        
-        // If we scrolled backwards past the first real slide into start clones
+        // If we scrolled backwards past the first real slide
         if (currentIndex < totalSlides) {
             track.style.transition = 'none';
-            currentIndex = totalSlides * 2 - 1; // Snap to last real slide
+            currentIndex = totalSlides * 2 - 1; 
             updatePosition(false);
         }
+    }
+
+    // 4. Handle Infinite Loop Reset via Event Listener
+    track.addEventListener('transitionend', () => {
+        isTransitioning = false;
+        checkBounds();
     });
 
     // 5. Auto Play Logic
@@ -1407,12 +1422,30 @@ document.addEventListener('DOMContentLoaded', function() {
         clearInterval(intervalId);
     }
 
-    // Start
     startAutoPlay();
 
-    // Pause on hover
     track.addEventListener('mouseenter', stopAutoPlay);
     track.addEventListener('mouseleave', startAutoPlay);
+    
+    // Optional: Mobile Touch Support (Swipe)
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    track.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoPlay();
+    }, {passive: true});
+
+    track.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        startAutoPlay();
+        handleSwipe();
+    }, {passive: true});
+
+    function handleSwipe() {
+        if (touchEndX < touchStartX - 50) nextSlide(); // Swipe Left
+        if (touchEndX > touchStartX + 50) goToSlide(currentIndex - 1); // Swipe Right
+    }
 });
 </script>
 </body>
