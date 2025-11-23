@@ -40,6 +40,16 @@
             scroll-behavior: smooth;
         }
 
+        #rekrutacja-testimonials-dots {
+            position: relative;
+            z-index: 50;
+            pointer-events: auto;
+        }
+
+        .rekrutacja-testimonial-track + .absolute {
+            pointer-events: none !important;
+        }
+
         @keyframes infinite-scroll {
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
@@ -668,7 +678,7 @@
                         <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                             <span class="text-3xl mr-2">🔄</span> Jak wygląda proces
                         </h3>
-                        <div class="relative flex justify-between items-start text-center border-t-2 border-b-2 border-blue-200 py-10 my-6">
+                        <div class="relative flex flex-col sm:flex-row justify-between items-center text-center border-t-2 border-b-2 border-blue-200 py-10 my-6 gap-10 sm:gap-0">
                             <div class="absolute top-1/2 left-0 right-0 h-1 bg-blue-400 opacity-50 -z-10 hidden sm:block" style="margin-top: -2px;"></div>
 
                             <div class="flex-1 px-2 relative z-10">
@@ -747,7 +757,7 @@
                                             <img src="images/marek.jpg" alt="Marek Golan" class="w-full h-full object-cover" style="object-position: center 30%;">
                                         </div>
                                         <h3 class="text-xl font-bold text-gray-900 pt-4">Marek Golan</h3>
-                                        <p class="text-sm text-blue-600 font-semibold">DogTronic</p>
+                                        <p class="text-sm text-blue-600 font-semibold">Dogtronic</p>
                                         <p class="text-sm text-gray-600 font-semibold pb-4"></p>
                                     </div>
 
@@ -1301,7 +1311,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // 1. Create Dots
         rOriginalCards.forEach((_, index) => {
             const dot = document.createElement('button');
-            dot.onclick = () => rGoToSlide(index + rTotalSlides); // Go to the real slide index
+            dot.onclick = () => {
+                rStopAutoPlay();   // pause autoplay on click
+                rGoToSlide(index + rTotalSlides);
+                rStartAutoPlay();  // restart autoplay after moving
+            };// Go to the real slide index
             dot.className = 'w-3 h-3 rounded-full bg-gray-300 transition-all duration-300';
             rDotsContainer.appendChild(dot);
         });
@@ -1388,13 +1402,6 @@ document.addEventListener('DOMContentLoaded', function() {
         rUpdatePosition(false);
         rUpdateDots();
         rStartAutoPlay();
-
-        // Pause on hover
-        const groupContainer = rTrack.closest('.group');
-        if (groupContainer) {
-            groupContainer.addEventListener('mouseenter', rStopAutoPlay);
-            groupContainer.addEventListener('mouseleave', rStartAutoPlay);
-        }
     });
 </script>
 </body>
