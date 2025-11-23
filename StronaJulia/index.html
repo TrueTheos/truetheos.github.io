@@ -35,6 +35,31 @@
         html {
             scroll-behavior: smooth;
         }
+
+        @keyframes infinite-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .animate-infinite-scroll {
+            animation: infinite-scroll 40s linear infinite;
+            /* Width must be fit-content to allow scrolling */
+            width: max-content; 
+        }
+
+        /* Pause scrolling when user hovers over the track */
+        .group:hover .animate-infinite-scroll {
+            animation-play-state: paused;
+        }
+        
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
         
         /* Fix for full-width images */
         .full-bleed-image-container {
@@ -249,77 +274,64 @@
 
         <section class="py-20 px-6 bg-gray-50">
             <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">
-                Zaufali mi między innymi:
-            </h2>
+                <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">
+                    Zaufali mi między innymi:
+                </h2>
 
-            <div class="relative">
-                <div id="testimonials-container" class="overflow-hidden px-12">
-                <div id="testimonials-track" class="flex gap-6 transition-transform duration-500 ease-in-out">
-                    <div class="testimonial w-72 flex-shrink-0">
-                    <div class="testimonial-card bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden">
-                        <div class="h-48 bg-gray-200 overflow-hidden">
-                        <img src="images/adrian.JPG" alt="Adrian Gorzycki" class="w-full h-full object-cover" style="object-position: center 10%;">
+                <div class="relative group">
+                    <div class="absolute left-0 top-0 bottom-0 w-12 md:w-24 z-10 bg-gradient-to-r from-gray-50 to-transparent pointer-events-none"></div>
+                    <div class="absolute right-0 top-0 bottom-0 w-12 md:w-24 z-10 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none"></div>
+
+                    <div id="testimonials-container" class="overflow-hidden py-8 px-4">
+                        <div id="testimonials-track" class="flex gap-8 transition-transform duration-500 ease-in-out">
+                            
+                            <div class="testimonial-card w-80 flex-shrink-0 bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden flex flex-col text-center">
+                                <div class="w-full h-40">
+                                    <img src="images/adrian.JPG" alt="Adrian Gorzycki" class="w-full h-full object-cover" style="object-position: center 10%;">
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 pt-4">Adrian Gorzycki</h3>
+                                <p class="text-sm text-blue-600 font-semibold">Przygody Przedsiębiorców</p>
+                                <p class="text-sm text-blue-600 font-semibold">Loża Przedsiebiroców</p>
+                            </div>
+
+                            <div class="testimonial-card w-80 flex-shrink-0 bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden flex flex-col text-center">
+                                <div class="w-full h-40">
+                                    <img src="images/karolina.jpg" alt="Karolina Gruszecka" class="w-full h-full object-cover" style="object-position: center 10%">
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 pt-4">Karolina Gruszecka</h3>
+                                <p class="text-sm text-blue-600 font-semibold">Holi Studio</p>
+                                <p class="text-sm text-blue-600 font-semibold  pb-4">Klub zdrowych kobiet</p>
+                            </div>
+
+                            <div class="testimonial-card w-80 flex-shrink-0 bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden flex flex-col text-center">
+                                <div class="w-full h-40">
+                                    <img src="images/ojwojtek.jpg" alt="Wojtek Paździecki" class="w-full h-full object-cover" style="object-position: center 30%;">
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 pt-4">Wojtek Paździecki</h3>
+                                <p class="text-sm text-blue-600 font-semibold">OjWojtek - Youtuber</p>
+                            </div>
+
+                            <div class="testimonial-card w-80 flex-shrink-0 bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden flex flex-col text-center">
+                                <div class="w-full h-40">
+                                    <img src="images/ela.jpg" alt="Ela Kazubska" class="w-full h-full object-cover" style="object-position: center 30%;">
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 pt-4">Ela Kazubska</h3>
+                                <p class="text-sm text-blue-600 font-semibold">EliPro Dubaj Nieruchomości</p>
+                            </div>
+
+                            <div class="testimonial-card w-80 flex-shrink-0 bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden flex flex-col text-center">
+                                <div class="w-full h-40">
+                                    <img src="images/adam.jpg" alt="Adam Jagiełka" class="w-full h-full object-cover" style="object-position: center 35%;">
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 pt-4">Adam Jagiełka</h3>
+                                <p class="text-sm text-blue-600 font-semibold">Blue Bird Evesta</p>
+                            </div>
+
                         </div>
-                        <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Adrian Gorzycki</h3>
-                        <p class="text-sm text-gray-500">Loża Przedsiębiorców</p>
-                        </div>
-                    </div>
                     </div>
 
-                    <div class="testimonial w-72 flex-shrink-0">
-                    <div class="testimonial-card bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden">
-                        <div class="h-48 bg-gray-200 overflow-hidden">
-                        <img src="images/karolina.jpg" alt="Karolina Gruszecka" class="w-full h-full object-cover" style="object-position: center top;">
-                        </div>
-                        <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Karolina Gruszecka</h3>
-                        <p class="text-sm text-gray-500">Holi Studio. Klub zdrowych kobiet</p>
-                        </div>
-                    </div>
-                    </div>
-
-                    <div class="testimonial w-72 flex-shrink-0">
-                    <div class="testimonial-card bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden">
-                        <div class="h-48 bg-gray-200 overflow-hidden">
-                        <img src="images/ojwojtek.jpg" alt="Wojtek Paździecki" class="w-full h-full object-cover" style="object-position: center 30%;">
-                        </div>
-                        <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Wojtek Paździecki</h3>
-                        <p class="text-sm text-gray-500">OjWojtek - youtuber</p>
-                        </div>
-                    </div>
-                    </div>
-
-                    <div class="testimonial w-72 flex-shrink-0">
-                    <div class="testimonial-card bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden">
-                        <div class="h-48 bg-gray-200 overflow-hidden">
-                        <img src="images/ela.jpg" alt="Ela Kazubska" class="w-full h-full object-cover" style="object-position: center 30%;">
-                        </div>
-                        <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Ela Kazubska</h3>
-                        <p class="text-sm text-gray-500">EliPro Dubaj nieruchomości</p>
-                        </div>
-                    </div>
-                    </div>
-
-                    <div class="testimonial w-72 flex-shrink-0">
-                    <div class="testimonial-card bg-white rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden">
-                        <div class="h-48 bg-gray-200 overflow-hidden">
-                        <img src="images/adam.jpg" alt="Adam Jagiełka" class="w-full h-full object-cover" style="object-position: center 35%;">
-                        </div>
-                        <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Adam Jagiełka</h3>
-                        <p class="text-sm text-gray-500">Blue Bird Evesta</p>
-                        </div>
-                    </div>
-                    </div>
+                    <div id="testimonials-dots" class="flex justify-center gap-2 mt-4"></div>
                 </div>
-                </div>
-
-                <div id="testimonials-dots" class="flex justify-center gap-2 mt-8"></div>
-            </div>
             </div>
         </section>
          <style>
@@ -1017,146 +1029,128 @@
         });
     </script>
     <script>
-        const track = document.getElementById('testimonials-track');
-        const container = document.getElementById('testimonials-container');
-        const dotsContainer = document.getElementById('testimonials-dots');
-        const testimonials = Array.from(document.querySelectorAll('.testimonial'));
-        const totalSlides = testimonials.length;
-        let currentIndex = 0;
-        let autoScrollInterval;
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.getElementById('testimonials-track');
+    const originalCards = Array.from(track.children);
+    const dotsContainer = document.getElementById('testimonials-dots');
+    
+    // Configuration
+    const cardWidth = 320; // w-80 is 320px
+    const gap = 32;        // gap-8 is 32px
+    const totalItemWidth = cardWidth + gap;
+    const autoPlayDelay = 2000; // 2 seconds
 
-        // Clone slides for infinite loop effect
-        const cloneFirst = testimonials[0].cloneNode(true);
-        const cloneLast = testimonials[totalSlides - 1].cloneNode(true);
-        track.appendChild(cloneFirst);
-        track.insertBefore(cloneLast, testimonials[0]);
+    let currentIndex = 0;
+    let intervalId;
+    let isTransitioning = false;
+    const totalSlides = originalCards.length;
 
-        const allSlides = Array.from(document.querySelectorAll('.testimonial-card'));
-        const totalDisplaySlides = totalSlides + 2; // Including clones
+    // 1. Create Dots
+    originalCards.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.className = `w-3 h-3 rounded-full transition-all duration-300 ${index === 0 ? 'bg-blue-600 w-6' : 'bg-gray-300'}`;
+        dot.ariaLabel = `Go to slide ${index + 1}`;
+        dot.onclick = () => {
+            stopAutoPlay(); // Pause when user clicks
+            goToSlide(totalSlides + index); // +2 because of the clones at the start
+            startAutoPlay(); // Restart timer
+        };
+        dotsContainer.appendChild(dot);
+    });
 
-        function createDots() {
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.createElement('span');
-                dot.classList.add('w-3', 'h-3', 'rounded-full', 'bg-gray-300', 'cursor-pointer', 'transition-colors');
-                dot.onclick = () => goToSlide(i + 1); // +1 because index 0 is the clone
-                dotsContainer.appendChild(dot);
+    // 2. Clone items for infinite loop
+    // We clone 2 items to the front and 2 to the back to cover the edges
+    const clonesStart = originalCards.map(el => el.cloneNode(true)); // Clone all 5
+    const clonesEnd = originalCards.map(el => el.cloneNode(true));
+
+    // Add clones to track
+    clonesStart.reverse().forEach(clone => track.insertBefore(clone, track.firstChild)); // Prepend
+    clonesEnd.forEach(clone => track.appendChild(clone)); // Append
+
+    // 3. Set Initial Position (Start at the first REAL slide, not a clone)
+   currentIndex = totalSlides;
+    
+    function updatePosition(smooth = true) {
+        if (!smooth) {
+            track.style.transition = 'none';
+        } else {
+            track.style.transition = 'transform 0.5s ease-in-out';
+        }
+        // Calculate position: Index * width of item + centering offset if needed
+        const currentTranslate = -(currentIndex * totalItemWidth);
+        track.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    // Set initial position immediately
+    updatePosition(false);
+
+    function updateDots() {
+        // Calculate which real slide is active
+        // -2 because of start clones, modulo to wrap around
+        let realIndex = (currentIndex - totalSlides) % totalSlides;
+        
+        // Handle negative modulo result
+        if (realIndex < 0) realIndex += totalSlides;
+
+        Array.from(dotsContainer.children).forEach((dot, index) => {
+            if (index === realIndex) {
+                dot.className = 'w-6 h-3 rounded-full bg-blue-600 transition-all duration-300';
+            } else {
+                dot.className = 'w-3 h-3 rounded-full bg-gray-300 transition-all duration-300';
             }
-            updateDots();
-        }
+        });
+    }
 
-        function updateDots() {
-            const dots = Array.from(dotsContainer.children);
-            dots.forEach((dot, index) => {
-                dot.classList.remove('bg-blue-600');
-                dot.classList.add('bg-gray-300');
-                if (index === (currentIndex - 1 + totalSlides) % totalSlides) {
-                    dot.classList.remove('bg-gray-300');
-                    dot.classList.add('bg-blue-600');
-                }
-            });
-        }
+    function goToSlide(index) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentIndex = index;
+        updatePosition();
+        updateDots();
+    }
 
-        function goToSlide(index, smooth = true) {
-            const slideWidth = testimonials[0].offsetWidth + 24; // Width + gap
-            const newTransform = -slideWidth * index;
-            track.style.transition = smooth ? 'transform 0.5s ease-in-out' : 'none';
-            track.style.transform = `translateX(${newTransform}px)`;
-            currentIndex = index;
+    function nextSlide() {
+        goToSlide(currentIndex + 1);
+    }
 
-            if (index === totalSlides && smooth) {
-                // Snap back to the real first slide after transition
-                const handler = () => {
-                    currentIndex = 0;
-                    goToSlide(0, false);
-                    track.removeEventListener('transitionend', handler);
-                };
-                track.addEventListener('transitionend', handler);
-            } else if (index === 0 && smooth) {
-                // Snap back to the real last slide after transition for prevSlide
-                const handler = () => {
-                    currentIndex = totalSlides;
-                    goToSlide(currentIndex, false);
-                    track.removeEventListener('transitionend', handler);
-                };
-                track.addEventListener('transitionend', handler);
-            }
-
-            // Update dots only for real slides
-            if (index >= 1 && index <= totalSlides) {
-                updateDots();
-            } else if (index === 0) {
-                // Show last dot when on the first clone
-                // Needs a slightly more complex logic to show the correct dot during the transition
-                // For simplicity, we'll just not update the dot during the clone slide transition
-            }
-        }
-
-        function nextSlide() {
-            if (currentIndex < totalSlides) {
-                currentIndex++;
-                goToSlide(currentIndex);
-            } else if (currentIndex === totalSlides) {
-                // Move to the cloned first slide
-                currentIndex++;
-                goToSlide(currentIndex);
-
-                // Snap back to the real first slide without transition
-                const handler = () => {
-                    currentIndex = 1;
-                    goToSlide(1, false);
-                    track.removeEventListener('transitionend', handler);
-                    updateDots(); // Update dot here
-                };
-                track.addEventListener('transitionend', handler, { once: true });
-            }
-            updateDots();
-        }
-
-        function prevSlide() {
-            if (currentIndex > 1) {
-                currentIndex--;
-                goToSlide(currentIndex);
-            } else if (currentIndex === 1) {
-                // Move to the cloned last slide
-                currentIndex = 0;
-                goToSlide(currentIndex);
-
-                // Snap back to the real last slide without transition
-                const handler = () => {
-                    currentIndex = totalSlides;
-                    goToSlide(currentIndex, false);
-                    track.removeEventListener('transitionend', handler);
-                    updateDots(); // Update dot here
-                };
-                track.addEventListener('transitionend', handler, { once: true });
-            }
-            updateDots();
-        }
-
-        function startAutoScroll() {
-            // Start from the first real slide (index 1)
-            autoScrollInterval = setInterval(() => {
-                let nextIndex = currentIndex + 1;
-                if (nextIndex > totalSlides) {
-                    nextIndex = 1; // Loop back to the first real slide
-                }
-                goToSlide(nextIndex);
-            }, 5000); // Increased interval for better readability (5 seconds)
-        }
-
-        function stopAutoScroll() {
-            clearInterval(autoScrollInterval);
+    // 4. Handle Infinite Loop Reset
+    track.addEventListener('transitionend', () => {
+        isTransitioning = false;
+        const allCards = track.children;
+        
+        // If we scrolled past the last real slide into the end clones
+        // We act when we reach the start of the end clones
+        if (currentIndex >= totalSlides * 2) { 
+            track.style.transition = 'none';
+            currentIndex = totalSlides; // Snap back to first real slide
+            updatePosition(false);
         }
         
-        // Initial calls
-        createDots();
-        goToSlide(1, false); // Start at the first real testimonial (index 1) without transition
-        startAutoScroll();
+        // If we scrolled backwards past the first real slide into start clones
+        if (currentIndex < totalSlides) {
+            track.style.transition = 'none';
+            currentIndex = totalSlides * 2 - 1; // Snap to last real slide
+            updatePosition(false);
+        }
+    });
 
-        // Event listeners
-        container.onmouseenter = stopAutoScroll;
-        container.onmouseleave = startAutoScroll;
+    // 5. Auto Play Logic
+    function startAutoPlay() {
+        clearInterval(intervalId);
+        intervalId = setInterval(nextSlide, autoPlayDelay);
+    }
 
-    </script>
+    function stopAutoPlay() {
+        clearInterval(intervalId);
+    }
+
+    // Start
+    startAutoPlay();
+
+    // Pause on hover
+    track.addEventListener('mouseenter', stopAutoPlay);
+    track.addEventListener('mouseleave', startAutoPlay);
+});
+</script>
 </body>
 </html>
