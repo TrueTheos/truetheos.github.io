@@ -1292,117 +1292,128 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // --- Rekrutacja Testimonials Carousel Logic ---
-        const rTrack = document.getElementById('rekrutacja-testimonials-track');
-        const rOriginalCards = Array.from(rTrack.children);
-        const rDotsContainer = document.getElementById('rekrutacja-testimonials-dots');
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.getElementById('rekrutacja-testimonials-track');
+    const originalCards = Array.from(track.children);
+    const dotsContainer = document.getElementById('rekrutacja-testimonials-dots');
+    
+    // Configuration
+    const cardWidth = 320;
+    const gap = 32;        // gap-8 is 32px
+    const totalItemWidth = cardWidth + gap;
+    const autoPlayDelay = 2000; // 2 seconds
 
-        // Configuration (same as home page carousel)
-        const rCardWidth = 320; 
-        const rGap = 32; 
-        const rTotalItemWidth = rCardWidth + rGap;
-        const rAutoPlayDelay = 2000; 
-        let rCurrentIndex = 0;
-        let rIntervalId;
-        let rIsTransitioning = false;
-        const rTotalSlides = rOriginalCards.length;
+    let currentIndex = 0;
+    let intervalId;
+    let isTransitioning = false;
+    const totalSlides = originalCards.length;
 
-        // 1. Create Dots
-        rOriginalCards.forEach((_, index) => {
-            const dot = document.createElement('button');
-            dot.onclick = () => {
-                rStopAutoPlay();   // pause autoplay on click
-                rGoToSlide(index + rTotalSlides);
-                rStartAutoPlay();  // restart autoplay after moving
-            };// Go to the real slide index
-            dot.className = 'w-3 h-3 rounded-full bg-gray-300 transition-all duration-300';
-            rDotsContainer.appendChild(dot);
-        });
-
-        // 2. Clone Cards for Infinite Loop
-        function rCloneCards() {
-            // Clone all original cards and append them twice (start and end)
-            rOriginalCards.forEach(card => {
-                const clone = card.cloneNode(true);
-                rTrack.appendChild(clone);
-            });
-            rOriginalCards.forEach(card => {
-                const clone = card.cloneNode(true);
-                rTrack.appendChild(clone);
-            });
-        }
-        rCloneCards();
-        
-        // Set initial index to the first of the original set (index totalSlides)
-        rCurrentIndex = rTotalSlides;
-        
-        // 3. Update Position & Dots
-        function rUpdatePosition(withTransition = true) {
-            rTrack.style.transition = withTransition ? 'transform 0.5s ease-in-out' : 'none';
-            rTrack.style.transform = `translateX(-${rCurrentIndex * rTotalItemWidth}px)`;
-        }
-
-        function rUpdateDots() {
-            // Calculate the actual index (0 to totalSlides-1)
-            let realIndex = rCurrentIndex % rTotalSlides;
-            if (realIndex < 0) realIndex += rTotalSlides;
-
-            Array.from(rDotsContainer.children).forEach((dot, index) => {
-                if (index === realIndex) {
-                    dot.className = 'w-6 h-3 rounded-full bg-blue-600 transition-all duration-300';
-                } else {
-                    dot.className = 'w-3 h-3 rounded-full bg-gray-300 transition-all duration-300';
-                }
-            });
-        }
-
-        function rGoToSlide(index) {
-            if (rIsTransitioning) return;
-            rIsTransitioning = true;
-            rCurrentIndex = index;
-            rUpdatePosition();
-            rUpdateDots();
-        }
-
-        function rNextSlide() {
-            rGoToSlide(rCurrentIndex + 1);
-        }
-
-        // 4. Handle Infinite Loop Reset
-        rTrack.addEventListener('transitionend', () => {
-            rIsTransitioning = false;
-            
-            // If we scrolled past the last real slide into the end clones
-            if (rCurrentIndex >= rTotalSlides * 2) { 
-                rTrack.style.transition = 'none';
-                rCurrentIndex = rTotalSlides; // Snap back to first real slide
-                rUpdatePosition(false);
-            }
-            
-            // If we scrolled backwards past the first real slide into start clones
-            if (rCurrentIndex < rTotalSlides) {
-                rTrack.style.transition = 'none';
-                rCurrentIndex = rTotalSlides * 2 - 1; // Snap to last real slide
-                rUpdatePosition(false);
-            }
-        });
-
-        // 5. Auto Play Logic
-        function rStartAutoPlay() {
-            clearInterval(rIntervalId);
-            rIntervalId = setInterval(rNextSlide, rAutoPlayDelay);
-        }
-
-        function rStopAutoPlay() {
-            clearInterval(rIntervalId);
-        }
-
-        // Initial setup
-        rUpdatePosition(false);
-        rUpdateDots();
-        rStartAutoPlay();
+    // 1. Create Dots
+    originalCards.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.className = `w-3 h-3 rounded-full transition-all duration-300 ${index === 0 ? 'bg-blue-600 w-6' : 'bg-gray-300'}`;
+        dot.ariaLabel = `Go to slide ${index + 1}`;
+        dot.onclick = () => {
+            stopAutoPlay(); // Pause when user clicks
+            goToSlide(totalSlides + index); // +2 because of the clones at the start
+            startAutoPlay(); // Restart timer
+        };
+        dotsContainer.appendChild(dot);
     });
+
+    // 2. Clone items for infinite loop
+    // We clone 2 items to the front and 2 to the back to cover the edges
+    const clonesStart = originalCards.map(el => el.cloneNode(true)); // Clone all 5
+    const clonesEnd = originalCards.map(el => el.cloneNode(true));
+
+    // Add clones to track
+    clonesStart.reverse().forEach(clone => track.insertBefore(clone, track.firstChild)); // Prepend
+    clonesEnd.forEach(clone => track.appendChild(clone)); // Append
+
+    // 3. Set Initial Position (Start at the first REAL slide, not a clone)
+   currentIndex = totalSlides;
+    
+    function updatePosition(smooth = true) {
+        if (!smooth) {
+            track.style.transition = 'none';
+        } else {
+            track.style.transition = 'transform 0.5s ease-in-out';
+        }
+        // Calculate position: Index * width of item + centering offset if needed
+        const currentTranslate = -(currentIndex * totalItemWidth);
+        track.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    // Set initial position immediately
+    updatePosition(false);
+
+    function updateDots() {
+        // Calculate which real slide is active
+        // -2 because of start clones, modulo to wrap around
+        let realIndex = (currentIndex - totalSlides) % totalSlides;
+        
+        // Handle negative modulo result
+        if (realIndex < 0) realIndex += totalSlides;
+
+        Array.from(dotsContainer.children).forEach((dot, index) => {
+            if (index === realIndex) {
+                dot.className = 'w-6 h-3 rounded-full bg-blue-600 transition-all duration-300';
+            } else {
+                dot.className = 'w-3 h-3 rounded-full bg-gray-300 transition-all duration-300';
+            }
+        });
+    }
+
+    function goToSlide(index) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentIndex = index;
+        updatePosition();
+        updateDots();
+    }
+
+    function nextSlide() {
+        goToSlide(currentIndex + 1);
+    }
+
+    // 4. Handle Infinite Loop Reset
+    track.addEventListener('transitionend', () => {
+        isTransitioning = false;
+        const allCards = track.children;
+        
+        // If we scrolled past the last real slide into the end clones
+        // We act when we reach the start of the end clones
+        if (currentIndex >= totalSlides * 2) { 
+            track.style.transition = 'none';
+            currentIndex = totalSlides; // Snap back to first real slide
+            updatePosition(false);
+        }
+        
+        // If we scrolled backwards past the first real slide into start clones
+        if (currentIndex < totalSlides) {
+            track.style.transition = 'none';
+            currentIndex = totalSlides * 2 - 1; // Snap to last real slide
+            updatePosition(false);
+        }
+    });
+
+    // 5. Auto Play Logic
+    function startAutoPlay() {
+        clearInterval(intervalId);
+        intervalId = setInterval(nextSlide, autoPlayDelay);
+    }
+
+    function stopAutoPlay() {
+        clearInterval(intervalId);
+    }
+
+    // Start
+    startAutoPlay();
+
+    // Pause on hover
+    track.addEventListener('mouseenter', stopAutoPlay);
+    track.addEventListener('mouseleave', startAutoPlay);
+});
 </script>
 </body>
 </html>
