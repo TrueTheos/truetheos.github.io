@@ -329,15 +329,16 @@
     }
 
     .hand-top {
-      top: -150px;
-      left: 37%;
-      transform: translateX(-50%);
+      top: 55%; /* Center vertically with respect to the box */
+      left: -70px; /* Moves it outside and to the left */
+      transform: translateY(-50%) rotate(270deg);
     }
 
     .hand-bottom {
-      bottom: -100px;
-      left: 60%;
-      transform: translateX(-45%) rotate(180deg) ;
+      top: 35%; /* Center vertically with respect to the box */
+      left: auto; /* Reset left */
+      right: -70px; /* Moves it outside and to the right */
+      transform: translateY(-50%) rotate(90deg);
     }
 
     .box.is-open .hands-around {
@@ -414,8 +415,6 @@
       .box { width: 180px; height: 144px; }
       .lid { width: 375px; height: 86px; top: -35px; }
       .hands-around { width: 40px; height: 40px; }
-      .hand-top { top: -100px; }
-      .hand-bottom { bottom: -80px; }
       .section { padding-top: 60px; padding-bottom: 80px; }
     }
 
