@@ -309,24 +309,35 @@
     /* --- Hands Styling --- */
     .hands-around {
       position: absolute;
-      font-size: 50px;
-      color: #fff; 
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); 
       pointer-events: none;
-      animation: pulse-hand 1.5s ease-in-out infinite;
       z-index: 20;
+      animation: pulse-hand 1.5s ease-in-out infinite;
+
+      /* Now using a background image for the arrow */
+      background-image: url('images/arrow.svg'); /* Now using image */
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      width: 50px; /* Adjust size for the arrow image */
+      height: 50px; /* Adjust size for the arrow image */
+
+      /* Removing text-based styles */
+      font-size: 0; 
+      color: transparent; 
+      text-shadow: none;
     }
 
     .hand-top {
       top: -150px;
       left: 50%;
-      transform: translateX(-50%) ;
+      transform: translateX(-50%) rotate(180deg);
     }
 
     .hand-bottom {
       bottom: -100px;
       left: 50%;
-      transform: translateX(-50%) rotate(180deg);
+      transform: translateX(-50%) ;
     }
 
     .box.is-open .hands-around {
@@ -402,7 +413,7 @@
       .section-title { font-size: 36px; top: 10px; } 
       .box { width: 180px; height: 144px; }
       .lid { width: 375px; height: 86px; top: -35px; }
-      .hands-around { font-size: 40px; }
+      .hands-around { width: 40px; height: 40px; }
       .hand-top { top: -100px; }
       .hand-bottom { bottom: -80px; }
       .section { padding-top: 60px; padding-bottom: 80px; }
