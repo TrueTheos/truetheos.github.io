@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gift Box Animation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* --- GLOBAL VARIABLES --- */
     :root {
@@ -15,7 +18,7 @@
       margin: 0;
       padding: 0;
       background: rgb(15, 48, 110);
-      font-family: times-new-roman;
+      font-family: 'Lora', serif;
       scroll-behavior: smooth;
     }
 
@@ -335,10 +338,10 @@
     }
 
     .hand-bottom {
-      top: 35%; /* Center vertically with respect to the box */
+      top: 55%; /* Center vertically with respect to the box */
       left: auto; /* Reset left */
       right: -70px; /* Moves it outside and to the right */
-      transform: translateY(-50%) rotate(90deg);
+      transform: translateY(-50%) rotate(270deg) scaleY(-1);
     }
 
     .box.is-open .hands-around {
@@ -418,6 +421,35 @@
       .section { padding-top: 60px; padding-bottom: 80px; }
     }
 
+    .top-phone {
+      position: absolute;
+      top: 25px;
+      right: 25px; /* Position on the right */
+      z-index: 100;
+      opacity: 0.9;
+      transition: opacity 0.3s, transform 0.3s;
+      
+      /* Text Styling */
+      color: #fff;
+      text-decoration: none;
+      font-size: 24px; /* Adjust size to match visual weight of logo */
+      font-weight: bold;
+    }
+
+    .top-phone:hover {
+      opacity: 1;
+      transform: scale(1.05); /* Slight zoom on hover */
+    }
+
+    /* Mobile Optimization for Phone Number */
+    @media (max-width: 768px) {
+      .top-phone {
+        top: 13px;
+        right: 15px;
+        font-size: 14px; /* Smaller on mobile to fit */
+      }
+    }
+
     .top-logo {
       position: absolute;
       top: 25px;
@@ -454,6 +486,10 @@
     <section class="section" id="section1">
       <a href="https://grupamoderator.pl" target="_blank" class="top-logo">
         <img src="https://grupamoderator.pl/_Resources/Static/Packages/App.Site/Images/logo-white.png" alt="Logo">
+      </a>
+
+      <a href="tel:796909909" class="top-phone">
+        796 909 909
       </a>
       <h1 class="section-title" id="mainTitle">Kliknij i&nbsp;rozpakuj!</h1>
       
@@ -522,7 +558,7 @@
           Email: sprzedaz@grupamoderator.pl
         </div>
         <div class="footer-info">
-          Nr: 796 909 090
+          Tel.: 796 909 909
         </div>
         <div class="footer-info">
           KRS 0000774601 | NIP 9671425820 | REGON 382705990
