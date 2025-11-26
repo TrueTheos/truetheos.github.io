@@ -8,9 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* --- GLOBAL VARIABLES --- */
     :root {
-      /* Standard height for the text pop-up */
       --jump-height: 240px; 
     }
 
@@ -26,7 +24,6 @@
       width: 100%;
     }
     
-    /* --- Sections --- */
     .section {
       min-height: 100vh; 
       min-height: 100dvh;
@@ -42,7 +39,6 @@
       padding: 20px; 
     }
     
-    /* --- TITLE STYLES --- */
     .section-title {
       font-size: 50px;
       font-weight: bold;
@@ -58,26 +54,22 @@
       margin: 0;
       width: 100%; 
       
-      /* Add transition for fading out */
       transition: opacity 0.5s ease, visibility 0.5s ease;
       opacity: 1;
       visibility: visible;
     }
 
-    /* Class to hide title when box opens */
     .section-title.hidden {
       opacity: 0;
       visibility: hidden;
     }
     
-    /* --- FIXED BUTTON STYLES --- */
     .reopen-btn {
-      position: absolute; /* Changed from relative to absolute */
-      bottom: 20%;        /* Positions it relative to the bottom of the screen */
-      left: 50%;          /* Centers it horizontally */
-      transform: translateX(-50%); /* Exact center alignment */
+      position: absolute; 
+      bottom: 20%;     
+      left: 50%;       
+      transform: translateX(-50%); 
       
-      /* Existing styles below... */
       padding: 12px 30px;
       font-size: 16px;
       font-weight: bold;
@@ -90,7 +82,6 @@
       transition: all 0.3s ease;
       z-index: 500;
       
-      /* Remove margin-top as it is no longer needed */
       margin-top: 0; 
     }
     
@@ -99,7 +90,6 @@
       transform: translateY(-2px);
     }
     
-    /* --- Scroll Text --- */
     .scroll-text {
       position: absolute; 
       bottom: 5px; 
@@ -145,7 +135,6 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
     
-    /* --- Gift Box Logic --- */
     .gift-container {
       position: relative;
       display: flex;
@@ -156,7 +145,6 @@
       margin-top: 20px; 
     }
 
-    /* --- Sunburst Glow Effect --- */
     .sunburst-glow {
       position: absolute;
       top: 50%;
@@ -188,7 +176,6 @@
       100% { opacity: 0.8; scale: 1.05; }
     }
 
-    /* --- BOX STYLES --- */
     .box {
       background-image: url('images/box.png'); 
       background-size: contain;
@@ -210,7 +197,6 @@
       transform: scale(0.98);
     }
 
-    /* --- LID STYLES --- */
     .lid {
       background-image: url('images/lid.png');
       background-size: contain;
@@ -232,7 +218,6 @@
       box-shadow: none; 
     }
 
-    /* --- Hidden Character/Text --- */
     .character {
       position: absolute;
       bottom: 0; 
@@ -272,7 +257,6 @@
         width: 0;
     }
 
-    /* --- Animations --- */
     .wiggle {
       animation: 0.5s wiggle infinite linear;
     }
@@ -301,46 +285,41 @@
       100% { transform: rotate(120deg) translate(-80%, -250px); }
     }
 
-    /* UPDATED POP-UP ANIMATION USING VARIABLE */
     @keyframes pop-up {
       0% { bottom: 0; opacity: 0; transform: translateX(-50%) scale(0.5); }
       50% { opacity: 1; }
-      /* Use the CSS Variable here */
       100% { bottom: var(--jump-height); opacity: 1; transform: translateX(-50%) scale(1); }
     }
 
-    /* --- Hands Styling --- */
     .hands-around {
       position: absolute;
       pointer-events: none;
       z-index: 20;
       animation: pulse-hand 1.5s ease-in-out infinite;
 
-      /* Now using a background image for the arrow */
-      background-image: url('images/arrow.png'); /* Now using image */
+      background-image: url('images/arrow.png');
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
 
-      width: 50px; /* Adjust size for the arrow image */
-      height: 50px; /* Adjust size for the arrow image */
+      width: 50px;
+      height: 50px;
 
-      /* Removing text-based styles */
       font-size: 0; 
       color: transparent; 
       text-shadow: none;
     }
 
     .hand-top {
-      top: 55%; /* Center vertically with respect to the box */
-      left: -70px; /* Moves it outside and to the left */
+      top: 55%;
+      left: -70px;
       transform: translateY(-50%) rotate(270deg);
     }
 
     .hand-bottom {
-      top: 55%; /* Center vertically with respect to the box */
-      left: auto; /* Reset left */
-      right: -70px; /* Moves it outside and to the right */
+      top: 55%; 
+      left: auto;
+      right: -70px; 
       transform: translateY(-50%) rotate(270deg) scaleY(-1);
     }
 
@@ -353,7 +332,6 @@
       50% { margin: 10px; }
     }
 
-    /* --- Confetti --- */
     .confetti {
       position: fixed;
       top: 0;
@@ -381,7 +359,6 @@
       100% { opacity: 0; transform: translate3d(var(--tx), var(--ty), 0) rotate(var(--rot)) scale(0.5); }
     }
 
-    /* --- Footer --- */
     footer {
       background: #0c1e42;
       color: #fff;
@@ -395,10 +372,10 @@
     }
 
     .image-link {
-      display: flex; /* Makes the link a flex container */
-      justify-content: center; /* Centers the image horizontally inside the link */
-      align-items: center; /* Centers the image vertically */
-      width: 100%; /* Ensures the link spans the width so it can center the image */
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+      width: 100%; 
       text-decoration: none; 
     }
     
@@ -407,9 +384,7 @@
     .footer-info { margin: 10px 0; font-size: 14px; line-height: 1.8; }
     .footer-tagline { margin-top: 30px; font-size: 18px; font-weight: bold; }
 
-    /* --- Mobile Optimization --- */
     @media (max-height: 600px) {
-      /* Change the variable to a smaller value on short screens */
       :root {
         --jump-height: 120px; 
       }
@@ -424,29 +399,27 @@
     .top-phone {
       position: absolute;
       top: 25px;
-      right: 25px; /* Position on the right */
+      right: 25px;
       z-index: 100;
       opacity: 0.9;
       transition: opacity 0.3s, transform 0.3s;
       
-      /* Text Styling */
       color: #fff;
       text-decoration: none;
-      font-size: 24px; /* Adjust size to match visual weight of logo */
+      font-size: 24px;
       font-weight: bold;
     }
 
     .top-phone:hover {
       opacity: 1;
-      transform: scale(1.05); /* Slight zoom on hover */
+      transform: scale(1.05);
     }
 
-    /* Mobile Optimization for Phone Number */
     @media (max-width: 768px) {
       .top-phone {
         top: 13px;
         right: 15px;
-        font-size: 14px; /* Smaller on mobile to fit */
+        font-size: 14px;
       }
     }
 
@@ -454,8 +427,8 @@
       position: absolute;
       top: 25px;
       left: 25px;
-      width: 150px; /* Controls the size - adjust as needed */
-      z-index: 100; /* Ensures it sits above everything */
+      width: 150px;
+      z-index: 100;
       opacity: 0.9;
       transition: opacity 0.3s;
     }
@@ -470,7 +443,6 @@
       display: block;
     }
 
-    /* Make it smaller on mobile screens so it doesn't hit the title */
     @media (max-width: 768px) {
       .top-logo {
         width: 100px;
@@ -577,7 +549,7 @@
     const confettiContainer = document.getElementById('confetti');
     const giftText = document.getElementById('giftText');
     const reopenBtn = document.getElementById('reopenBtn');
-    const mainTitle = document.getElementById('mainTitle'); // Reference to Title
+    const mainTitle = document.getElementById('mainTitle'); 
     
     const scrollBtn1 = document.getElementById('scrollBtn1');
     const scrollBtn2 = document.getElementById('scrollBtn2');
@@ -666,7 +638,6 @@
       lid.classList.add('wiggle');
       box.classList.add('is-open');
 
-      // Hide the title to make room for the gift text
       mainTitle.classList.add('hidden');
 
       setTimeout(() => {
@@ -694,7 +665,6 @@
       character.classList.remove('pop-up');
       box.classList.remove('is-open');
       
-      // Bring the title back
       mainTitle.classList.remove('hidden');
       
       reopenBtn.style.display = 'none';
