@@ -18,6 +18,7 @@
       padding: 0;
       background: rgb(15, 48, 110);
       font-family: 'Lora', serif;
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
@@ -93,7 +94,7 @@
     
     .scroll-text {
       position: absolute; 
-      bottom: 5px; 
+      bottom: 20px; 
       left: 50%;
       transform: translateX(-50%);
       font-size: 18px;
@@ -107,7 +108,11 @@
       background: rgba(31, 33, 35, 0.9);
       padding: 10px 25px;
       border-radius: 25px;
-      white-space: nowrap;
+      white-space: normal; /* Allow text wrapping */
+      max-width: 85vw; /* Ensure it never touches screen edges */
+      box-sizing: border-box;
+      width: max-content; /* Fit content but respect max-width */
+      
       cursor: pointer;
       transition: background 0.3s, transform 0.2s;
     }
@@ -117,8 +122,6 @@
       background: rgb(0, 80, 200) !important; /* Brighter blue */
       border: 2px solid #fff; /* Border to pop */
       z-index: 600 !important; /* Ensure it is on top */
-      max-width: 100vh;
-      max-width: 100dvh;
     }
 
     @keyframes pulse-glow {
@@ -144,6 +147,7 @@
     .arrow {
       font-size: 24px;
       animation: bounce 1s infinite;
+      flex-shrink: 0;
     }
     
     @keyframes bounce {
@@ -469,10 +473,45 @@
     }
 
     @media (max-width: 768px) {
+      .top-phone {
+        top: 13px;
+        right: 15px;
+        font-size: 14px;
+      }
       .top-logo {
         width: 100px;
         top: 15px;
         left: 15px;
+      }
+      .scroll-text {
+        font-size: 14px; /* Smaller font */
+        padding: 8px 15px; /* Smaller padding */
+        width: 85%; /* Force fixed width on small screens to center perfectly */
+        justify-content: center;
+        bottom: 30px; /* More space from bottom on phones */
+      }
+
+      .section-title {
+        font-size: 32px;
+        width: 90%;
+      }
+
+      /* TAME THE ANIMATION ON MOBILE */
+      /* This prevents the button from scaling outside the viewport width */
+      @keyframes pulse-glow {
+        0% {
+          transform: translateX(-50%) scale(1);
+          box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+        }
+        50% {
+          /* Reduce scale from 1.08 to 1.02 so it doesn't overflow */
+          transform: translateX(-50%) scale(1.08); 
+          box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0);
+        }
+        100% {
+          transform: translateX(-50%) scale(1);
+          box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+        }
       }
     }
   </style>
