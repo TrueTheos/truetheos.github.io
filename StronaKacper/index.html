@@ -110,10 +110,10 @@
       padding: 10px 25px;
       border-radius: 25px;
       border: 2px solid #fff;
-      white-space: normal; /* Allow text wrapping */
-      max-width: 85vw; /* Ensure it never touches screen edges */
+      white-space: normal;
+      max-width: 85vw; 
       box-sizing: border-box;
-      width: max-content; /* Fit content but respect max-width */
+      width: max-content;
       
       cursor: pointer;
       transition: background 0.3s, transform 0.2s;
@@ -121,9 +121,9 @@
 
     .pulse-attention {
       animation: pulse-glow 2s infinite;
-      background: rgb(0, 80, 200) !important; /* Brighter blue */
-      border: 2px solid #fff; /* Border to pop */
-      z-index: 600 !important; /* Ensure it is on top */
+      background: rgb(0, 80, 200) !important; 
+      border: 2px solid #fff;
+      z-index: 600 !important; 
     }
 
     @keyframes pulse-glow {
@@ -132,8 +132,8 @@
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
       }
       50% {
-        transform: translateX(-50%) scale(1.08); /* Increase size */
-        box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0); /* Glow effect */
+        transform: translateX(-50%) scale(1.08);
+        box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0); 
       }
       100% {
         transform: translateX(-50%) scale(1);
