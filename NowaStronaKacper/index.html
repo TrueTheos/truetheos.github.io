@@ -317,7 +317,7 @@
                         <p class="text-slate-300 text-sm leading-relaxed mb-4 min-h-[80px]">
                             Liczba sprzedanych mieszkań i domów na rynku pierwotnym na 7 największych rynkach (w granicach miast)
                         </p>
-                        <p class="text-4xl md:text-5xl font-bold text-blue-400 mb-2">5 327 szt.</p>
+                        <p class="text-4xl md:text-5xl font-bold text-blue-400 mb-2" data-target="5327" data-suffix=" szt.">0 szt.</p>
                     </div>
                     <div class="mt-6">
                         <svg class="w-full h-16 text-blue-500 opacity-80" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -331,7 +331,7 @@
                         <p class="text-slate-300 text-sm leading-relaxed mb-4 min-h-[80px]">
                             Liczba mieszkań i domów wprowadzonych na rynek pierwotny na 7 największych rynkach (w granicach miast)
                         </p>
-                        <p class="text-4xl md:text-5xl font-bold text-white mb-2">3 790 szt.</p>
+                        <p class="text-4xl md:text-5xl font-bold text-white mb-2" data-target="3790" data-suffix=" szt.">0 szt.</p>
                     </div>
                     <div class="mt-6">
                         <svg class="w-full h-16 text-slate-400 opacity-60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -345,7 +345,7 @@
                         <p class="text-slate-300 text-sm leading-relaxed mb-4 min-h-[80px]">
                             Liczba ogłoszeń najmu na Otodom (mieszkania i domy)
                         </p>
-                        <p class="text-4xl md:text-5xl font-bold text-blue-400 mb-2">28 909 szt.</p>
+                        <p class="text-4xl md:text-5xl font-bold text-blue-400 mb-2" data-target="28909" data-suffix=" szt.">0 szt.</p>
                     </div>
                     <div class="mt-6">
                         <svg class="w-full h-16 text-blue-500 opacity-80" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -359,7 +359,7 @@
                         <p class="text-slate-300 text-sm leading-relaxed mb-4 min-h-[80px]">
                             Średnia cena ofertowa na rynku wtórnym w Warszawie (mieszkania i domy)
                         </p>
-                        <p class="text-4xl md:text-5xl font-bold text-blue-400 mb-2">1 237 486 zł</p>
+                        <p class="text-4xl md:text-5xl font-bold text-blue-400 mb-2" data-target="1237486" data-suffix=" zł">0 zł</p>
                     </div>
                     <div class="mt-6">
                         <svg class="w-full h-16 text-blue-500 opacity-80" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -454,5 +454,54 @@
         </div>
     </footer>
 
+    <script>
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+        }
+
+        function animateNumber(element, target, duration = 2000) {
+            const suffix = element.getAttribute('data-suffix') || '';
+            let startTime = null;
+
+            function animate(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = timestamp - startTime;
+                const percentage = Math.min(progress / duration, 1);
+                
+                // Easing function for smooth animation
+                const easeOutQuart = 1 - Math.pow(1 - percentage, 4);
+                const currentCount = Math.floor(easeOutQuart * target);
+                
+                element.textContent = formatNumber(currentCount) + suffix;
+                
+                if (percentage < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    element.textContent = formatNumber(target) + suffix;
+                }
+            }
+            
+            requestAnimationFrame(animate);
+        }
+
+        // Use Intersection Observer to trigger animations when in view
+        window.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('[data-target]');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.dataset.animated) {
+                        const target = parseInt(entry.target.getAttribute('data-target'));
+                        entry.target.dataset.animated = 'true';
+                        animateNumber(entry.target, target);
+                    }
+                });
+            }, {
+                threshold: 0.5 // Trigger when 50% of the element is visible
+            });
+
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
