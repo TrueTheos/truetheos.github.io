@@ -1,0 +1,11 @@
+Czy dane obejmują tylko rynek pierwotny?
+Tak, specjalizujemy się w analizie ofert deweloperskich. Pozwala to na precyzyjne śledzenie zmian cenników i dynamiki sprzedaży nowych mieszkań w Bydgoszczy.
+
+Czy aplikacja pozwala na zakup mieszkania?
+Nie, nasza platforma służy wyłącznie celom analitycznym i nie pośredniczy w sprzedaży nieruchomości.
+
+Jakie miasta obejmuje analiza?
+Obecnie skupiamy się na pełnym pokryciu rynku pierwotnego w Bydgoszczy, planując ekspansję na kolejne rynki.
+
+Dla kogo przeznaczona jest ta aplikacja?
+Narzędzie dedykowane jest profesjonalistom, którzy opierają swoje decyzje na twardych danych. Przede wszystkim analitycy i inwestorzy potrzebujący gotowej historii cen do swoich modeli wyceny, deweloperzy monitorujący konkurencję w celu optymalizacji własnych cenników, oraz biura nieruchomości, które szukają przewagi i najlepszych cen dla swoich klientów.
