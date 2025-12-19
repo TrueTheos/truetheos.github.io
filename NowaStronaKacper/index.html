@@ -40,13 +40,12 @@
 </head>
 <body class="bg-white text-slate-600 font-sans antialiased">
 
-    <nav class="bg-white py-4">
-        <div class="container mx-auto px-6 flex justify-between items-center border-b border-slate-100 pb-4">
+     <nav class="bg-white py-4 border-b border-slate-100 sticky top-0 z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <div class="w-8 h-8 bg-gradient-to-tr from-blue-800 to-blue-500 rounded-lg"></div>
-                <span class="text-2xl font-bold text-slate-900">Analiza Inwestycji</span>
+                <a href="index.html" class="text-2xl font-bold text-slate-900">Analiza Inwestycji</a>
             </div>
-
             <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
                 <a href="index.html" class="text-accent font-bold transition">Strona główna</a>
                 <a href="onas.html" class="hover:text-accent transition">O nas</a>
@@ -177,91 +176,91 @@
                 </div>
     </section>
 
-   <section class="py-20 bg-slate-50 relative overflow-hidden">
+   <section class="py-20 bg-slate-50 relative overflow-hidden" id="market-section">
     <div class="container mx-auto px-6 relative z-10">
         
-        <div class="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow-sm border border-slate-200 text-center mb-16 relative">
+        <!-- Heading Box -->
+        <div class="reveal-item opacity-0 transform translate-y-10 transition-all duration-1000 max-w-xl mx-auto bg-white p-8 rounded-2xl shadow-sm border border-slate-200 text-center mb-16 relative">
             <h3 class="text-2xl font-bold text-slate-800 mb-2">Pełna wiedza <span class="text-blue-600">o rynku pierwotnym</span></h3>
             <p class="text-sm text-slate-500">Prowadzimy ciągły i najdokładniejszy monitoring rynku w głównych ośrodkach miejskich.</p>
+            <!-- Vertical connector from header -->
             <div class="absolute left-1/2 -bottom-16 w-0.5 h-16 bg-blue-600 transform -translate-x-1/2 hidden md:block"></div>
         </div>
 
         <div class="relative max-w-5xl mx-auto">
             
-            <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-blue-600 transform md:-translate-x-1/2"></div>
+            <!-- Central Vertical Line (Animated height) -->
+            <div id="timeline-line" class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-blue-600 transform md:-translate-x-1/2 origin-top scale-y-0 transition-transform duration-[2000ms] ease-in-out"></div>
 
-            <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative">
-                
+            <!-- Item 1 (Slide from Left) -->
+            <div class="reveal-item opacity-0 transform -translate-x-20 transition-all duration-1000 delay-300 flex flex-col md:flex-row items-center justify-between mb-12 relative">
                 <div class="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                    <div class="w-4 h-4 bg-blue-600 rounded-full border-4 border-slate-50"></div>
+                    <div class="dot w-4 h-4 bg-blue-600 rounded-full border-4 border-slate-50 scale-0 transition-transform duration-500 delay-700"></div>
                 </div>
-                
-                <div class="hidden md:block absolute top-1/2 left-0 w-[calc(50%-8px)] h-0.5 bg-blue-600 transform -translate-y-1/2"></div>
+                <div class="hidden md:block absolute top-1/2 left-0 w-[calc(50%-8px)] h-0.5 bg-blue-600 transform -translate-y-1/2 origin-right scale-x-0 transition-transform duration-700 delay-500"></div>
 
                 <div class="w-full md:w-5/12 order-2 md:order-1">
-                    <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-blue-500 relative">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-blue-500 relative hover:shadow-xl transition-shadow">
                         <h4 class="text-xl font-bold mb-2">Porównywarka Inwestycji</h4>
                         <p class="text-sm text-slate-600 mb-4">
-                            Bezpośrednie starcie ofert. Zestaw dwie inwestycje obok siebie i porównaj twarde liczby. Sprawdź różnice w średniej cenie za metr, dostępnych metrażach czy liczbie pokoi. Zobacz czarno na białym, która lokalizacja oferuje korzystniejszy stosunek ceny do piętra i wielkości lokalu.
+                            Bezpośrednie starcie ofert. Zestaw dwie inwestycje obok siebie i porównaj twarde liczby. Sprawdź różnice w średniej cenie za metr, dostępnych metrażach czy liczbie pokoi.
                         </p>
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 order-1 md:order-2 hidden md:block"></div>
             </div>
 
-            <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative">
+            <!-- Item 2 (Slide from Right) -->
+            <div class="reveal-item opacity-0 transform translate-x-20 transition-all duration-1000 delay-500 flex flex-col md:flex-row items-center justify-between mb-12 relative">
                  <div class="w-full md:w-5/12 order-2 md:order-1 hidden md:block"></div>
                 
                 <div class="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                    <div class="w-4 h-4 bg-blue-600 rounded-full border-4 border-slate-50"></div>
+                    <div class="dot w-4 h-4 bg-blue-600 rounded-full border-4 border-slate-50 scale-0 transition-transform duration-500 delay-1000"></div>
                 </div>
-                
-                <div class="hidden md:block absolute top-1/2 right-0 w-[calc(50%-8px)] h-0.5 bg-blue-600 transform -translate-y-1/2"></div>
+                <div class="hidden md:block absolute top-1/2 right-0 w-[calc(50%-8px)] h-0.5 bg-blue-600 transform -translate-y-1/2 origin-left scale-x-0 transition-transform duration-700 delay-800"></div>
 
                 <div class="w-full md:w-5/12 order-1 md:order-2">
-                     <div class="bg-white p-6 rounded-2xl shadow-lg border-r-4 border-blue-500 relative">
+                     <div class="bg-white p-6 rounded-2xl shadow-lg border-r-4 border-blue-500 relative hover:shadow-xl transition-shadow">
                         <h4 class="text-xl font-bold mb-2">Asystent <span class="text-blue-600">AI</span></h4>
                         <p class="text-sm text-slate-600">
-                            Twój interaktywny analityk. Zadaj proste pytanie o dane z bazy. "Gdzie znajdę 3 pokoje do 600 tys. zł?", "Jaka jest średnia cena za metr na osiedlu X?". Nasz model przeszuka aktualne ceny i statusy, błyskawicznie wskazując konkretne lokale spełniające Twoje kryteria.
+                            Twój interaktywny analityk. Zadaj proste pytanie o dane z bazy. "Gdzie znajdę 3 pokoje do 600 tys. zł?". Nasz model przeszuka aktualne ceny i statusy, błyskawicznie wskazując konkretne lokale.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="flex flex-col md:flex-row items-center justify-between relative">
-                
+            <!-- Item 3 (Slide from Left) -->
+            <div class="reveal-item opacity-0 transform -translate-x-20 transition-all duration-1000 delay-700 flex flex-col md:flex-row items-center justify-between relative mb-12">
                 <div class="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                    <div class="w-4 h-4 bg-blue-600 rounded-full border-4 border-slate-50"></div>
+                    <div class="dot w-4 h-4 bg-blue-600 rounded-full border-4 border-slate-50 scale-0 transition-transform duration-500 delay-[1300ms]"></div>
                 </div>
-                
-                <div class="hidden md:block absolute top-1/2 left-0 w-[calc(50%-8px)] h-0.5 bg-blue-600 transform -translate-y-1/2"></div>
+                <div class="hidden md:block absolute top-1/2 left-0 w-[calc(50%-8px)] h-0.5 bg-blue-600 transform -translate-y-1/2 origin-right scale-x-0 transition-transform duration-700 delay-[1100ms]"></div>
 
                 <div class="w-full md:w-5/12 order-2 md:order-1">
-                    <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-blue-500 relative">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-blue-500 relative hover:shadow-xl transition-shadow">
                         <h4 class="text-xl font-bold mb-4">Globalna Wyszukiwarka</h4>
-                        
                         <p class="text-sm text-slate-600">
-                            Wszystkie mieszkania w jednej tabeli. Przeszukuj bazę lokali z całego miasta. Filtruj precyzyjnie po cenie całkowitej, cenie za m², piętrze, liczbie pokoi oraz statusie. Znajdź konkretne mieszkanie (np. "2 pokoje, 1 piętro, wolne"), które idealnie pasuje do Twojego budżetu.
+                            Wszystkie mieszkania w jednej tabeli. Przeszukuj bazę lokali z całego miasta. Filtruj precyzyjnie po cenie całkowitej, cenie za m², piętrze i liczbie pokoi.
                         </p>
                     </div>
                 </div>
                  <div class="w-full md:w-5/12 order-1 md:order-2 hidden md:block"></div>
             </div>
 
-             <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative">
-                 <div class="w-full md:w-5/12 order-2 md:order-1 hidden md:block"></div>
+            <!-- Item 4 (Slide from Right) -->
+            <div class="reveal-item opacity-0 transform translate-x-20 transition-all duration-1000 delay-[900ms] flex flex-col md:flex-row items-center justify-between relative">
+                <div class="w-full md:w-5/12 order-2 md:order-1 hidden md:block"></div>
                 
                 <div class="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                    <div class="w-4 h-4 bg-blue-600 rounded-full border-4 border-slate-50"></div>
+                    <div class="dot w-4 h-4 bg-blue-600 rounded-full border-4 border-slate-50 scale-0 transition-transform duration-500 delay-[1600ms]"></div>
                 </div>
-                
-                <div class="hidden md:block absolute top-1/2 right-0 w-[calc(50%-8px)] h-0.5 bg-blue-600 transform -translate-y-1/2"></div>
+                <div class="hidden md:block absolute top-1/2 right-0 w-[calc(50%-8px)] h-0.5 bg-blue-600 transform -translate-y-1/2 origin-left scale-x-0 transition-transform duration-700 delay-[1400ms]"></div>
 
                 <div class="w-full md:w-5/12 order-1 md:order-2">
-                     <div class="bg-white p-6 rounded-2xl shadow-lg border-r-4 border-blue-500 relative">
+                     <div class="bg-white p-6 rounded-2xl shadow-lg border-r-4 border-blue-500 relative hover:shadow-xl transition-shadow">
                         <h4 class="text-xl font-bold mb-2">Analiza Inwestycji</h4>
                         <p class="text-sm text-slate-600">
-                            Historia cen i zmian. Prześwietl konkretną inwestycję. Zobacz pełną historię zmian cen dla każdego lokalu – sprawdź, kiedy deweloper podnosił lub obniżał stawki. Monitoruj zmiany statusów, aby wiedzieć, które mieszkania wracają na rynek, a które znikają.
+                            Historia cen i zmian. Prześwietl konkretną inwestycję. Zobacz pełną historię zmian cen dla każdego lokalu – sprawdź, kiedy deweloper podnosił lub obniżał stawki.
                         </p>
                     </div>
                 </div>
@@ -455,53 +454,70 @@
     </footer>
 
     <script>
-        function formatNumber(num) {
-            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    function formatNumber(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    }
+
+    function animateNumber(element, target, duration = 2000) {
+        const suffix = element.getAttribute('data-suffix') || '';
+        let startTime = null;
+
+        function animate(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const progress = timestamp - startTime;
+            const percentage = Math.min(progress / duration, 1);
+            const easeOutQuart = 1 - Math.pow(1 - percentage, 4);
+            const currentCount = Math.floor(easeOutQuart * target);
+            element.textContent = formatNumber(currentCount) + suffix;
+            if (percentage < 1) requestAnimationFrame(animate);
+            else element.textContent = formatNumber(target) + suffix;
         }
+        requestAnimationFrame(animate);
+    }
 
-        function animateNumber(element, target, duration = 2000) {
-            const suffix = element.getAttribute('data-suffix') || '';
-            let startTime = null;
-
-            function animate(timestamp) {
-                if (!startTime) startTime = timestamp;
-                const progress = timestamp - startTime;
-                const percentage = Math.min(progress / duration, 1);
-                
-                // Easing function for smooth animation
-                const easeOutQuart = 1 - Math.pow(1 - percentage, 4);
-                const currentCount = Math.floor(easeOutQuart * target);
-                
-                element.textContent = formatNumber(currentCount) + suffix;
-                
-                if (percentage < 1) {
-                    requestAnimationFrame(animate);
-                } else {
-                    element.textContent = formatNumber(target) + suffix;
+    window.addEventListener('DOMContentLoaded', () => {
+        // --- Numbers Animation Observer ---
+        const numElements = document.querySelectorAll('[data-target]');
+        const numObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    entry.target.dataset.animated = 'true';
+                    animateNumber(entry.target, target);
                 }
-            }
-            
-            requestAnimationFrame(animate);
-        }
-
-        // Use Intersection Observer to trigger animations when in view
-        window.addEventListener('DOMContentLoaded', () => {
-            const elements = document.querySelectorAll('[data-target]');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !entry.target.dataset.animated) {
-                        const target = parseInt(entry.target.getAttribute('data-target'));
-                        entry.target.dataset.animated = 'true';
-                        animateNumber(entry.target, target);
-                    }
-                });
-            }, {
-                threshold: 0.5 // Trigger when 50% of the element is visible
             });
+        }, { threshold: 0.5 });
+        numElements.forEach(el => numObserver.observe(el));
 
-            elements.forEach(el => observer.observe(el));
-        });
-    </script>
+        // --- Market Section Animation Observer ---
+        const revealElements = document.querySelectorAll('.reveal-item');
+        const timelineLine = document.getElementById('timeline-line');
+        
+        const marketObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Trigger the vertical line to grow
+                    timelineLine.classList.remove('scale-y-0');
+                    timelineLine.classList.add('scale-y-100');
+
+                    // Trigger each card/item
+                    revealElements.forEach((el) => {
+                        el.classList.remove('opacity-0', 'translate-y-10', 'translate-x-20', '-translate-x-20');
+                        el.classList.add('opacity-100', 'translate-y-0', 'translate-x-0');
+                        
+                        // Scale up the dots and horizontal lines after a slight delay
+                        const subDots = el.querySelectorAll('.dot');
+                        const subLines = el.querySelectorAll('.origin-left, .origin-right');
+                        subDots.forEach(dot => dot.classList.remove('scale-0'));
+                        subLines.forEach(line => line.classList.remove('scale-x-0'));
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+
+        const marketSection = document.getElementById('market-section');
+        if(marketSection) marketObserver.observe(marketSection);
+    });
+</script>
 </body>
 </html>
