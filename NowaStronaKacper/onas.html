@@ -70,7 +70,7 @@
             <!-- Stats Row -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24 border-b border-slate-200 pb-12">
                 <div class="text-center">
-                    <div class="text-4xl font-black text-slate-900 mb-2">2500+</div>
+                    <div class="text-4xl font-black text-slate-900 mb-2" data-target="2500" data-suffix="+">0+</div>
                     <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">Przeanalizowanych Lokali</div>
                 </div>
                 <div class="text-center">
@@ -78,11 +78,11 @@
                     <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">Częstotliwość Aktualizacji</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-4xl font-black text-slate-900 mb-2">5</div>
+                    <div class="text-4xl font-black text-slate-900 mb-2" data-target="5">0</div>
                     <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">Narzędzi Analitycznych</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-4xl font-black text-slate-900 mb-2">37</div>
+                    <div class="text-4xl font-black text-slate-900 mb-2" data-target="37">0</div>
                     <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">Monitorowane Inwestycje</div>
                 </div>
             </div>
@@ -313,5 +313,42 @@
         </div>
     </footer>
 
+    <script>
+    function formatNumber(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    }
+
+    function animateNumber(element, target, duration = 2000) {
+        const suffix = element.getAttribute('data-suffix') || '';
+        let startTime = null;
+
+        function animate(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const progress = timestamp - startTime;
+            const percentage = Math.min(progress / duration, 1);
+            const easeOutQuart = 1 - Math.pow(1 - percentage, 4);
+            const currentCount = Math.floor(easeOutQuart * target);
+            element.textContent = formatNumber(currentCount) + suffix;
+            if (percentage < 1) requestAnimationFrame(animate);
+            else element.textContent = formatNumber(target) + suffix;
+        }
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        // --- Numbers Animation Observer ---
+        const numElements = document.querySelectorAll('[data-target]');
+        const numObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    entry.target.dataset.animated = 'true';
+                    animateNumber(entry.target, target);
+                }
+            });
+        }, { threshold: 0.5 });
+        numElements.forEach(el => numObserver.observe(el));
+    });
+</script>
 </body>
 </html>
