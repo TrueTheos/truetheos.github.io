@@ -42,23 +42,52 @@
 </head>
 <body class="bg-slate-50 text-slate-600 font-sans antialiased">
 
-    <!-- Navbar Sticky -->
     <nav class="bg-white py-4 border-b border-slate-100 sticky top-0 z-50">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-gradient-to-tr from-blue-800 to-blue-500 rounded-lg"></div>
-                <a href="index.html" class="text-2xl font-bold text-slate-900">Analiza Inwestycji</a>
-            </div>
-            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
-                <a href="index.html" class="hover:text-accent transition">Strona główna</a>
-                <a href="onas.html" class="hover:text-accent transition">O nas</a>
-                <a href="blog.html" class="text-accent font-bold transition">Blog</a>
-                <a href="kontakt.html" class="hover:text-accent transition">Kontakt</a>
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gradient-to-tr from-blue-800 to-blue-500 rounded-lg"></div>
+                    <a href="index.html" class="text-2xl font-bold text-slate-900">Analiza Inwestycji</a>
+                </div>
+
+                <!-- Menu na desktop -->
+                <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
+                    <a href="index.html" class="hover:text-accent transition">Strona główna</a>
+                    <a href="onas.html" class="hover:text-accent transition">O nas</a>
+                    <a href="blog.html" class="text-accent font-bold transition">Blog</a>
+                    <a href="kontakt.html" class="hover:text-accent transition">Kontakt</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <!-- Przycisk aplikacji na desktop -->
+                    <a href="aplikacja.html" class="hidden md:block bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-full font-medium shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition transform hover:-translate-y-0.5">
+                        Aplikacja
+                    </a>
+
+                    <!-- Przycisk hamburger na mobile -->
+                    <button id="menuBtn" class="md:hidden text-slate-600 focus:outline-none">
+                        <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
 
-            <a href="aplikacja.html" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-full font-medium shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition transform hover:-translate-y-0.5">
-                Aplikacja
-            </a>
+            <!-- Menu mobilne -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col gap-4">
+                    <a href="index.html" class="text-slate-600 hover:text-accent transition text-base py-2">Strona główna</a>
+                    <a href="onas.html" class="text-slate-600 hover:text-accent transition text-base py-2">O nas</a>
+                    <a href="blog.html" class="text-accent font-bold text-base py-2">Blog</a>
+                    <a href="kontakt.html" class="text-slate-600 hover:text-accent transition text-base py-2">Kontakt</a>
+                    <a href="aplikacja.html" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-full font-medium text-center shadow-lg shadow-blue-500/30 mt-2">
+                        Aplikacja
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -75,19 +104,19 @@
                 <div class="w-full md:w-1/2 space-y-6 animate-fade-in-up">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider">
                         <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-                        Raport Tygodnia
+                        Artykuł Tygodnia
                     </div>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                        Tytuł postu tygodnia XXX XXX XXX
+                        Monitoring konkurencji i nasycenie rynku. Przewodnik po module "Mapa"
                     </h1>
                     <p class="text-lg text-slate-300 leading-relaxed max-w-lg">
-                        Curabitur at quam ut orci vulputate blandit. Fusce eu sagittis libero. Aliquam tincidunt molestie dui ac placerat.
+                        Lokalizacja to nie wszystko, to dopiero początek. Poznaj moduł &quot;Mapa&quot; i prześwietl konkurencję
                     </p>
                     <div class="flex items-center gap-4 pt-4">
-                        <a href="blog-post.html" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">
+                        <a href="blog-1.html" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">
                             Czytaj post
                         </a>
-                        <span class="text-slate-400 text-sm">X min czytania</span>
+                        <span class="text-slate-400 text-sm">4 min czytania</span>
                     </div>
                 </div>
 
@@ -95,7 +124,7 @@
                 <div class="w-full md:w-1/2 relative group">
                     <div class="absolute inset-0 bg-blue-600 rounded-2xl rotate-3 opacity-20 group-hover:rotate-6 transition duration-500"></div>
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Featured" class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700">
+                        <img src="images/blogs/blog1.png" alt="Featured" class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
                     </div>
                 </div>
@@ -111,69 +140,100 @@
                 
                 <!-- Card 1: Giełda -->
                 <article class="blog-post group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-100 flex flex-col h-full animate-fade-in" data-category="kategoria1">
-                    <a href="blog-post.html" class="relative block overflow-hidden h-56">
-                        <div class="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                            Kategoria1
-                        </div>
-                        <img src="cat.jpg" alt="Stock Market" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                    <a href="blog-1.html" class="relative block overflow-hidden h-56">
+                        <img src="images/blogs/blog1.png" alt="Stock Market" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
                     </a>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center gap-2 text-xs text-slate-400 mb-3">
-                            <span>2 Styczeń 2025</span>
+                            <span>20 Grudzień 2025</span>
                             <span>•</span>
-                            <span>X min czytania</span>
+                            <span>10 min czytania</span>
                         </div>
                         <h3 class="text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition">
-                            <a href="blog-post.html">Tytuł postu XXX XXX XXX</a>
+                            <a href="blog-1.html">Monitoring konkurencji i nasycenie rynku. Przewodnik po module "Mapa"</a>
                         </h3>
                         <p class="text-slate-500 text-sm line-clamp-3 mb-6 flex-grow">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Lokalizacja to nie wszystko, to dopiero początek. Poznaj moduł &quot;Mapa&quot; i prześwietl konkurencję
                         </p>
                     </div>
                 </article>
 
                 <!-- Card 2: Nieruchomości -->
                 <article class="blog-post group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-100 flex flex-col h-full animate-fade-in" data-category="kategoria2">
-                    <a href="blog-post.html" class="relative block overflow-hidden h-56">
-                        <div class="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                            Kategoria2
-                        </div>
-                        <img src="cat.jpg" alt="Real Estate" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                    <a href="blog-2.html" class="relative block overflow-hidden h-56">
+                        <img src="images/blogs/blog2.png" alt="Real Estate" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
                     </a>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center gap-2 text-xs text-slate-400 mb-3">
-                            <span>1 Styczeń 2025</span>
+                            <span>21 Grudzień 2025</span>
                             <span>•</span>
-                            <span>X min czytania</span>
+                            <span>5 min czytania</span>
                         </div>
                         <h3 class="text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition">
-                            <a href="blog-post.html">Tytuł postu XXX XXX XXX</a>
+                            <a href="blog-2.html">Historia ceny i statusu w jednym miejscu. Prześwietl ofertę konkurencji na wylot.</a>
                         </h3>
                         <p class="text-slate-500 text-sm line-clamp-3 mb-6 flex-grow">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Nie szukaj na oślep. Prześwietl historię każdego mieszkania dzięki Wyszukiwarce
                         </p>
                     </div>
                 </article>
 
                 <!-- Card 3: Krypto -->
                 <article class="blog-post group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-100 flex flex-col h-full animate-fade-in" data-category="kategoria3">
-                    <a href="blog-post.html" class="relative block overflow-hidden h-56">
-                        <div class="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur text-purple-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                            Kategoria3
-                        </div>
-                        <img src="cat.jpg" alt="Crypto" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                    <a href="blog-3.html" class="relative block overflow-hidden h-56">
+                        <img src="images/blogs/blog3.png" alt="Crypto" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
                     </a>
                     <div class="p-6 flex flex-col flex-grow">
                         <div class="flex items-center gap-2 text-xs text-slate-400 mb-3">
-                            <span>28 Grudzień 2024</span>
+                            <span>22 Grudzień 2025</span>
                             <span>•</span>
-                            <span>X min czytania</span>
+                            <span>3 min czytania</span>
                         </div>
                         <h3 class="text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition">
-                            <a href="blog-post.html">Tytuł postu XXX XXX XXX</a>
+                            <a href="blog-3.html">Wiesz szybciej, decydujesz pewniej. Dlaczego sztuczna inteligencja to as w rękawie dewelopera?</a>
                         </h3>
                         <p class="text-slate-500 text-sm line-clamp-3 mb-6 flex-grow">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Twój analityk rynkowy dostępny 24/7. Jak Asystent AI przyspiesza monitoring konkurencji?
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Card 3: Krypto -->
+                <article class="blog-post group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-100 flex flex-col h-full animate-fade-in" data-category="kategoria3">
+                    <a href="blog-4.html" class="relative block overflow-hidden h-56">
+                        <img src="images/blogs/blog4.png" alt="Crypto" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                    </a>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center gap-2 text-xs text-slate-400 mb-3">
+                            <span>23 Grudzień 2025</span>
+                            <span>•</span>
+                            <span>3 min czytania</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition">
+                            <a href="blog-4.html">Wyceń idealnie, sprzedaj szybciej. Jak głęboka analiza konkurencji chroni Twoją marżę</a>
+                        </h3>
+                        <p class="text-slate-500 text-sm line-clamp-3 mb-6 flex-grow">
+                            Rentgen konkurencji. Poznaj każdy detal sąsiedniej budowy dzięki modułowi &quot;Analiza Inwestycji&quot;
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Card 3: Krypto -->
+                <article class="blog-post group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-slate-100 flex flex-col h-full animate-fade-in" data-category="kategoria3">
+                    <a href="blog-5.html" class="relative block overflow-hidden h-56">
+                        <img src="images/blogs/blog5.png" alt="Crypto" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                    </a>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center gap-2 text-xs text-slate-400 mb-3">
+                            <span>24 Grudzień 2025</span>
+                            <span>•</span>
+                            <span>4 min czytania</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition">
+                            <a href="blog-5.html">Dwie inwestycje, jeden ekran. Jak błyskawicznie wyłapać różnice w strategii?</a>
+                        </h3>
+                        <p class="text-slate-500 text-sm line-clamp-3 mb-6 flex-grow">
+                            Pojedynek na dane. Sprawdź, jak wypadasz na tle sąsiadów dzięki Porównywarce
                         </p>
                     </div>
                 </article>
@@ -182,18 +242,10 @@
         </div>
     </section>
 
-    <footer class="bg-slate-50 py-12 border-t border-slate-200 mt-12">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
-                 <div class="w-6 h-6 bg-blue-800 rounded"></div>
-                 <span class="font-bold text-slate-800">Analiza Inwestycji</span>
-            </div>
+   <footer class="bg-slate-50 py-12 border-t border-slate-200 mt-12">
+        <div class="container mx-auto px-6 flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-center text-sm text-slate-500">
-                 &copy; 2025 AnalizaInwestycji.pl | Wszelkie prawa zastrzeżone <br>NIP: 123456789 | Tel: 123-123-123<br> Polityka Prywatności
-            </div>
-            <div class="flex gap-4">
-                <a href="#" class="w-8 h-8 bg-blue-100 text-blue-600 flex items-center justify-center rounded-full hover:bg-blue-600 hover:text-white transition">In</a>
-                <a href="#" class="w-8 h-8 bg-blue-100 text-blue-600 flex items-center justify-center rounded-full hover:bg-blue-600 hover:text-white transition">Fb</a>
+                &copy; 2025 AnalizaInwestycji.pl | Wszelkie prawa zastrzeżone <br>Email: kontakt@analizainwestycji.pl | Tel: 730953888<br> Polityka Prywatności
             </div>
         </div>
     </footer>
@@ -274,6 +326,19 @@
                     // alert('Wszystkie dostępne artykuły zostały załadowane.');
                 }, 1500);
             });
+        });
+    </script>
+
+     <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        const closeIcon = document.getElementById('closeIcon');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
         });
     </script>
 </body>

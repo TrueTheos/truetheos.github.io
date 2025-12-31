@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia ceny i statusu w jednym miejscu. Prześwietl ofertę konkurencji na wylot.”</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        accent: '#2563eb',
+                        dark: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-slate-600 font-sans antialiased">
+
+    <nav class="bg-white py-4 border-b border-slate-100 sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gradient-to-tr from-blue-800 to-blue-500 rounded-lg"></div>
+                    <a href="index.html" class="text-2xl font-bold text-slate-900">Analiza Inwestycji</a>
+                </div>
+
+                <!-- Menu na desktop -->
+                <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
+                    <a href="index.html" class="hover:text-accent transition">Strona główna</a>
+                    <a href="onas.html" class="hover:text-accent transition">O nas</a>
+                    <a href="blog.html" class="text-accent font-bold transition">Blog</a>
+                    <a href="kontakt.html" class="hover:text-accent transition">Kontakt</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <!-- Przycisk aplikacji na desktop -->
+                    <a href="aplikacja.html" class="hidden md:block bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-full font-medium shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition transform hover:-translate-y-0.5">
+                        Aplikacja
+                    </a>
+
+                    <!-- Przycisk hamburger na mobile -->
+                    <button id="menuBtn" class="md:hidden text-slate-600 focus:outline-none">
+                        <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Menu mobilne -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col gap-4">
+                    <a href="index.html" class="text-slate-600 hover:text-accent transition text-base py-2">Strona główna</a>
+                    <a href="onas.html" class="text-slate-600 hover:text-accent transition text-base py-2">O nas</a>
+                    <a href="blog.html" class="text-accent font-bold text-base py-2">Blog</a>
+                    <a href="kontakt.html" class="text-slate-600 hover:text-accent transition text-base py-2">Kontakt</a>
+                    <a href="aplikacja.html" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-full font-medium text-center shadow-lg shadow-blue-500/30 mt-2">
+                        Aplikacja
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Post Header -->
+    <header class="relative w-full h-[50vh] min-h-[400px]">
+        <img src="images/blogs/blog2.png" alt="Cover" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-slate-900/60 flex items-center justify-center">
+            <div class="container mx-auto px-6 text-center text-white">
+                <h1 class="text-3xl md:text-5xl font-bold max-w-4xl mx-auto leading-tight mb-4">
+                     Historia ceny i statusu w jednym miejscu. Prześwietl ofertę konkurencji na wylot.
+                </h1>
+                <div class="flex items-center justify-center gap-4 text-slate-300 text-sm">
+                    <span>21 Grudzień 2025</span>
+                    <span>•</span>
+                    <span>Autor: Kacper Nowakowski</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article class="py-16">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="prose prose-lg prose-blue text-slate-600 mx-auto">
+                <p class="lead text-2xl text-slate-800 font-medium mb-8">
+                    Nie szukaj na oślep. Prześwietl historię każdego mieszkania dzięki Wyszukiwarce
+                </p>
+
+                <p class="lead text-xl text-slate-800 font-medium mb-8">
+                    Dane rynkowe często kojarzą się z setkami arkuszy kalkulacyjnych, trudnymi do rozczytania tabelami i chaosem informacyjnym. Ale wcale nie musi tak być. Analiza rynku może być tak prosta i przyjemna, jak przeglądanie portali ogłoszeniowych w poszukiwaniu wymarzonego M.
+                </p>
+
+                <p class="mb-6 leading-relaxed">
+                    W dzisiejszym wpisie bierzemy pod lupę moduł Wyszukiwarka. To narzędzie, które gromadzi wszystkie lokale z Twojego miasta w jednym miejscu i pozwala Ci prześwietlić ofertę konkurencji na wylot – mieszkanie po mieszkaniu.
+                </p>
+
+                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Interfejs, który już znasz (i lubisz)</h2>
+                <p class="mb-6 leading-relaxed">
+                    Tworząc Wyszukiwarkę, postawiliśmy na intuicyjność. Nie chcieliśmy, abyś tracił czas na naukę obsługi skomplikowanego systemu.
+                </p>
+                <p class="mb-6 leading-relaxed">
+                    Dlatego nasz interfejs przypomina popularne portale z ogłoszeniami, z których korzystasz na co dzień. Różnica jest jedna – my pokazujemy znacznie więcej niż deweloperzy chcieliby ujawnić na swoich stronach.
+                </p>
+                
+                <ul class="list-disc list-inside space-y-2 mb-8 ml-4">
+                    <li>Masz dostęp do pełnej bazy mieszkań w mieście</li>
+                    <li>Filtrujesz wyniki błyskawicznie (metraż, piętro, liczba pokoi)</li>
+                    <li>Widzisz wszystko w przejrzystym układzie</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Sprawdź, co (naprawdę) się sprzedaje</h2>
+                <p class="mb-6 leading-relaxed">
+                    Wchodząc na stronę dewelopera, widzisz często tylko to, co jest "wolne". Nasza Wyszukiwarka daje Ci pełny obraz inwestycji. Możesz sprawdzić dowolne mieszkanie w danej inwestycji i zobaczyć jego status.
+                </p>
+                
+                <ul class="list-disc list-inside space-y-2 mb-8 ml-4">
+                    <li>Ile mieszkań jest wolnych?</li>
+                    <li>Ile jest zarezerwowanych?</li>
+                    <li>Które metraże znikają najszybciej?</li>
+                </ul>
+
+                <p class="mb-6 leading-relaxed">
+                    Dzięki temu wiesz, czy w danej okolicy lepiej sprzedają się kawalerki, czy duże apartamenty, i możesz dostosować strukturę własnej inwestycji do realnych potrzeb klientów.
+                </p>
+
+                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Historia Cen – Twój wykrywacz „fałszywych promocji"</h2>
+                <p class="mb-6 leading-relaxed">
+                    To jedna z najpotężniejszych funkcji w aplikacji. Każde mieszkanie ma swoją historię, a my ją dla Ciebie rejestrujemy.
+                </p>
+                <p class="mb-6 leading-relaxed">
+                    Widzisz ogłoszenie z napisem "PROMOCJA"? Zanim uznasz to za okazję lub zagrożenie dla Twojej sprzedaży, sprawdź historię ceny tego lokalu w naszej Wyszukiwarce.
+                </p>
+
+                <ul class="list-disc list-inside space-y-2 mb-8 ml-4">
+                    <li>Czy cena faktycznie spadła? A może deweloper podniósł ją dwa tygodnie temu, by teraz ogłosić "obniżkę"?</li>
+                    <li>Jak zmieniała się wycena w czasie? Czy deweloper systematycznie podnosi ceny wraz z postępem budowy, czy może nerwowo je obniża, bo sprzedaż stoi?</li>
+                </ul>
+
+                <p class="mb-6 leading-relaxed">
+                    Mając dostęp do historii zmian cen, rozumiesz strategię konkurencji i wiesz, dlaczego dany lokal został przeceniony.
+                </p>
+
+                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Historia Statusów – detektywistyczna praca w kilka sekund</h2>
+                <p class="mb-6 leading-relaxed">
+                    Dlaczego to konkretne mieszkanie wciąż wisi w ofercie, mimo że inne znikają? Odpowiedź często kryje się w historii zmian statusu, którą również podglądniesz w Wyszukiwarce.
+                </p>
+                <p class="mb-6 leading-relaxed">
+                    Narzędzie pokaże Ci, ile razy dany lokal zmieniał status z "rezerwacja" na "wolne".
+                </p>
+
+                <ul class="list-disc list-inside space-y-2 mb-8 ml-4">
+                    <li>Jeśli widzisz, że mieszkanie było rezerwowane i wracało na rynek 3 lub 4 razy, to czerwona flaga</li>
+                    <li>Może to oznaczać problem z uzyskaniem kredytu przez klientów na ten konkretny lokal, ale częściej świadczy o wadach mieszkania (np. fatalny układ, widok na śmietnik, bliskość głośnej windy), które wychodzą dopiero przy bliższym poznaniu</li>
+                </ul>
+
+                <p class="mb-6 leading-relaxed">
+                    Taka wiedza pozwala Ci unikać błędów projektowych u siebie i lepiej wyceniać "trudne" lokale.
+                </p>
+
+                <blockquote class="border-l-4 border-blue-500 pl-6 italic text-slate-700 my-8">
+                    "Wyszukiwarka to coś więcej niż lista mieszkań. To narzędzie, które pozwala Ci zajrzeć za kulisy marketingu innych deweloperów."
+                </blockquote>
+
+                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">Podsumowanie</h2>
+                <p class="mb-6 leading-relaxed">
+                    Wyszukiwarka w naszej aplikacji to coś więcej niż lista mieszkań. To narzędzie, które pozwala Ci zajrzeć za kulisy marketingu innych deweloperów. Sprawdzasz ceny, weryfikujesz promocje i analizujesz historię każdego lokalu z osobna – wszystko w prostym, przyjaznym interfejsie.
+                </p>
+                <p class="mb-6 leading-relaxed font-semibold">
+                    Nie zgaduj, dlaczego konkurencja sprzedaje. Sprawdź to w Wyszukiwarce.
+                </p>
+
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-slate-200">
+                <a href="blog.html" class="text-blue-600 font-bold hover:underline flex items-center gap-2">
+                    &larr; Wróć do listy artykułów
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <footer class="bg-slate-50 py-12 border-t border-slate-200 mt-12">
+        <div class="container mx-auto px-6 flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center text-sm text-slate-500">
+                &copy; 2025 AnalizaInwestycji.pl | Wszelkie prawa zastrzeżone <br>Email: kontakt@analizainwestycji.pl | Tel: 730953888<br> Polityka Prywatności
+            </div>
+        </div>
+    </footer>
+
+     <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        const closeIcon = document.getElementById('closeIcon');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
