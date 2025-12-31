@@ -209,51 +209,47 @@
                 </div>
     </section>
 
-   <section class="py-20 bg-slate-50 relative overflow-hidden" id="market-section">
+   <section class="py-12 md:py-20 bg-slate-50 relative overflow-hidden" id="market-section">
     <div class="container mx-auto px-6 relative z-10">
         
-        <!-- Heading Box -->
-        <div class="reveal-item opacity-0 transform translate-y-10 transition-all duration-1000 max-w-xl mx-auto bg-white p-8 rounded-2xl shadow-sm border border-slate-200 text-center mb-16 relative">
+        <div class="reveal-item opacity-0 transform translate-y-10 transition-all duration-1000 max-w-xl mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 text-center mb-12 md:mb-16 relative">
             <h3 class="text-2xl font-bold text-slate-800 mb-2">Pełna wiedza <span class="text-blue-600">o rynku pierwotnym</span></h3>
             <p class="text-sm text-slate-500">Prowadzimy ciągły i najdokładniejszy monitoring rynku w głównych ośrodkach miejskich.</p>
-            <!-- Vertical connector from header -->
+            
             <div class="absolute left-1/2 -bottom-16 w-0.5 h-16 bg-blue-600 transform -translate-x-1/2 hidden md:block"></div>
         </div>
 
         <div class="relative max-w-5xl mx-auto">
             
-            <!-- Central Vertical Line (Animated height) -->
-            <div id="timeline-line" class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-blue-600 transform md:-translate-x-1/2 origin-top scale-y-0 transition-transform duration-[2000ms] ease-in-out"></div>
+            <div id="timeline-line" class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-blue-600 transform -translate-x-1/2 origin-top scale-y-0 transition-transform duration-[2000ms] ease-in-out"></div>
 
-            <!-- Item 1 (Slide from Left) -->
-            <div class="reveal-item opacity-0 transform -translate-x-20 transition-all duration-1000 delay-300 flex flex-col md:flex-row items-center justify-between mb-12 relative">
+            <div class="reveal-item opacity-0 transform translate-y-10 transition-all duration-1000 delay-300 flex flex-col md:flex-row items-center justify-between mb-6 md:mb-12 relative">
                 <div class="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
                     <div class="dot w-4 h-4 bg-blue-600 rounded-full border-4 border-slate-50 scale-0 transition-transform duration-500 delay-700"></div>
                 </div>
                 <div class="hidden md:block absolute top-1/2 left-0 w-[calc(50%-8px)] h-0.5 bg-blue-600 transform -translate-y-1/2 origin-right scale-x-0 transition-transform duration-700 delay-500"></div>
 
-                <div class="w-full md:w-5/12 order-2 md:order-1">
-                    <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-blue-500 relative hover:shadow-xl transition-shadow">
+                <div class="w-full md:w-5/12 relative z-20">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition-shadow">
                         <h4 class="text-xl font-bold mb-2">Porównywarka Inwestycji</h4>
-                        <p class="text-sm text-slate-600 mb-4">
+                        <p class="text-sm text-slate-600">
                             Bezpośrednie starcie ofert. Zestaw dwie inwestycje obok siebie i porównaj twarde liczby. Sprawdź różnice w średniej cenie za metr, dostępnych metrażach czy liczbie pokoi.
                         </p>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 order-1 md:order-2 hidden md:block"></div>
+                <div class="hidden md:block md:w-5/12"></div>
             </div>
 
-            <!-- Item 2 (Slide from Right) -->
-            <div class="reveal-item opacity-0 transform translate-x-20 transition-all duration-1000 delay-500 flex flex-col md:flex-row items-center justify-between mb-12 relative">
-                 <div class="w-full md:w-5/12 order-2 md:order-1 hidden md:block"></div>
+            <div class="reveal-item opacity-0 transform translate-y-10 transition-all duration-1000 delay-500 flex flex-col md:flex-row items-center justify-between mb-6 md:mb-12 relative">
+                <div class="hidden md:block md:w-5/12"></div>
                 
                 <div class="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
                     <div class="dot w-4 h-4 bg-blue-600 rounded-full border-4 border-slate-50 scale-0 transition-transform duration-500 delay-1000"></div>
                 </div>
                 <div class="hidden md:block absolute top-1/2 right-0 w-[calc(50%-8px)] h-0.5 bg-blue-600 transform -translate-y-1/2 origin-left scale-x-0 transition-transform duration-700 delay-800"></div>
 
-                <div class="w-full md:w-5/12 order-1 md:order-2">
-                     <div class="bg-white p-6 rounded-2xl shadow-lg border-r-4 border-blue-500 relative hover:shadow-xl transition-shadow">
+                <div class="w-full md:w-5/12 relative z-20">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition-shadow">
                         <h4 class="text-xl font-bold mb-2">Asystent <span class="text-blue-600">AI</span></h4>
                         <p class="text-sm text-slate-600">
                             Twój interaktywny analityk. Zadaj proste pytanie o dane z bazy. "Gdzie znajdę 3 pokoje do 600 tys. zł?". Nasz model przeszuka aktualne ceny i statusy, błyskawicznie wskazując konkretne lokale.
@@ -262,35 +258,33 @@
                 </div>
             </div>
 
-            <!-- Item 3 (Slide from Left) -->
-            <div class="reveal-item opacity-0 transform -translate-x-20 transition-all duration-1000 delay-700 flex flex-col md:flex-row items-center justify-between relative mb-12">
+            <div class="reveal-item opacity-0 transform translate-y-10 transition-all duration-1000 delay-700 flex flex-col md:flex-row items-center justify-between mb-6 md:mb-12 relative">
                 <div class="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
                     <div class="dot w-4 h-4 bg-blue-600 rounded-full border-4 border-slate-50 scale-0 transition-transform duration-500 delay-[1300ms]"></div>
                 </div>
                 <div class="hidden md:block absolute top-1/2 left-0 w-[calc(50%-8px)] h-0.5 bg-blue-600 transform -translate-y-1/2 origin-right scale-x-0 transition-transform duration-700 delay-[1100ms]"></div>
 
-                <div class="w-full md:w-5/12 order-2 md:order-1">
-                    <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-blue-500 relative hover:shadow-xl transition-shadow">
-                        <h4 class="text-xl font-bold mb-4">Globalna Wyszukiwarka</h4>
+                <div class="w-full md:w-5/12 relative z-20">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2">Globalna Wyszukiwarka</h4>
                         <p class="text-sm text-slate-600">
                             Wszystkie mieszkania w jednej tabeli. Przeszukuj bazę lokali z całego miasta. Filtruj precyzyjnie po cenie całkowitej, cenie za m², piętrze i liczbie pokoi.
                         </p>
                     </div>
                 </div>
-                 <div class="w-full md:w-5/12 order-1 md:order-2 hidden md:block"></div>
+                 <div class="hidden md:block md:w-5/12"></div>
             </div>
 
-            <!-- Item 4 (Slide from Right) -->
-            <div class="reveal-item opacity-0 transform translate-x-20 transition-all duration-1000 delay-[900ms] flex flex-col md:flex-row items-center justify-between relative">
-                <div class="w-full md:w-5/12 order-2 md:order-1 hidden md:block"></div>
+            <div class="reveal-item opacity-0 transform translate-y-10 transition-all duration-1000 delay-[900ms] flex flex-col md:flex-row items-center justify-between mb-6 md:mb-12 relative">
+                <div class="hidden md:block md:w-5/12"></div>
                 
                 <div class="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
                     <div class="dot w-4 h-4 bg-blue-600 rounded-full border-4 border-slate-50 scale-0 transition-transform duration-500 delay-[1600ms]"></div>
                 </div>
                 <div class="hidden md:block absolute top-1/2 right-0 w-[calc(50%-8px)] h-0.5 bg-blue-600 transform -translate-y-1/2 origin-left scale-x-0 transition-transform duration-700 delay-[1400ms]"></div>
 
-                <div class="w-full md:w-5/12 order-1 md:order-2">
-                     <div class="bg-white p-6 rounded-2xl shadow-lg border-r-4 border-blue-500 relative hover:shadow-xl transition-shadow">
+                <div class="w-full md:w-5/12 relative z-20">
+                     <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition-shadow">
                         <h4 class="text-xl font-bold mb-2">Analiza Inwestycji</h4>
                         <p class="text-sm text-slate-600">
                             Historia cen i zmian. Prześwietl konkretną inwestycję. Zobacz pełną historię zmian cen dla każdego lokalu – sprawdź, kiedy deweloper podnosił lub obniżał stawki.
@@ -299,60 +293,25 @@
                 </div>
             </div>
 
-            <!-- Item 3 (Slide from Left) -->
-            <div class="reveal-item opacity-0 transform -translate-x-20 transition-all duration-1000 delay-700 flex flex-col md:flex-row items-center justify-between relative mb-12">
+            <div class="reveal-item opacity-0 transform translate-y-10 transition-all duration-1000 delay-[1100ms] flex flex-col md:flex-row items-center justify-between relative">
                 <div class="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                    <div class="dot w-4 h-4 bg-blue-600 rounded-full border-4 border-slate-50 scale-0 transition-transform duration-500 delay-[1300ms]"></div>
+                    <div class="dot w-4 h-4 bg-blue-600 rounded-full border-4 border-slate-50 scale-0 transition-transform duration-500 delay-[1900ms]"></div>
                 </div>
-                <div class="hidden md:block absolute top-1/2 left-0 w-[calc(50%-8px)] h-0.5 bg-blue-600 transform -translate-y-1/2 origin-right scale-x-0 transition-transform duration-700 delay-[1100ms]"></div>
+                <div class="hidden md:block absolute top-1/2 left-0 w-[calc(50%-8px)] h-0.5 bg-blue-600 transform -translate-y-1/2 origin-right scale-x-0 transition-transform duration-700 delay-[1700ms]"></div>
 
-                <div class="w-full md:w-5/12 order-2 md:order-1">
-                    <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-blue-500 relative hover:shadow-xl transition-shadow">
-                        <h4 class="text-xl font-bold mb-4">Mapa Analityczna</h4>
+                <div class="w-full md:w-5/12 relative z-20">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-blue-500 hover:shadow-xl transition-shadow">
+                        <h4 class="text-xl font-bold mb-2">Mapa Analityczna</h4>
                         <p class="text-sm text-slate-600">
-                            Kontekst geograficzny cen. Zobacz rynek na mapie miasta. Analizuj lokalizację pod kątem cen u sąsiadujących deweloperów. Sprawdź jak kształtują się stawki za metr w promieniu kilometra i błyskawicznie wyłap inwestycje, które conowo odstają od otoczenia.
+                            Kontekst geograficzny cen. Zobacz rynek na mapie miasta. Analizuj lokalizację pod kątem cen u sąsiadujących deweloperów. Wyłap inwestycje, które cenowo odstają od otoczenia.
                         </p>
                     </div>
                 </div>
-                 <div class="w-full md:w-5/12 order-1 md:order-2 hidden md:block"></div>
+                 <div class="hidden md:block md:w-5/12"></div>
             </div>
         </div>
     </div>
 </section>
-<!--
-    <section class="py-24 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-sm text-slate-400 uppercase tracking-widest mb-2">Poznaj nasze usługi</p>
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-12">Co możemy zrobić dla Twojej marki?</h2>
-
-            <div class="max-w-4xl mx-auto relative group">
-                <div class="absolute -left-10 top-1/2 w-24 h-24 border-l-8 border-t-8 border-blue-500 rounded-tl-full transform -translate-y-1/2 hidden md:block opacity-50"></div>
-                <div class="absolute -right-10 bottom-0 w-20 h-20 bg-blue-100 rounded-full z-0"></div>
-
-                <div class="relative z-10 bg-slate-900 rounded-3xl p-1 md:p-2 overflow-hidden shadow-2xl">
-                    <div class="bg-slate-900 rounded-2xl flex flex-col md:flex-row overflow-hidden">
-                        <div class="p-8 md:p-12 flex-1 text-left flex flex-col justify-center">
-                            <h3 class="text-2xl font-bold text-white mb-4">Prowadzenie marki osobistej</h3>
-                            <p class="text-slate-400 mb-8 leading-relaxed">
-                                Rozpocznij 6 miesięczny program wdrożeniowy, w którym krok po kroku zaplanujemy Twoją markę osobistą, 
-                                stworzymy harmonogram i podpowiemy co robić, aby podbić media społecznościowe.
-                            </p>
-                            <div>
-                                <a href="#" class="inline-block bg-gradient-to-r from-blue-600 to-blue-500 text-white px-8 py-3 rounded-lg font-bold hover:brightness-110 transition">
-                                    Dowiedz się więcej
-                                </a>
-                            </div>
-                        </div>
-                        <div class="w-full md:w-2/5 h-64 md:h-auto bg-slate-800 relative">
-                             <img src="https://images.unsplash.com/photo-1531297461136-82lw9z218247?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Strategy" class="w-full h-full object-cover opacity-70">
-                             <div class="absolute inset-0 bg-gradient-to-l from-transparent to-slate-900"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
--->
     <section class="bg-slate-900 py-24 text-white">
         <div class="container mx-auto px-6">
             <h2 class="text-center text-3xl md:text-4xl font-bold mb-16">
@@ -558,8 +517,8 @@
 
                     // Trigger each card/item
                     revealElements.forEach((el) => {
-                        el.classList.remove('opacity-0', 'translate-y-10', 'translate-x-20', '-translate-x-20');
-                        el.classList.add('opacity-100', 'translate-y-0', 'translate-x-0');
+                        el.classList.remove('opacity-0', 'translate-y-10');
+                        el.classList.add('opacity-100', 'translate-y-0');
                         
                         // Scale up the dots and horizontal lines after a slight delay
                         const subDots = el.querySelectorAll('.dot');

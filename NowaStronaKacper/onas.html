@@ -224,90 +224,186 @@
         </div>
     </section>
 
-    <!-- 4. 5 Pillars Section (Image 3 - Bento Grid) -->
     <section class="py-20 bg-slate-50">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="text-center mb-16">
-                <span class="text-blue-600 font-bold text-xs uppercase tracking-widest">Ekosystem</span>
-                <h2 class="text-4xl font-bold text-slate-900 mt-2 mb-4">5 Filarów Analizy</h2>
-                <p class="text-slate-500">Kompleksowe narzędzie, które zastępuje dział analiz.</p>
-            </div>
+    <div class="container mx-auto px-6 max-w-6xl">
+        <div class="text-center mb-16">
+            <span class="text-blue-600 font-bold text-xs uppercase tracking-widest">Ekosystem</span>
+            <h2 class="text-4xl font-bold text-slate-900 mt-2 mb-4">5 Filarów Analizy</h2>
+            <p class="text-slate-500">Kliknij w dowolny filar, aby poznać szczegóły narzędzia.</p>
+        </div>
 
-            <!-- Bento Grid Layout -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <!-- Card 1: Porównywarka (Large - spans 2 cols) -->
-                <div class="md:col-span-2 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition group">
-                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+            
+            <div onclick="toggleCard(this)" class="md:col-span-2 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group overflow-hidden">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 group-hover:scale-110 transition">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" />
                         </svg>
                     </div>
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-                        <div class="max-w-md">
-                            <h3 class="text-xl font-bold text-slate-900 mb-3">Porównywarka Inwestycji</h3>
-                            <p class="text-slate-500 text-sm leading-relaxed">
-                                Zestaw dwie inwestycje obok siebie. Porównaj ceny, tempo sprzedaży, strukturę metraży i standard wykończenia. Zobacz twarde dane bez marketingu.
-                            </p>
-                        </div>
+                    <span class="text-slate-300 group-hover:text-blue-500 transition-transform duration-300 transform arrow-icon text-2xl">+</span>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Porównywarka Inwestycji</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-4">Zestaw dwie inwestycje obok siebie. Porównaj ceny, tempo sprzedaży i standard bez marketingu.</p>
+                
+                <div class="hidden-content max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out">
+                    <div class="pt-6 border-t border-slate-50">
+                        <h4 class="font-bold text-slate-800 mb-2">Zestawienie Inwestycji. Porównaj ofertę rynkową ramię w ramię.</h4>
+                        <p class="text-sm text-slate-600 mb-4">To narzędzie pozwala Ci zestawić obok siebie do trzech dowolnych inwestycji i zobaczyć różnice, których nie widać na pierwszy rzut oka.</p>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li class="flex items-start"><span class="text-blue-500 mr-2">•</span> <strong>Analiza cenowa:</strong> Porównaj ceny całkowite dla podobnych typów mieszkań.</li>
+                            <li class="flex items-start"><span class="text-blue-500 mr-2">•</span> <strong>Weryfikacja tempa:</strong> Zobacz, która inwestycja szybciej wyprzedaje ofertę.</li>
+                            <li class="flex items-start"><span class="text-blue-500 mr-2">•</span> <strong>Ocena produktu:</strong> Sprawdź dominujące układy i metraże u konkurencji.</li>
+                        </ul>
                     </div>
                 </div>
+            </div>
 
-                <!-- Card 2: AI -->
-                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition group">
-                    <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition">
+            <div onclick="toggleCard(this)" class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group overflow-hidden">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center text-purple-600 group-hover:scale-110 transition">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Asystent AI</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        Zadaj dowolne pytanie o rynek. "Gdzie sprzedają się najlepiej kawalerki?", "Jaka jest średnia cena na osiedlu X?". Nasz model odpowie na bazie zebranych danych.
-                    </p>
+                    <span class="text-slate-300 group-hover:text-purple-500 transition-transform duration-300 arrow-icon text-2xl">+</span>
                 </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Asystent AI</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-4">Zadaj dowolne pytanie o rynek. Nasz model odpowie na bazie twardych danych.</p>
+                
+                <div class="hidden-content max-h-0 opacity-0 overflow-hidden transition-all duration-500">
+                    <div class="pt-6 border-t border-slate-50">
+                        <h4 class="font-bold text-slate-800 mb-2">Twój analityczny partner.</h4>
+                        <p class="text-sm text-slate-600 mb-4">Skończ z mozolnym przekopywaniem tabel. Nasz model AI służy jako sparingpartner do zderzania myśli.</p>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li class="flex items-start"><span class="text-purple-500 mr-2">•</span> <strong>Szybkie odpowiedzi:</strong> "Najtańsze inwestycje w dzielnicy" w sekundę.</li>
+                            <li class="flex items-start"><span class="text-purple-500 mr-2">•</span> <strong>Pogłębianie wiedzy:</strong> Analizuj przyczyny przestojów w sprzedaży wspólnie z AI.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-                <!-- Card 3: Mapa -->
-                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition group">
-                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition">
+            <div onclick="toggleCard(this)" class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group overflow-hidden">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 group-hover:scale-110 transition">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Mapa Analityczna</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        Kontekst geograficzny inwestycji. Analizuj lokalizację pod kątem otoczenia i konkurencji w promieniu kilometra.
-                    </p>
+                    <span class="text-slate-300 group-hover:text-blue-500 transition-transform duration-300 arrow-icon text-2xl">+</span>
                 </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Mapa Analityczna</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-4">Analizuj lokalizację pod kątem otoczenia i konkurencji w promieniu kilometra.</p>
 
-                <!-- Card 4: Wyszukiwarka -->
-                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition group">
-                    <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center text-green-600 mb-6 group-hover:scale-110 transition">
+                <div class="hidden-content max-h-0 opacity-0 overflow-hidden transition-all duration-500">
+                    <div class="pt-6 border-t border-slate-50">
+                        <h4 class="font-bold text-slate-800 mb-2">Lokalizacja to dopiero początek.</h4>
+                        <p class="text-sm text-slate-600 mb-4">Mapa pokazuje każdą inwestycję jako punkt danych. Idealne do szukania "białych plam".</p>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li class="flex items-start"><span class="text-blue-500 mr-2">•</span> <strong>Widok z lotu ptaka:</strong> Ocena nasycenia rynku w promieniu 1 km.</li>
+                            <li class="flex items-start"><span class="text-blue-500 mr-2">•</span> <strong>Szybki podgląd:</strong> Ceny i % wyprzedania po najechaniu na punkt.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div onclick="toggleCard(this)" class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group overflow-hidden">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center text-green-600 group-hover:scale-110 transition">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Globalna Wyszukiwarka</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        Wszystkie mieszkania z całego miasta w jednej tabeli. Filtruj po cenie, piętrze i statusie.
-                    </p>
+                    <span class="text-slate-300 group-hover:text-green-500 transition-transform duration-300 arrow-icon text-2xl">+</span>
                 </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Globalna Wyszukiwarka</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-4">Wszystkie mieszkania z całego miasta w jednej tabeli. Filtruj po cenie i historii.</p>
 
-                <!-- Card 5: Deep Dive -->
-                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition group">
-                    <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center text-orange-600 mb-6 group-hover:scale-110 transition">
+                <div class="hidden-content max-h-0 opacity-0 overflow-hidden transition-all duration-500">
+                    <div class="pt-6 border-t border-slate-50">
+                        <h4 class="font-bold text-slate-800 mb-2">Wyszukiwarka z historią.</h4>
+                        <p class="text-sm text-slate-600 mb-4">Gromadzimy historię zmian – widzisz ciche podwyżki czy powroty mieszkań na rynek.</p>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li class="flex items-start"><span class="text-green-500 mr-2">•</span> <strong>Historia cen:</strong> Sprawdź, czy "promocja" jest prawdziwa.</li>
+                            <li class="flex items-start"><span class="text-green-500 mr-2">•</span> <strong>Historia statusów:</strong> Wyłapuj mieszkania, które wróciły z rezerwacji.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div onclick="toggleCard(this)" class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer group overflow-hidden">
+                <div class="flex justify-between items-start mb-6">
+                    <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center text-orange-600 group-hover:scale-110 transition">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Analiza Inwestycji</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        Pogłębiona analiza pojedynczej inwestycji. Historia zmian cen, struktura dostępności i prognozy.
-                    </p>
+                    <span class="text-slate-300 group-hover:text-orange-500 transition-transform duration-300 arrow-icon text-2xl">+</span>
                 </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Analiza Inwestycji</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-4">Pogłębiona analiza projektu. Historia zmian cen i realne tempo sprzedaży.</p>
 
+                <div class="hidden-content max-h-0 opacity-0 overflow-hidden transition-all duration-500">
+                    <div class="pt-6 border-t border-slate-50">
+                        <h4 class="font-bold text-slate-800 mb-2">Rentgen projektu.</h4>
+                        <p class="text-sm text-slate-600 mb-4">Pozwala zrozumieć strategię cenową dewelopera i strukturę jego oferty.</p>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li class="flex items-start"><span class="text-orange-500 mr-2">•</span> <strong>Ceny w pionach:</strong> Sprawdź marże na wyższych piętrach.</li>
+                            <li class="flex items-start"><span class="text-orange-500 mr-2">•</span> <strong>Krzywa sprzedaży:</strong> Dynamika wyprzedaży od "dziury w ziemi".</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
+<script>
+function toggleCard(card) {
+    const content = card.querySelector('.hidden-content');
+    const icon = card.querySelector('.arrow-icon');
+    
+    // Sprawdź czy jest już otwarte
+    const isOpen = !content.classList.contains('hidden-content-active');
+    
+    // Zamknij inne (opcjonalne - usuń jeśli chcesz otwierać wiele na raz)
+    // document.querySelectorAll('.hidden-content-active').forEach(el => {
+    //    el.classList.remove('hidden-content-active');
+    //    el.style.maxHeight = "0";
+    //    el.style.opacity = "0";
+    //    el.previousElementSibling.previousElementSibling.querySelector('.arrow-icon').style.transform = "rotate(0deg)";
+    // });
+
+    if (isOpen) {
+        content.classList.add('hidden-content-active');
+        content.style.maxHeight = content.scrollHeight + "px";
+        content.style.opacity = "1";
+        icon.style.transform = "rotate(45deg)";
+        icon.innerHTML = "×";
+    } else {
+        content.classList.remove('hidden-content-active');
+        content.style.maxHeight = "0";
+        content.style.opacity = "0";
+        icon.style.transform = "rotate(0deg)";
+        icon.innerHTML = "+";
+    }
+}
+</script>
+
+<style>
+/* Płynne przejścia dla treści */
+.hidden-content {
+    transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+.arrow-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+}
+</style>
 
     <!-- 5. Blue CTA Section (Image 4) -->
     <section class="bg-slate-900 py-24 text-center">
